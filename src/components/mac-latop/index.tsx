@@ -1,35 +1,71 @@
-import { Environment, Html, PresentationControls } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
+import { GLTF } from "three-stdlib";
 
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/Addons.js";
+type DreiGLTF = GLTF & {
+  nodes: Record<string, THREE.Mesh>;
+  materials: Record<string, THREE.MeshStandardMaterial>;
+};
+
+const SCREEN_KEY = "FxYJZRjJWVjYwLV";
+const TRACKPAD_KEY = "AUMLEhzRIkXUmsX";
+
+const getGeometryMesh = (nodes: Record<string, THREE.Mesh>) => {
+  const getStandard = (key: string) => {
+    const model = nodes[key];
+
+    const target = [SCREEN_KEY, TRACKPAD_KEY];
+    if (!model.geometry || target.includes(key)) return false;
+    return { geometry: model.geometry, material: model.material.name };
+  };
+
+  const getModelAsKey = (key: string) => {
+    const model = nodes[key];
+    return { geometry: model.geometry, material: model.material.name };
+  };
+
+  const keys = Object.keys(nodes);
+  const standard = keys.filter(getStandard);
+  const screen = getModelAsKey("FxYJZRjJWVjYwLV");
+  const trackpad = getModelAsKey("AUMLEhzRIkXUmsX");
+
+  return { standard, screen, trackpad };
+};
 
 const MacLaptop = () => {
-  const macbookGLTF = useLoader(GLTFLoader, "../models/macbook.glb");
+  const { materials, nodes } = useGLTF("../models/macbook.glb") as DreiGLTF;
+  const models = getGeometryMesh(nodes);
 
   return (
-    <>
-      <Environment preset="warehouse" />
-      <PresentationControls global polar={[0, 0]} azimuth={[-0.4, 0.4]}>
-        <primitive object={macbookGLTF.scene} position-x={0} position-y={-0.08}>
+    <group position={[0, 0, 0]}>
+      <group position={[0, 0, 0]} rotation={[0, 0, 0]}>
+        {Object.keys(nodes).map((node) =>
+          nodes[node].geometry && node !== "FxYJZRjJWVjYwLV" ? (
+            <mesh
+              key={node}
+              material={materials[nodes[node].material.name]}
+              geometry={nodes[node].geometry}
+            ></mesh>
+          ) : null
+        )}
+        <mesh geometry={nodes["FxYJZRjJWVjYwLV"].geometry}>
           <Html
-            position={[0, 0.096, -0.1416]}
+            className="content"
+            rotation={[-0.331, 0, 0]}
+            position={[0, 9.65, -14.18]}
+            distanceFactor={6}
             transform
-            distanceFactor={0.0602}
-            rotation-x={-0.33}
+            occlude
           >
             <iframe
-              style={{
-                width: "1920px",
-                height: "1200px",
-                border: "none",
-                borderRadius: "5px",
-              }}
-              src="https://bglovely.com/member"
+              style={{ border: "none" }}
+              width={1900}
+              height={1190}
+              src="https://next-portfolio-story.vercel.app/"
             />
           </Html>
-        </primitive>
-      </PresentationControls>
-    </>
+        </mesh>
+      </group>
+    </group>
   );
 };
 
