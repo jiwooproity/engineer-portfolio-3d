@@ -22,6 +22,7 @@ type StandardPropsTypes = {
 
 type SpecificPropsTypes = {
   mesh: MeshTypes;
+  material?: THREE.Material | THREE.Material[];
 };
 
 /**
@@ -78,10 +79,10 @@ const Standard = (props: StandardPropsTypes) => {
 };
 
 const Screen = (props: SpecificPropsTypes) => {
-  const { mesh } = props;
+  const { mesh, material } = props;
 
   return (
-    <mesh geometry={mesh.geometry}>
+    <mesh geometry={mesh.geometry} material={material}>
       <Html
         className="content"
         rotation={[-0.331, 0, 0]}
@@ -110,7 +111,9 @@ const TrackPad = (props: SpecificPropsTypes) => {
 const MacLaptop = (props: GroupProps) => {
   const group = useRef(null);
 
-  const { nodes } = useGLTF("../models/macbook.glb") as DreiGLTF;
+  const { nodes, materials } = useGLTF("../models/macbook.glb") as DreiGLTF;
+  console.log(materials);
+
   const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
   useFrame((frame) => {
@@ -128,7 +131,7 @@ const MacLaptop = (props: GroupProps) => {
     <group ref={group} {...props} position={[0, 0, 0]}>
       <group position={[0, 0, 0]} rotation={[0, 0, 0]}>
         <Standard mesh={standard} />
-        <Screen mesh={screen} />
+        <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
         <TrackPad mesh={trackpad} />
       </group>
     </group>
