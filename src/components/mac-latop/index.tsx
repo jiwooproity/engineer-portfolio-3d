@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import * as THREE from "three";
 import { Html, useGLTF } from "@react-three/drei";
-import { type GroupProps } from "@react-three/fiber";
+import { useFrame, type GroupProps } from "@react-three/fiber";
 
 import { type GLTF } from "three-stdlib";
 
@@ -109,8 +109,20 @@ const TrackPad = (props: SpecificPropsTypes) => {
 
 const MacLaptop = (props: GroupProps) => {
   const group = useRef(null);
+
   const { nodes } = useGLTF("../models/macbook.glb") as DreiGLTF;
   const { standard, screen, trackpad } = getGeometryMesh(nodes);
+
+  useFrame((frame) => {
+    if (group.current) {
+      const gltf = group.current as THREE.Group<THREE.Object3DEventMap>;
+      const time = frame.clock.getElapsedTime();
+      const yUp = Math.sin(time / 4) / 20;
+      const yDown = (-2 + Math.sin(time)) / 2;
+      gltf.rotation.y = THREE.MathUtils.lerp(gltf.rotation.y, yUp, 0.1);
+      gltf.position.y = THREE.MathUtils.lerp(gltf.position.y, yDown, 0.5);
+    }
+  });
 
   return (
     <group ref={group} {...props} position={[0, 0, 0]}>

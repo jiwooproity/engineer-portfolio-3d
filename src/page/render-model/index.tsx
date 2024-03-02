@@ -9,7 +9,7 @@ const RenderModel = () => {
       style={{ width: "100%", height: "100%" }}
       camera={{ position: [0, 0, 55], fov: 55 }}
     >
-      <group rotation={[0.5, 0, 0]} position={[0, -6, 0]}>
+      <group rotation={[0.5, -0.3, 0.15]} position={[0, -6, 0]}>
         <MacLaptop />
       </group>
       <Environment preset="warehouse" />
