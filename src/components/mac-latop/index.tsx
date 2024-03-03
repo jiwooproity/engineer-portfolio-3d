@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 
 import * as THREE from "three";
+import { type GLTF } from "three-stdlib";
 import { Html, useGLTF } from "@react-three/drei";
 import { useFrame, type GroupProps } from "@react-three/fiber";
+import { easing } from "maath";
 
-import { type GLTF } from "three-stdlib";
+import { useLaptop } from "@/hooks";
 
 type DreiGLTF = GLTF & {
   nodes: Record<string, THREE.Mesh>;
@@ -65,37 +67,35 @@ const getGeometryMesh = (nodes: Record<string, THREE.Mesh>) => {
 const Standard = (props: StandardPropsTypes) => {
   const { mesh } = props;
 
-  return (
-    <group>
-      {mesh.map((model) => (
-        <mesh
-          key={model.geometry.id}
-          geometry={model.geometry}
-          material={model.material}
-        />
-      ))}
-    </group>
-  );
+  return mesh.map((model) => (
+    <mesh
+      key={model.geometry.id}
+      geometry={model.geometry}
+      material={model.material}
+    />
+  ));
 };
 
 const Screen = (props: SpecificPropsTypes) => {
   const { mesh, material } = props;
+  const { laptop, active } = useLaptop();
 
   return (
-    <mesh geometry={mesh.geometry} material={material}>
+    <mesh geometry={mesh.geometry} material={material} dispose={null}>
       <Html
         className="content"
         rotation={[-0.331, 0, 0]}
-        position={[0, 9.65, -14.18]}
+        position={[0, 9.65, -14.185]}
         distanceFactor={6}
         transform
         occlude
       >
         <iframe
-          style={{ border: "none" }}
+          style={{ border: "none", pointerEvents: laptop ? "auto" : "none" }}
           width={1900}
           height={1190}
           src="https://next-portfolio-story.vercel.app/"
+          onClick={() => active(true)}
         />
       </Html>
     </mesh>
@@ -110,31 +110,42 @@ const TrackPad = (props: SpecificPropsTypes) => {
 
 const MacLaptop = (props: GroupProps) => {
   const group = useRef(null);
+  const { laptop } = useLaptop();
 
   const { nodes, materials } = useGLTF("../models/macbook.glb") as DreiGLTF;
-  console.log(materials);
-
   const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
-  useFrame((frame) => {
-    if (group.current) {
-      const gltf = group.current as THREE.Group<THREE.Object3DEventMap>;
-      const time = frame.clock.getElapsedTime();
-      const yUp = Math.sin(time / 4) / 20;
-      const yDown = (-2 + Math.sin(time)) / 2;
-      gltf.rotation.y = THREE.MathUtils.lerp(gltf.rotation.y, yUp, 0.1);
-      gltf.position.y = THREE.MathUtils.lerp(gltf.position.y, yDown, 0.5);
+  useFrame((state, delta) => {
+    if (laptop) {
+      easing.damp3(state.camera.position, [0, 0, 13], 0.3, delta);
+    } else {
+      const x = -1 + (state.pointer.x * state.viewport.width) / 3;
+      const y = (1 + state.pointer.y) / 2;
+      const z = 55;
+      easing.damp3(state.camera.position, [x, y, z], 0.5, delta);
+      state.camera.lookAt(0, 0, 0);
     }
   });
 
+  // useFrame((frame) => {
+  //   if (group.current) {
+  //     const gltf = group.current as THREE.Group<THREE.Object3DEventMap>;
+  //     const time = frame.clock.getElapsedTime();
+  //     const yUp = Math.sin(time / 4) / 20;
+  //     const yDown = (-2 + Math.sin(time)) / 2;
+  //     gltf.rotation.y = THREE.MathUtils.lerp(gltf.rotation.y, yUp, 0.1);
+  //     gltf.position.y = THREE.MathUtils.lerp(gltf.position.y, yDown, 0.5);
+  //   }
+  // });
+
   return (
-    <group ref={group} {...props} position={[0, 0, 0]}>
-      <group position={[0, 0, 0]} rotation={[0, 0, 0]}>
+    <Suspense fallback={null}>
+      <group ref={group} {...props} position={[0, 0, 0]}>
         <Standard mesh={standard} />
         <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
         <TrackPad mesh={trackpad} />
       </group>
-    </group>
+    </Suspense>
   );
 };
 
