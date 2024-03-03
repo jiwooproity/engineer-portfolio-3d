@@ -1,30 +1,9 @@
-# React + TypeScript + Vite
+# MacBook Air M1 2020 스크린 포트폴리오
+이 프로젝트는 Three.js 일부 쇼케이스 포트폴리오에서 영감을 받아 시작하게 되었습니다.  
+웹 페이지를 모델링 안에 작은 스크린 안에서 동작한다는 점이 너무 인상 깊었습니다.  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+아직 모델 .glb 파일을 렌더링하고 스크린 위에 웹 사이트를 띄우는 작업 밖에는 못했지만,,  
+이후엔 직접 만든 Mac OS 화면 컨셉의 웹 사이트도 개발하여 화면에 띄울 예정입니다.  
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Preview
+![Mar-03-2024_01-45-29](https://github.com/jiwooproity/engineer-portfolio-3d/assets/58384366/8703bb90-2ee7-464c-93e5-2b8929094a2b)
