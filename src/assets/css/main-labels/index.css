@@ -17,15 +17,29 @@
   right: 24px;
 }
 
-.labels-title {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 15px;
-  text-decoration: none;
-  color: #242424;
+.labels-git-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
   position: absolute;
   left: 24px;
   bottom: 24px;
+}
+
+.labels-git-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.labels-git-link {
+  height: 15px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18.5px;
+  text-decoration: none;
+  color: #242424;
   cursor: pointer;
   pointer-events: all;
 }

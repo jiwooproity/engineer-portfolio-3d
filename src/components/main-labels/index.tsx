@@ -7,13 +7,16 @@ const MainLabels = () => {
 
   return (
     <div className="labels-container">
-      <a
-        className="labels-title"
-        href="https://github.com/jiwooproity"
-        target="_blank"
-      >
-        GitHub
-      </a>
+      <div className="labels-git-box">
+        <img className="labels-git-icon" src="../svgs/github-mark.svg" />
+        <a
+          className="labels-git-link"
+          href="https://github.com/jiwooproity"
+          target="_blank"
+        >
+          GitHub
+        </a>
+      </div>
       <span className="labels-date">{`${year}/${month}/${day}`}</span>
     </div>
   );
