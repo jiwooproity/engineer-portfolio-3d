@@ -183,7 +183,7 @@ const MacLaptop = forwardRef(
 
     return (
       <Suspense fallback={null}>
-        <mesh
+        {/* <mesh
           receiveShadow
           position={[0, -10, 0]}
           rotation-x={THREE.MathUtils.degToRad(-90)}
@@ -194,7 +194,7 @@ const MacLaptop = forwardRef(
             metalness={0.5}
             side={THREE.DoubleSide}
           />
-        </mesh>
+        </mesh> */}
         <group
           ref={group}
           {...props}
