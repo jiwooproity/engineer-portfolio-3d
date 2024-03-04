@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 import { Canvas } from "@react-three/fiber";
-import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
 
 import { MacLaptop } from "@/components";
 import LightController from "./light-controller";
@@ -21,29 +21,21 @@ const RenderModel = () => {
       }}
       shadows
     >
-      <LightController />
-      <Environment preset="lobby" background blur={1} />
-      <ContactShadows
-        resolution={512}
-        position={[0, -0.8, 0]}
-        opacity={1}
-        scale={10}
-        blur={2}
-        far={0.8}
-      />
-      <MacLaptop ref={orbit} />
       <OrbitControls
         ref={orbit}
         target={[10, 3, 0]}
-        enablePan={false}
-        enableZoom={false}
-        enableRotate={false}
+        // enablePan={false}
+        // enableZoom={false}
+        // enableRotate={false}
         // minPolarAngle={Math.PI / 2}
         maxDistance={55}
         maxPolarAngle={Math.PI / 2}
         minAzimuthAngle={-Math.PI / 2}
         maxAzimuthAngle={Math.PI / 2}
       />
+      <LightController />
+      <Environment preset="lobby" background blur={1} />
+      <MacLaptop ref={orbit} />
     </Canvas>
   );
 };

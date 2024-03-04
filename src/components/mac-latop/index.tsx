@@ -96,7 +96,7 @@ const Screen = (props: ScreenPropsTypes) => {
   const { laptop } = useLaptop();
 
   return (
-    <mesh geometry={mesh.geometry} material={material} castShadow>
+    <mesh geometry={mesh.geometry} material={material} castShadow receiveShadow>
       <Html
         pointerEvents="none"
         rotation={[-0.331, 0, 0]}
@@ -126,7 +126,14 @@ const Screen = (props: ScreenPropsTypes) => {
 const TrackPad = (props: SpecificPropsTypes) => {
   const { mesh } = props;
 
-  return <mesh geometry={mesh.geometry} material={mesh.material} castShadow />;
+  return (
+    <mesh
+      geometry={mesh.geometry}
+      material={mesh.material}
+      castShadow
+      receiveShadow
+    />
+  );
 };
 
 const MacLaptop = forwardRef(
@@ -176,14 +183,25 @@ const MacLaptop = forwardRef(
 
     return (
       <Suspense fallback={null}>
+        <mesh
+          receiveShadow
+          position={[0, -10, 0]}
+          rotation-x={THREE.MathUtils.degToRad(-90)}
+        >
+          <planeGeometry args={[1000, 1000]} />
+          <meshStandardMaterial
+            roughness={0.5}
+            metalness={0.5}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
         <group
           ref={group}
           {...props}
           rotation={[0.35, 0, 0]}
           position={[0, -5, 0]}
           onPointerDown={zoom}
-          castShadow
-          receiveShadow
+          onPointerMissed={zoom}
         >
           <Standard mesh={standard} />
           <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
