@@ -19,6 +19,13 @@
 
 .labels-title {
   font-size: 15px;
+  font-weight: 700;
   line-height: 15px;
+  text-decoration: none;
   color: #242424;
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  cursor: pointer;
+  pointer-events: all;
 }
