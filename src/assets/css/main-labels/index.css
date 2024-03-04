@@ -1,0 +1,24 @@
+.labels-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+}
+
+.labels-date {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  color: #242424;
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+}
+
+.labels-title {
+  font-size: 15px;
+  line-height: 15px;
+  color: #242424;
+}

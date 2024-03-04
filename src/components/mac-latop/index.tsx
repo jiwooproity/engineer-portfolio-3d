@@ -1,12 +1,17 @@
-import { Suspense, useRef } from "react";
+import {
+  ForwardedRef,
+  MutableRefObject,
+  Suspense,
+  forwardRef,
+  useRef,
+} from "react";
 
 import * as THREE from "three";
-import { type GLTF } from "three-stdlib";
-import { Html, useGLTF } from "@react-three/drei";
-import { useFrame, type GroupProps } from "@react-three/fiber";
-import { easing } from "maath";
+import { OrbitControls, type GLTF } from "three-stdlib";
+import { Html, Text, useGLTF } from "@react-three/drei";
+import { useThree, type GroupProps, useFrame } from "@react-three/fiber";
 
-import { useLaptop } from "@/hooks";
+import { useGsap, useLaptop } from "@/hooks";
 
 type DreiGLTF = GLTF & {
   nodes: Record<string, THREE.Mesh>;
@@ -25,6 +30,14 @@ type StandardPropsTypes = {
 type SpecificPropsTypes = {
   mesh: MeshTypes;
   material?: THREE.Material | THREE.Material[];
+};
+
+type ScreenPropsTypes = {
+  mesh: MeshTypes;
+  material?: THREE.Material | THREE.Material[];
+  // event: {
+  //   zoom: () => void;
+  // };
 };
 
 /**
@@ -72,18 +85,20 @@ const Standard = (props: StandardPropsTypes) => {
       key={model.geometry.id}
       geometry={model.geometry}
       material={model.material}
+      castShadow
+      receiveShadow
     />
   ));
 };
 
-const Screen = (props: SpecificPropsTypes) => {
+const Screen = (props: ScreenPropsTypes) => {
   const { mesh, material } = props;
-  const { laptop, active } = useLaptop();
+  const { laptop } = useLaptop();
 
   return (
-    <mesh geometry={mesh.geometry} material={material} dispose={null}>
+    <mesh geometry={mesh.geometry} material={material} castShadow>
       <Html
-        className="content"
+        pointerEvents="none"
         rotation={[-0.331, 0, 0]}
         position={[0, 9.65, -14.185]}
         distanceFactor={6}
@@ -91,11 +106,17 @@ const Screen = (props: SpecificPropsTypes) => {
         occlude
       >
         <iframe
-          style={{ border: "none", pointerEvents: laptop ? "auto" : "none" }}
+          style={{
+            border: "none",
+            pointerEvents: laptop ? "auto" : "none",
+            WebkitUserSelect: "none",
+            MozUserSelect: "none",
+            msUserSelect: "none",
+            userSelect: "none",
+          }}
           width={1900}
           height={1190}
           src="https://next-portfolio-story.vercel.app/"
-          onClick={() => active(true)}
         />
       </Html>
     </mesh>
@@ -105,48 +126,82 @@ const Screen = (props: SpecificPropsTypes) => {
 const TrackPad = (props: SpecificPropsTypes) => {
   const { mesh } = props;
 
-  return <mesh geometry={mesh.geometry} material={mesh.material} />;
+  return <mesh geometry={mesh.geometry} material={mesh.material} castShadow />;
 };
 
-const MacLaptop = (props: GroupProps) => {
-  const group = useRef(null);
-  const { laptop } = useLaptop();
+const MacLaptop = forwardRef(
+  (props: GroupProps, orbit: ForwardedRef<OrbitControls>) => {
+    let timer: number;
 
-  const { nodes, materials } = useGLTF("../models/macbook.glb") as DreiGLTF;
-  const { standard, screen, trackpad } = getGeometryMesh(nodes);
+    const { camera } = useThree();
+    const { moveLookAt, moveRotation } = useGsap();
+    const { laptop, active } = useLaptop();
 
-  useFrame((state, delta) => {
-    if (laptop) {
-      easing.damp3(state.camera.position, [0, 0, 13], 0.3, delta);
-    } else {
-      const x = -1 + (state.pointer.x * state.viewport.width) / 3;
-      const y = (1 + state.pointer.y) / 2;
-      const z = 55;
-      easing.damp3(state.camera.position, [x, y, z], 0.5, delta);
-      state.camera.lookAt(0, 0, 0);
-    }
-  });
+    const control = orbit as MutableRefObject<OrbitControls>;
 
-  // useFrame((frame) => {
-  //   if (group.current) {
-  //     const gltf = group.current as THREE.Group<THREE.Object3DEventMap>;
-  //     const time = frame.clock.getElapsedTime();
-  //     const yUp = Math.sin(time / 4) / 20;
-  //     const yDown = (-2 + Math.sin(time)) / 2;
-  //     gltf.rotation.y = THREE.MathUtils.lerp(gltf.rotation.y, yUp, 0.1);
-  //     gltf.position.y = THREE.MathUtils.lerp(gltf.position.y, yDown, 0.5);
-  //   }
-  // });
+    const { nodes, materials } = useGLTF("../models/macbook.glb") as DreiGLTF;
+    const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
-  return (
-    <Suspense fallback={null}>
-      <group ref={group} {...props} position={[0, 0, 0]}>
-        <Standard mesh={standard} />
-        <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
-        <TrackPad mesh={trackpad} />
-      </group>
-    </Suspense>
-  );
-};
+    const zoom = () => {
+      if (laptop) {
+        if (timer) return;
+        const position = camera.position;
+        const fly = new THREE.Vector3(-50, 0, 55);
+        const target = control.current.target;
+        const lookAt = new THREE.Vector3(10, 3, 0);
+        moveLookAt(position, fly, target, lookAt, true);
+        timer = setTimeout(() => active(false), 2000);
+      } else {
+        const position = camera.position;
+        const fly = new THREE.Vector3(0, 0, 10);
+        const target = control.current.target;
+        const lookAt = new THREE.Vector3(0, 9, 0);
+        moveLookAt(position, fly, target, lookAt, false);
+        active(true);
+      }
+    };
+
+    const group = useRef<THREE.Group>(null);
+
+    useFrame((state) => {
+      if (laptop) {
+        const gltf = group.current as THREE.Group;
+        if (gltf.rotation.x === 0) return;
+        moveRotation(gltf.rotation, new THREE.Vector2(0, 0));
+      } else {
+        const gltf = group.current as THREE.Group;
+        moveRotation(gltf.rotation, state.pointer);
+      }
+    });
+
+    return (
+      <Suspense fallback={null}>
+        <group
+          ref={group}
+          {...props}
+          rotation={[0.35, 0, 0]}
+          position={[0, -5, 0]}
+          onPointerDown={zoom}
+          castShadow
+          receiveShadow
+        >
+          <Standard mesh={standard} />
+          <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
+          <TrackPad mesh={trackpad} />
+          <Text
+            rotation={[-0.35, 30, 0]}
+            position={[38, 5, 0]}
+            color={"#242424"}
+            fontSize={7}
+            fontWeight={700}
+            // font="../fonts/Inter-Regular.woff"
+          >
+            PORTFOLIO
+          </Text>
+        </group>
+      </Suspense>
+    );
+  }
+);
 
 export default MacLaptop;
