@@ -24,9 +24,9 @@ const RenderModel = () => {
       <OrbitControls
         ref={orbit}
         target={[10, 3, 0]}
-        // enablePan={false}
-        // enableZoom={false}
-        // enableRotate={false}
+        enablePan={false}
+        enableZoom={false}
+        enableRotate={false}
         // minPolarAngle={Math.PI / 2}
         maxDistance={55}
         maxPolarAngle={Math.PI / 2}
