@@ -1,4 +1,4 @@
-import "@/shared/assets/css/main-outline/index.css";
+import "@/shared/assets/css/main-outline.css";
 
 const MainOutline = () => {
   const year = new Date().getFullYear();
