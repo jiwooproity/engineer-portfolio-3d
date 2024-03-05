@@ -6,10 +6,12 @@
 이후엔 직접 만든 Mac OS 화면 컨셉의 웹 사이트도 개발하여 화면에 띄울 예정입니다.  
 
 # Preview 2024-02-28
-![Mar-03-2024_01-45-29](https://github.com/jiwooproity/engineer-portfolio-3d/assets/58384366/8703bb90-2ee7-464c-93e5-2b8929094a2b)
+1. macbook glb 렌더링
+2. macbook 마우스 rotation 이벤트 적용
+3. screen nodes scene iframe 렌더링 
 
 # Preview 2024-03-05
 1. glb, gltf, shadow 렌더링
-2. 마우스 움직임 감지 시, 모델 애니메이션 적용
-3. screen nodes scene iframe 렌더링
+2. 화면 줌 인, 줌 아웃 이벤트 적용
+3. 마우스 움직임 감지 시, 모델 애니메이션 적용
 4. 일부 디자인 적용
