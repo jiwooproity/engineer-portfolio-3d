@@ -1,27 +1,10 @@
-import {
-  ForwardedRef,
-  MutableRefObject,
-  Suspense,
-  forwardRef,
-  useRef,
-} from "react";
+import { Suspense } from "react";
 
 import * as THREE from "three";
-import { OrbitControls, type GLTF } from "three-stdlib";
-import { Html, Text, useGLTF } from "@react-three/drei";
-import { useThree, type GroupProps, useFrame } from "@react-three/fiber";
+import { Html, useGLTF } from "@react-three/drei";
 
-import { useGsap, useLaptop } from "@/shared/hooks";
-
-type DreiGLTF = GLTF & {
-  nodes: Record<string, THREE.Mesh>;
-  materials: Record<string, THREE.MeshStandardMaterial>;
-};
-
-type MeshTypes = {
-  geometry: THREE.BufferGeometry<THREE.NormalBufferAttributes>;
-  material: THREE.Material | THREE.Material[];
-};
+import { useLaptop } from "@/shared/hooks";
+import { type DreiGLTF, type MeshTypes } from "@/shared/types/gltf";
 
 type StandardPropsTypes = {
   mesh: MeshTypes[];
@@ -35,9 +18,6 @@ type SpecificPropsTypes = {
 type ScreenPropsTypes = {
   mesh: MeshTypes;
   material?: THREE.Material | THREE.Material[];
-  // event: {
-  //   zoom: () => void;
-  // };
 };
 
 /**
@@ -136,90 +116,17 @@ const TrackPad = (props: SpecificPropsTypes) => {
   );
 };
 
-const Macbook = forwardRef(
-  (props: GroupProps, orbit: ForwardedRef<OrbitControls>) => {
-    let timer: number;
+const Macbook = () => {
+  const { nodes, materials } = useGLTF("../models/glb/macbook.glb") as DreiGLTF;
+  const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
-    const { camera } = useThree();
-    const { moveLookAt, moveRotation } = useGsap();
-    const { laptop, active } = useLaptop();
-
-    const control = orbit as MutableRefObject<OrbitControls>;
-
-    const { nodes, materials } = useGLTF("../models/macbook.glb") as DreiGLTF;
-    const { standard, screen, trackpad } = getGeometryMesh(nodes);
-
-    const zoom = () => {
-      if (laptop) {
-        if (timer) return;
-        const position = camera.position;
-        const fly = new THREE.Vector3(-50, 0, 55);
-        const target = control.current.target;
-        const lookAt = new THREE.Vector3(10, 3, 0);
-        moveLookAt(position, fly, target, lookAt, true);
-        timer = setTimeout(() => active(false), 2000);
-      } else {
-        const position = camera.position;
-        const fly = new THREE.Vector3(0, 0, 10);
-        const target = control.current.target;
-        const lookAt = new THREE.Vector3(0, 9, 0);
-        moveLookAt(position, fly, target, lookAt, false);
-        active(true);
-      }
-    };
-
-    const group = useRef<THREE.Group>(null);
-
-    useFrame((state) => {
-      if (laptop) {
-        const gltf = group.current as THREE.Group;
-        if (gltf.rotation.x === 0) return;
-        moveRotation(gltf.rotation, new THREE.Vector2(0, 0));
-      } else {
-        const gltf = group.current as THREE.Group;
-        moveRotation(gltf.rotation, state.pointer);
-      }
-    });
-
-    return (
-      <Suspense fallback={null}>
-        {/* <mesh
-          receiveShadow
-          position={[0, -10, 0]}
-          rotation-x={THREE.MathUtils.degToRad(-90)}
-        >
-          <planeGeometry args={[1000, 1000]} />
-          <meshStandardMaterial
-            roughness={0.5}
-            metalness={0.5}
-            side={THREE.DoubleSide}
-          />
-        </mesh> */}
-        <group
-          ref={group}
-          {...props}
-          rotation={[0.35, 0, 0]}
-          position={[0, -5, 0]}
-          onPointerDown={zoom}
-          onPointerMissed={zoom}
-        >
-          <Standard mesh={standard} />
-          <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
-          <TrackPad mesh={trackpad} />
-          <Text
-            rotation={[-0.35, 30, 0]}
-            position={[38, 5, 0]}
-            color={"#242424"}
-            fontSize={7}
-            fontWeight={700}
-            // font="../fonts/Inter-Regular.woff"
-          >
-            PORTFOLIO
-          </Text>
-        </group>
-      </Suspense>
-    );
-  }
-);
+  return (
+    <Suspense fallback={null}>
+      <Standard mesh={standard} />
+      <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
+      <TrackPad mesh={trackpad} />
+    </Suspense>
+  );
+};
 
 export default Macbook;
