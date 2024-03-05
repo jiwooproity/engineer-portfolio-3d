@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 
 import { ObjectRender } from "@/entities/rendering";
 import { LightController } from "@/shared/resources";
+import { ModelLoader } from "@/entities/components";
 
 const RenderModel = () => {
   const orbit = useRef(null);
@@ -21,29 +22,31 @@ const RenderModel = () => {
       }}
       shadows
     >
-      <OrbitControls
-        ref={orbit}
-        target={[10, 3, 0]}
-        enablePan={false}
-        enableZoom={false}
-        enableRotate={false}
-        // minPolarAngle={Math.PI / 2}
-        maxDistance={55}
-        maxPolarAngle={Math.PI / 2}
-        minAzimuthAngle={-Math.PI / 2}
-        maxAzimuthAngle={Math.PI / 2}
-      />
-      <LightController />
-      <ObjectRender ref={orbit} />
-      <ContactShadows
-        position={[0, -10, 0]}
-        scale={200}
-        blur={0.5}
-        opacity={0.2}
-        far={35}
-        color={"#a79a73"}
-      />
-      <Environment preset="lobby" background blur={1} />
+      <Suspense fallback={<ModelLoader />}>
+        <OrbitControls
+          ref={orbit}
+          target={[10, 3, 0]}
+          enablePan={false}
+          enableZoom={false}
+          enableRotate={false}
+          // minPolarAngle={Math.PI / 2}
+          maxDistance={55}
+          maxPolarAngle={Math.PI / 2}
+          minAzimuthAngle={-Math.PI / 2}
+          maxAzimuthAngle={Math.PI / 2}
+        />
+        <LightController />
+        <ObjectRender ref={orbit} />
+        <ContactShadows
+          position={[0, -10, 0]}
+          scale={200}
+          blur={0.5}
+          opacity={0.2}
+          far={35}
+          color={"#a79a73"}
+        />
+        <Environment preset="lobby" background blur={1} />
+      </Suspense>
     </Canvas>
   );
 };

@@ -1,4 +1,4 @@
 import MainOutline from "./main-outline";
-import LockScreen from "./lock-screen";
+import ModelLoader from "./model-loader";
 
-export { MainOutline, LockScreen };
+export { MainOutline, ModelLoader };

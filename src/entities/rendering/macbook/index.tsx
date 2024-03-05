@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-
 import * as THREE from "three";
 import { Html, useGLTF } from "@react-three/drei";
 
@@ -121,11 +119,11 @@ const Macbook = () => {
   const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
   return (
-    <Suspense fallback={null}>
+    <>
       <Standard mesh={standard} />
       <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
       <TrackPad mesh={trackpad} />
-    </Suspense>
+    </>
   );
 };
 
