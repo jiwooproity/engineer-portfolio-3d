@@ -17,7 +17,7 @@ const RenderModel = () => {
         position: [-50, 0, 55],
         fov: 55,
         near: 0.1,
-        far: 1000,
+        far: 200,
       }}
       shadows
     >
@@ -36,7 +36,6 @@ const RenderModel = () => {
       <LightController />
       <ObjectRender ref={orbit} />
       <ContactShadows
-        resolution={1024}
         position={[0, -10, 0]}
         scale={200}
         blur={0.5}
