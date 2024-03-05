@@ -36,12 +36,13 @@ const RenderModel = () => {
       <LightController />
       <ObjectRender ref={orbit} />
       <ContactShadows
-        position={[0, -11, 0]}
-        opacity={0.4}
+        resolution={1024}
+        position={[0, -10, 0]}
         scale={200}
-        blur={1.5}
-        far={40}
-        color={"#000000"}
+        blur={0.5}
+        opacity={0.2}
+        far={35}
+        color={"#a79a73"}
       />
       <Environment preset="lobby" background blur={1} />
     </Canvas>
