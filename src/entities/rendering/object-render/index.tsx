@@ -1,0 +1,91 @@
+import { ForwardedRef, MutableRefObject, forwardRef, useRef } from "react";
+
+import * as THREE from "three";
+import { OrbitControls } from "three-stdlib";
+import { GroupProps, ThreeEvent, useFrame, useThree } from "@react-three/fiber";
+
+import { useGsap, useLaptop } from "@/shared/hooks";
+import { Coffee, CoffeeShop, Macbook } from "..";
+
+const ObjectRender = forwardRef(
+  (props: GroupProps, orbit: ForwardedRef<OrbitControls>) => {
+    let timer: number;
+
+    const macbookGroup = useRef<THREE.Group>(null);
+    const coffeeGroup = useRef<THREE.Group>(null);
+    const coffeeShopGroup = useRef<THREE.Group>(null);
+
+    const { camera } = useThree();
+    const { moveLookAt, moveRotation } = useGsap();
+    const { laptop, active } = useLaptop();
+
+    const control = orbit as MutableRefObject<OrbitControls>;
+
+    const zoom = (e: ThreeEvent<PointerEvent>) => {
+      if (e.eventObject.name !== "macbook-group") return;
+
+      if (!laptop) {
+        const position = camera.position;
+        const fly = new THREE.Vector3(0, 0, 10);
+        const target = control.current.target;
+        const lookAt = new THREE.Vector3(0, 9, 0);
+        moveLookAt(position, fly, target, lookAt, false);
+        active(true);
+      }
+    };
+
+    const missed = () => {
+      if (laptop) {
+        if (timer) return;
+        const position = camera.position;
+        const fly = new THREE.Vector3(-50, 0, 55);
+        const target = control.current.target;
+        const lookAt = new THREE.Vector3(10, 3, 0);
+        moveLookAt(position, fly, target, lookAt, true);
+        timer = setTimeout(() => active(false), 2000);
+      }
+    };
+
+    useFrame((state) => {
+      const macbook = macbookGroup.current as THREE.Group;
+      const coffee = coffeeGroup.current as THREE.Group;
+      const coffeeShop = coffeeShopGroup.current as THREE.Group;
+
+      if (laptop) {
+        moveRotation(macbook.rotation, new THREE.Vector2(0, 0));
+      } else {
+        moveRotation(macbook.rotation, state.pointer);
+
+        const coffeeX = -1 * (state.pointer.x / 10);
+        moveRotation(coffee.rotation, new THREE.Vector2(coffeeX, 0));
+
+        const coffeeShopX = state.pointer.x / 3;
+        moveRotation(coffeeShop.rotation, new THREE.Vector2(coffeeShopX, 0));
+      }
+    });
+
+    return (
+      <group>
+        <group
+          name="macbook-group"
+          ref={macbookGroup}
+          {...props}
+          rotation={[0.35, 0, 0]}
+          position={[0, -5, 0]}
+          onPointerDown={zoom}
+          onPointerMissed={missed}
+        >
+          <Macbook />
+        </group>
+        <group ref={coffeeGroup} position={[84, -100, 0]}>
+          <Coffee />
+        </group>
+        <group ref={coffeeShopGroup} position={[45, 5, -1]}>
+          <CoffeeShop />
+        </group>
+      </group>
+    );
+  }
+);
+
+export default ObjectRender;

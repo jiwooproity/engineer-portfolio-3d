@@ -1,9 +1,9 @@
 import { useRef } from "react";
 
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 
-import { Macbook } from "@/entities/rendering";
+import { ObjectRender } from "@/entities/rendering";
 import { LightController } from "@/shared/resources";
 
 const RenderModel = () => {
@@ -34,8 +34,16 @@ const RenderModel = () => {
         maxAzimuthAngle={Math.PI / 2}
       />
       <LightController />
+      <ObjectRender ref={orbit} />
+      <ContactShadows
+        position={[0, -11, 0]}
+        opacity={0.4}
+        scale={200}
+        blur={1.5}
+        far={40}
+        color={"#000000"}
+      />
       <Environment preset="lobby" background blur={1} />
-      <Macbook ref={orbit} />
     </Canvas>
   );
 };

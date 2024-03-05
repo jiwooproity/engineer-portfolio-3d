@@ -43,11 +43,15 @@ const useGsap = () => {
     });
   };
 
-  const moveRotation = (rotation: THREE.Euler, pointer: THREE.Vector2) => {
+  const moveRotation = (
+    rotation: THREE.Euler,
+    pointer: THREE.Vector2,
+    useY?: boolean
+  ) => {
     gsap.timeline().to(rotation, {
       duration: 2,
       repeat: 0,
-      x: 0.35,
+      x: useY ? -pointer.y : 0.35,
       y: -pointer.x / 5,
       z: 0,
       ease: "power3.out",
