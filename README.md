@@ -5,5 +5,11 @@
 아직 모델 .glb 파일을 렌더링하고 스크린 위에 웹 사이트를 띄우는 작업 밖에는 못했지만,,  
 이후엔 직접 만든 Mac OS 화면 컨셉의 웹 사이트도 개발하여 화면에 띄울 예정입니다.  
 
-# Preview
+# Preview 2024-02-28
 ![Mar-03-2024_01-45-29](https://github.com/jiwooproity/engineer-portfolio-3d/assets/58384366/8703bb90-2ee7-464c-93e5-2b8929094a2b)
+
+# Preview 2024-03-05
+1. glb, gltf, shadow 렌더링
+2. 마우스 움직임 감지 시, 모델 애니메이션 적용
+3. screen nodes scene iframe 렌더링
+4. 일부 디자인 적용
