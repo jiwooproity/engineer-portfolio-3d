@@ -59,7 +59,7 @@ const ObjectRender = forwardRef(
         const coffeeX = -1 * (state.pointer.x / 10);
         moveRotation(coffee.rotation, new THREE.Vector2(coffeeX, 0));
 
-        const coffeeShopX = state.pointer.x / 3;
+        const coffeeShopX = state.pointer.x;
         moveRotation(coffeeShop.rotation, new THREE.Vector2(coffeeShopX, 0));
       }
     });
