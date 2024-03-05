@@ -1,4 +1,4 @@
-import "@/shared/assets/css/model-loader/index.css";
+import "@/shared/assets/css/model-loader.css";
 
 import { Html, useProgress } from "@react-three/drei";
 
