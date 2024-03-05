@@ -11,7 +11,7 @@ import { OrbitControls, type GLTF } from "three-stdlib";
 import { Html, Text, useGLTF } from "@react-three/drei";
 import { useThree, type GroupProps, useFrame } from "@react-three/fiber";
 
-import { useGsap, useLaptop } from "@/hooks";
+import { useGsap, useLaptop } from "@/shared/hooks";
 
 type DreiGLTF = GLTF & {
   nodes: Record<string, THREE.Mesh>;
@@ -136,7 +136,7 @@ const TrackPad = (props: SpecificPropsTypes) => {
   );
 };
 
-const MacLaptop = forwardRef(
+const Macbook = forwardRef(
   (props: GroupProps, orbit: ForwardedRef<OrbitControls>) => {
     let timer: number;
 
@@ -222,4 +222,4 @@ const MacLaptop = forwardRef(
   }
 );
 
-export default MacLaptop;
+export default Macbook;
