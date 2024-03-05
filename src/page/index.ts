@@ -1,3 +1,3 @@
-import RenderModel from "./render-model";
+import RenderModel from "./main-render";
 
 export { RenderModel };

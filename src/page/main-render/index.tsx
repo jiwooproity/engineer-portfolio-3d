@@ -3,8 +3,8 @@ import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
 
-import { MacLaptop } from "@/components";
-import LightController from "./light-controller";
+import { Macbook } from "@/entities/rendering";
+import { LightController } from "@/shared/resources";
 
 const RenderModel = () => {
   const orbit = useRef(null);
@@ -35,7 +35,7 @@ const RenderModel = () => {
       />
       <LightController />
       <Environment preset="lobby" background blur={1} />
-      <MacLaptop ref={orbit} />
+      <Macbook ref={orbit} />
     </Canvas>
   );
 };

@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { zoomToggle } from "@/store/atoms";
+import { zoomToggle } from "@/shared/store/atoms";
 
 const useLaptop = () => {
   const [laptop, setLaptop] = useRecoilState(zoomToggle);

@@ -1,5 +1,5 @@
 import { RenderModel } from "@/page";
-import { MainLabels } from "@/components";
+import { MainOutline } from "@/entities/components";
 
 import "./style.css";
 
@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="main-layout">
       <RenderModel />
-      <MainLabels />
+      <MainOutline />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.labels-container {
+.outline-container {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -7,9 +7,9 @@
   pointer-events: none;
 }
 
-.labels-date {
+.outline-date {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 15px;
   color: #242424;
   position: absolute;
@@ -17,7 +17,7 @@
   right: 24px;
 }
 
-.labels-git-box {
+.outline-git-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,16 +27,17 @@
   bottom: 24px;
 }
 
-.labels-git-icon {
+.outline-git-icon {
   width: 40px;
   height: 40px;
+  padding: 0px;
   display: block;
 }
 
-.labels-git-link {
+.outline-git-link {
   height: 15px;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 18.5px;
   text-decoration: none;
   color: #242424;
