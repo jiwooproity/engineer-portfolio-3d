@@ -15,9 +15,9 @@ const Terminal = ({ children }: { children: ReactNode }) => {
             <button className="terminal-btn unfold" />
             <button className="terminal-btn full" />
           </div>
-          <div className="terminal-command-wrap">
+          {/* <div className="terminal-command-wrap">
             <span className="terminal-command">⌥⌘1</span>
-          </div>
+          </div> */}
         </div>
         <div className="terminal-right-area">
           <div className="terminal-sub-tab">
