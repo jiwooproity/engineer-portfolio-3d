@@ -7,7 +7,7 @@ const Coffee = () => {
 
   return (
     <>
-      <group scale={4} rotation={[0, -0.1, 0.8]}>
+      <group scale={4} position={[82, -93, 35]} rotation={[0, -0.1, 0.8]}>
         <primitive object={scene} />
       </group>
     </>

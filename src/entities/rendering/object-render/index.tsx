@@ -56,7 +56,7 @@ const ObjectRender = forwardRef(
       } else {
         moveRotation(macbook.rotation, state.pointer);
 
-        const coffeeX = -1 * (state.pointer.x / 10);
+        const coffeeX = -1 * (state.pointer.x / 5);
         moveRotation(coffee.rotation, new THREE.Vector2(coffeeX, 0));
 
         const coffeeShopX = state.pointer.x;
@@ -66,6 +66,7 @@ const ObjectRender = forwardRef(
 
     return (
       <group>
+        <group></group>
         <group
           name="macbook-group"
           ref={macbookGroup}
@@ -77,7 +78,7 @@ const ObjectRender = forwardRef(
         >
           <Macbook />
         </group>
-        <group ref={coffeeGroup} position={[84, -100, 0]}>
+        <group ref={coffeeGroup}>
           <Coffee />
         </group>
         <group ref={coffeeShopGroup} position={[45, 5, -1]}>
