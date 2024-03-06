@@ -3,7 +3,7 @@ import "@/shared/assets/css/model-loader.css";
 import { useProgress } from "@react-three/drei";
 import { useState } from "react";
 
-const ASCIIS = Array.from({ length: 50 }, () => "");
+const ASCIIS = Array.from({ length: 50 }, () => "-");
 
 const ModelLoader = () => {
   const { progress, active } = useProgress();
@@ -20,7 +20,7 @@ const ModelLoader = () => {
         <div className="progress-bar">
           <span className="progress-bar-percent">{`${percent} %`}</span>
           <span className="progress-bar-text">
-            {ASCIIS.map((ascii, i) => (percent >= i * 2 ? "#" : ascii))}
+            {ASCIIS.map((ascii, i) => (percent >= i * 2 ? "=" : ascii))}
           </span>
         </div>
         <span className="progress-bar-text-wrap">{`]`}</span>
