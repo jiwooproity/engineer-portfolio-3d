@@ -1,31 +1,36 @@
 import "@/shared/assets/css/model-loader.css";
 
-import { Html, useProgress } from "@react-three/drei";
+import { useProgress } from "@react-three/drei";
+import { useState } from "react";
 
 const ASCIIS = Array.from({ length: 50 }, () => "");
 
-const ProgressBar = ({ progress }: { progress: number }) => {
-  return (
-    <div className="progress-container">
-      <span className="progress-bar-text-wrap">{`[`}</span>
-      <div className="progress-bar">
-        <span className="progress-bar-percent">{`${progress} %`}</span>
-        <span className="progress-bar-text">
-          {ASCIIS.map((ascii, i) => (progress >= i * 2 ? " # " : ascii))}
-        </span>
-      </div>
-      <span className="progress-bar-text-wrap">{`]`}</span>
-    </div>
-  );
-};
-
 const ModelLoader = () => {
-  const { progress } = useProgress();
+  const { progress, active } = useProgress();
+  const percent = Math.floor(progress);
+
+  const [ready, setReady] = useState(false);
+
+  const onReady = () => setReady(true);
 
   return (
-    <Html fullscreen>
-      <ProgressBar progress={Math.floor(progress > 90 ? 100 : progress)} />
-    </Html>
+    <div className={`progress-container ${ready ? "ready" : ""}`}>
+      <div className="progress-wrapper">
+        <span className="progress-bar-text-wrap">{`[`}</span>
+        <div className="progress-bar">
+          <span className="progress-bar-percent">{`${percent} %`}</span>
+          <span className="progress-bar-text">
+            {ASCIIS.map((ascii, i) => (percent >= i * 2 ? "#" : ascii))}
+          </span>
+        </div>
+        <span className="progress-bar-text-wrap">{`]`}</span>
+      </div>
+      <div className={`btn-wrapper ${active ? "" : "loaded"}`}>
+        <button className="load-btn" onClick={onReady}>
+          Ready
+        </button>
+      </div>
+    </div>
   );
 };
 
