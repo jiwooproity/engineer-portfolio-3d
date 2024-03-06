@@ -6,7 +6,7 @@ import { useState } from "react";
 const ASCIIS = Array.from({ length: 50 }, () => "-");
 
 const ModelLoader = () => {
-  const { progress, active } = useProgress();
+  const { progress, loaded, active } = useProgress();
   const percent = Math.floor(progress);
 
   const [ready, setReady] = useState(false);
@@ -25,7 +25,7 @@ const ModelLoader = () => {
         </div>
         <span className="progress-bar-text-wrap">{`]`}</span>
       </div>
-      <div className={`btn-wrapper ${active ? "" : "loaded"}`}>
+      <div className={`btn-wrapper ${loaded && !active ? "loaded" : ""}`}>
         <button className="load-btn" onClick={onReady}>
           Ready
         </button>
