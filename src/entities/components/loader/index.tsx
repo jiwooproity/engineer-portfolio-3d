@@ -1,11 +1,11 @@
-import "@/shared/assets/css/model-loader.css";
+import "@/shared/assets/css/loader.css";
 
 import { useProgress } from "@react-three/drei";
 import { useState } from "react";
 
 const ASCIIS = Array.from({ length: 50 }, () => "-");
 
-const ModelLoader = () => {
+const Loader = () => {
   const { progress, loaded, active } = useProgress();
   const percent = Math.floor(progress);
 
@@ -34,4 +34,4 @@ const ModelLoader = () => {
   );
 };
 
-export default ModelLoader;
+export default Loader;
