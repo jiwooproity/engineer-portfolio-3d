@@ -1,4 +1,4 @@
-import MainOutline from "./main-outline";
-import ModelLoader from "./model-loader";
+import Outline from "./outline";
+import Loader from "./loader";
 
-export { MainOutline, ModelLoader };
+export { Outline, Loader };

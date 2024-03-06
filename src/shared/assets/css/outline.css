@@ -1,0 +1,69 @@
+.outline-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+}
+
+.outline-top {
+  width: 100%;
+  padding: 24px 24px 0px 24px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.outline-logo {
+  font-size: 20px;
+  line-height: 20px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.outline-bottom {
+  width: 100%;
+  padding: 0px 24px 24px 24px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.outline-date {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 15px;
+  color: #242424;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.outline-link-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.outline-link {
+  height: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18.5px;
+  text-decoration: none;
+  color: #242424;
+  cursor: pointer;
+  pointer-events: all;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
