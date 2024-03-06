@@ -1,4 +1,4 @@
-.progress-container {
+.terminal-container {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -9,36 +9,162 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(47, 47, 47);
   z-index: 100000000;
   opacity: 1;
   transition: opacity 0.5s ease;
 }
 
-.progress-container.ready {
+.terminal-container.ready {
   opacity: 0;
-  pointer-events: none;
 }
 
-.progress-wrapper {
+.terminal-tab {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #343434;
+  box-shadow: inset 0px 0.2px 0px 0px white;
+}
+
+.terminal-btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.terminal-btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+}
+
+.terminal-btn.close {
+  background-color: #ff5e57;
+}
+
+.terminal-btn.unfold {
+  background-color: #febc2e;
+}
+
+.terminal-btn.full {
+  background-color: #26c940;
+}
+
+.terminal-command-wrap {
+  background-color: transparent;
+}
+
+.terminal-command {
+  font-size: 11px;
+  line-height: 11px;
+  color: gray;
+}
+
+.terminal-left-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0px 20px 0px 8px;
+}
+
+.terminal-right-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.terminal-sub-tab {
+  width: 355px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #464646;
+  box-shadow: inset 0px 0.2px 0px 0px white;
+}
+
+.terminal-sub-tab-dir {
+  font-size: 10px;
+  line-height: 10px;
+  font-family: "D2Coding";
+  color: white;
+}
+
+.terminal-sub-tab-add {
+  font-size: 20px;
+  line-height: 20px;
+  padding: 3px 5px 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #656666;
+  font-weight: 100;
+}
+
+.terminal {
+  width: 500px;
+  height: 400px;
+  background-color: black;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: inset 0px 0px 1.5px white;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.content {
+  width: 100%;
+  color: white;
+  font-size: 11px;
+  line-height: 11px;
+  font-family: "D2Coding";
+  font-weight: 100;
+}
+
+.content.loaded {
+  opacity: 1;
+}
+
+.content.hidden {
+  opacity: 0;
+}
+
+.content > input {
+  font-size: 11px;
+  line-height: 11px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin-left: 5px;
+}
+
+.content > input:focus {
+  outline: none;
 }
 
 .progress-bar {
-  width: 350px;
+  width: 330px;
   position: relative;
 }
 
 .progress-bar-percent {
   position: absolute;
-  top: calc(50% + 1px);
-  right: -50px;
+  top: 50%;
+  right: -30px;
   transform: translateY(-50%);
-  font-size: 14px;
-  line-height: 14px;
   color: rgb(236, 236, 236);
   font-family: "D2Coding";
   font-weight: 700;
@@ -46,42 +172,13 @@
 
 .progress-bar-text-wrap {
   margin-top: 1px;
-  font-size: 14px;
-  line-height: 14px;
   color: rgb(236, 236, 236);
   font-family: "D2Coding";
   font-weight: 400;
 }
 
 .progress-bar-text {
-  font-size: 14px;
-  line-height: 14px;
   color: rgb(236, 236, 236);
   font-family: "D2Coding";
   font-weight: 400;
-}
-
-.btn-wrapper {
-  opacity: 0;
-}
-
-.btn-wrapper.loaded {
-  opacity: 1;
-}
-
-.load-btn {
-  font-size: 12px;
-  line-height: 15px;
-  padding: 3px 8px;
-  border-radius: 3px;
-  border: 1px solid white;
-  background-color: black;
-  color: white;
-  font-family: "D2Coding";
-  font-weight: 400;
-  cursor: pointer;
-}
-
-.load-btn:focus {
-  outline: none;
 }
