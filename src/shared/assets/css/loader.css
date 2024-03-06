@@ -17,6 +17,7 @@
 
 .terminal-container.ready {
   opacity: 0;
+  pointer-events: none;
 }
 
 .terminal-tab {
