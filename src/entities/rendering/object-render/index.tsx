@@ -66,7 +66,6 @@ const ObjectRender = forwardRef(
 
     return (
       <group>
-        <group></group>
         <group
           name="macbook-group"
           ref={macbookGroup}
