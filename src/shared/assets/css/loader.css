@@ -110,7 +110,7 @@
 
 .terminal {
   width: 500px;
-  height: 400px;
+  height: 350px;
   background-color: black;
   border-radius: 10px;
   border: 1px solid black;
@@ -183,4 +183,16 @@
   color: rgb(236, 236, 236);
   font-family: "D2Coding";
   font-weight: 400;
+}
+
+.downloaded {
+  color: #72d2ff;
+}
+
+.access {
+  color: #26c940;
+}
+
+.failed {
+  color: #ff5e57;
 }
