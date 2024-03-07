@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # 3d glb models
-public/models/*
+# public/models/*
