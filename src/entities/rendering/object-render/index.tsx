@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three-stdlib";
 import { GroupProps, ThreeEvent, useFrame, useThree } from "@react-three/fiber";
 
-import { useGsap, useLaptop } from "@/shared/hooks";
+import { useCursor, useGsap, useLaptop } from "@/shared/hooks";
 import { Coffee, CoffeeShop, Macbook } from "..";
 
 const ObjectRender = forwardRef(
@@ -16,6 +16,7 @@ const ObjectRender = forwardRef(
     const coffeeShopGroup = useRef<THREE.Group>(null);
 
     const { camera } = useThree();
+    const { pointerOver, pointerOut } = useCursor();
     const { moveLookAt, moveRotation } = useGsap();
     const { laptop, active } = useLaptop();
 
@@ -74,6 +75,8 @@ const ObjectRender = forwardRef(
           position={[0, -5, 0]}
           onPointerDown={zoom}
           onPointerMissed={missed}
+          onPointerOver={pointerOver}
+          onPointerOut={pointerOut}
         >
           <Macbook />
         </group>
