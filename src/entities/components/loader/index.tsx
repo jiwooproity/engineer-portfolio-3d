@@ -137,6 +137,7 @@ const Loader = () => {
             value={pressKey}
             onChange={onChange}
             onKeyDown={onKeyDown}
+            disabled={message !== null}
           />
         </Content>
         <Content type="loaded" loaded={message !== null}>
