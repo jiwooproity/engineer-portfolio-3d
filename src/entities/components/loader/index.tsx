@@ -15,9 +15,6 @@ const Terminal = ({ children }: { children: ReactNode }) => {
             <button className="terminal-btn unfold" />
             <button className="terminal-btn full" />
           </div>
-          {/* <div className="terminal-command-wrap">
-            <span className="terminal-command">⌥⌘1</span>
-          </div> */}
         </div>
         <div className="terminal-right-area">
           <div className="terminal-sub-tab">
@@ -64,41 +61,59 @@ const Content = ({
   return node;
 };
 
-const Loader = () => {
+const Progress = ({ percent }: { percent: number }) => {
   const ASCIIS = Array.from({ length: 50 }, () => "-");
 
+  return (
+    <span className="progress-bar-text">
+      {ASCIIS.map((ascii, i) =>
+        percent >= i * 2 ? (
+          <span key={i} className="downloaded">
+            =
+          </span>
+        ) : (
+          ascii
+        )
+      )}
+    </span>
+  );
+};
+
+const Loader = () => {
   const { progress, loaded, active } = useProgress();
   const percent = Math.floor(progress);
 
   const [ready, setReady] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<ReactNode>(null);
   const [pressKey, setPressKey] = useState("");
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setPressKey(value);
+    const accessKey = ["y", "n", ""];
+    setPressKey(accessKey.includes(value) ? value : pressKey);
   };
 
   const onKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Enter") {
-      if (pressKey === "y") {
-        setMessage("Success");
-        setTimeout(() => setReady(true), 2000);
-      } else {
-        setMessage("failed ..! please refresh");
-      }
+    const key = e.key;
+    const useAuth = pressKey.toLowerCase() === "y";
+    const message = useAuth ? "success" : "failed ..! please refresh";
+    const status = useAuth ? "access" : "failed";
+
+    if (key === "Enter") {
+      if (useAuth) setTimeout(() => setReady(true), 2000);
+      setMessage(<span className={status}>{message}</span>);
     }
   };
 
   useEffect(() => {
     if (loaded && !active) {
-      const input = document.getElementById("start-cmd");
-      input?.focus();
-
-      const cmdEnter = () => input?.focus();
       const terminal = document.getElementById("terminal");
-      terminal?.addEventListener("click", cmdEnter);
-      return () => terminal?.removeEventListener("click", cmdEnter);
+      const input = document.getElementById("start-cmd");
+      const inputFocus = () => input?.focus();
+
+      inputFocus();
+      terminal?.addEventListener("click", inputFocus);
+      return () => terminal?.removeEventListener("click", inputFocus);
     }
   }, [loaded, active]);
 
@@ -109,15 +124,13 @@ const Loader = () => {
         <Content type="children">
           <div className="progress-bar">
             <span className="progress-bar-percent">{`${percent} %`}</span>
-            <span className="progress-bar-text-wrap">{`Models: [`}</span>
-            <span className="progress-bar-text">
-              {ASCIIS.map((ascii, i) => (percent >= i * 2 ? "=" : ascii))}
-            </span>
+            <span className="progress-bar-text-wrap">{`models: [`}</span>
+            <Progress percent={percent} />
             <span className="progress-bar-text-wrap">{`]`}</span>
           </div>
         </Content>
         <Content type="loaded" loaded={loaded && !active}>
-          If you want to start, press the key (y/n)
+          if you want to start, press the key (y/n)
           <input
             id="start-cmd"
             type="text"
@@ -126,8 +139,8 @@ const Loader = () => {
             onKeyDown={onKeyDown}
           />
         </Content>
-        <Content type="loaded" loaded={message !== ""}>
-          {message}
+        <Content type="loaded" loaded={message !== null}>
+          zsh: {message}
         </Content>
       </Terminal>
     </div>
