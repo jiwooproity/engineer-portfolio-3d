@@ -2,6 +2,7 @@ import instance from "@/shared/fetch/instance";
 
 import MODEL_URLS from "@/shared/fetch/model/urls";
 import { getAllModels } from "@/shared/fetch/user/fetch";
+
 import { ModelResponseIF } from "@/shared/types/model-fetch";
 import { UserResultsIF } from "@/shared/types/user-fetch";
 
