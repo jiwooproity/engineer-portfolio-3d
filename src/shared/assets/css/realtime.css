@@ -1,0 +1,22 @@
+.realtime-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.realtime-date {
+  height: 12px;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: 400;
+  color: black;
+}
+
+.realtime-time {
+  height: 12px;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: 400;
+  color: black;
+}
