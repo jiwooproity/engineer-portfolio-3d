@@ -9,6 +9,7 @@
   background-size: cover;
   opacity: 1;
   transition: opacity 1s ease, transform 0.5s ease;
+  overflow: hidden;
 }
 
 .lock-screen-container.open {
