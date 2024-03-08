@@ -1,9 +1,9 @@
+import "./style.css";
+
 import { Main } from "@/page";
 import { Outline } from "@/entities/components";
 
-import "./style.css";
-
-const App = () => {
+const Canvas = () => {
   return (
     <div className="main-layout">
       <Main />
@@ -12,4 +12,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Canvas;

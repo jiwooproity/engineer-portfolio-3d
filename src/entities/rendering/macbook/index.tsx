@@ -70,11 +70,16 @@ const Standard = (props: StandardPropsTypes) => {
 };
 
 const Screen = (props: ScreenPropsTypes) => {
-  const { mesh, material } = props;
+  const { mesh /** material */ } = props;
   const { laptop } = useLaptop();
 
   return (
-    <mesh geometry={mesh.geometry} material={material} castShadow receiveShadow>
+    <mesh
+      geometry={mesh.geometry}
+      material={mesh.material}
+      castShadow
+      receiveShadow
+    >
       <Html
         pointerEvents="none"
         rotation={[-0.331, 0, 0]}
@@ -94,7 +99,8 @@ const Screen = (props: ScreenPropsTypes) => {
           }}
           width={1900}
           height={1190}
-          src="https://next-portfolio-story.vercel.app/"
+          // src="https://next-portfolio-story.vercel.app/"
+          src={import.meta.env.VITE_SCREEN_SRC}
         />
       </Html>
     </mesh>
@@ -115,13 +121,13 @@ const TrackPad = (props: SpecificPropsTypes) => {
 };
 
 const Macbook = () => {
-  const { nodes, materials } = useGLTF("../models/glb/macbook.glb") as DreiGLTF;
+  const { nodes } = useGLTF("../models/glb/macbook.glb") as DreiGLTF;
   const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
   return (
     <>
       <Standard mesh={standard} />
-      <Screen mesh={screen} material={materials["FXtoXdXSZfIeavz"]} />
+      <Screen mesh={screen} /** material={materials["FXtoXdXSZfIeavz"]} */ />
       <TrackPad mesh={trackpad} />
     </>
   );

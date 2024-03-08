@@ -1,9 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import Canvas from "@/app/canvas";
+import Screen from "@/app/screen";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: "",
+    element: <Canvas />,
+  },
+  {
+    path: "/screen",
+    element: <Screen />,
   },
 ]);
 
