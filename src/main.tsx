@@ -9,7 +9,7 @@ import router from "@/shared/router/index.tsx";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RecoilRoot>
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router} />
     </RecoilRoot>
   </React.StrictMode>
 );
