@@ -1,17 +1,18 @@
-# MacBook Air M1 2020 스크린 포트폴리오
-이 프로젝트는 Three.js 일부 쇼케이스 포트폴리오에서 영감을 받아 시작하게 되었습니다.  
-웹 페이지를 모델링 안에 작은 스크린 안에서 동작한다는 점이 너무 인상 깊었습니다.  
+# Macbook Air: R3F 3D Action Portfolio
+이번 포트폴리오는 F.S.D 파일 구조 방식과 R3F ( React Three Fiber ) 의 도움을 받아 작업 중인 프로젝트입니다.  
+Three.js + React + Html Mix 와 관련된 내용을 보다가 관심을 가지게 되었습니다.  
 
-아직 모델 .glb 파일을 렌더링하고 스크린 위에 웹 사이트를 띄우는 작업 밖에는 못했지만,,  
-이후엔 직접 만든 Mac OS 화면 컨셉의 웹 사이트도 개발하여 화면에 띄울 예정입니다.  
+## Skills
+Vite -> React, Typescript  
 
-# Preview 2024-02-28
-1. macbook glb 렌더링
-2. macbook 마우스 rotation 이벤트 적용
-3. screen nodes scene iframe 렌더링 
+## Libraries
+Three.js ( Fiber, Drei ), Day.js  
+3D animation help : gsap, maath  
+Data Fetch : axios  
+Hooks : usehooks-ts  
 
-# Preview 2024-03-05
-1. glb, gltf, shadow 렌더링
-2. 화면 줌 인, 줌 아웃 이벤트 적용
-3. 마우스 움직임 감지 시, 모델 애니메이션 적용
-4. 일부 디자인 적용
+## Model GLB, GLTF
+포트폴리오에 쓰인 모델은 모두 구매 품목이며, SketchFab에서 다운로드 받으실 수 있습니다.  
+
+## Demo
+<a href="https://web-engineer-portfolio-dc9c2nltcr2zew.sel5.cloudtype.app">Jiwoo's Macbook</a>
