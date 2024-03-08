@@ -1,0 +1,66 @@
+.lock-screen-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../images/wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  transition: opacity 1s ease, transform 0.5s ease;
+}
+
+.lock-screen-container.open {
+  transform: scale(1.2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lock-screen-time {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 80px;
+  line-height: 80px;
+  color: white;
+}
+
+.lock-screen-access-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lock-screen-profile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.lock-screen-name {
+  font-size: 25px;
+  line-height: 25px;
+  color: white;
+}
+
+.lock-screen-access-box > button {
+  font-size: 15px;
+  line-height: 15px;
+  width: 80px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
