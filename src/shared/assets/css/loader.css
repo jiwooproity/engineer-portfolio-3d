@@ -180,13 +180,13 @@
 }
 
 .progress-bar-text {
-  color: rgb(236, 236, 236);
+  color: rgb(113, 113, 113);
   font-family: "D2Coding";
   font-weight: 400;
 }
 
 .downloaded {
-  color: #6a97bc;
+  color: #75c76c;
 }
 
 .access {

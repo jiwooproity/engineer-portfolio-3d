@@ -69,7 +69,7 @@ const Progress = ({ percent }: { percent: number }) => {
       {ASCIIS.map((ascii, i) =>
         percent >= i * 2 ? (
           <span key={i} className="downloaded">
-            =
+            #
           </span>
         ) : (
           ascii
