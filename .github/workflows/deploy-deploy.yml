@@ -5,8 +5,6 @@ on:
       - deploy
 jobs:
   deploy:
-    env:
-      VITE_SCREEN_SRC: https://web-engineer-portfolio-dc9c2nltcr2zew.sel5.cloudtype.app/screen
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,6 +27,9 @@ jobs:
               nodeversion: "18"
               spa: true
               install: yarn install
+              env:
+                - name: VITE_SCREEN_SRC
+                  value: "https://web-engineer-portfolio-dc9c2nltcr2zew.sel5.cloudtype.app/screen"
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
