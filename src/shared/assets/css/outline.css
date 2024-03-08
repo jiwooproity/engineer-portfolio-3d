@@ -38,32 +38,3 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.outline-date {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 15px;
-  color: #242424;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-.outline-link-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-.outline-link {
-  height: 15px;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 18.5px;
-  text-decoration: none;
-  color: #242424;
-  cursor: pointer;
-  pointer-events: all;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
