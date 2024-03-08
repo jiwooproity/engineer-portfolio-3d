@@ -3,10 +3,10 @@ on:
   push:
     branches:
       - deploy
-env:
-  VITE_SCREEN_SRC: https://web-engineer-portfolio-dc9c2nltcr2zew.sel5.cloudtype.app/screen
 jobs:
   deploy:
+    env:
+      VITE_SCREEN_SRC: https://web-engineer-portfolio-dc9c2nltcr2zew.sel5.cloudtype.app/screen
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
