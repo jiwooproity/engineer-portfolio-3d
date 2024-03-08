@@ -3,7 +3,7 @@ import "./style.css";
 import { Main } from "@/page";
 import { Outline } from "@/entities/components";
 
-const Canvas = () => {
+const App = () => {
   return (
     <div className="main-layout">
       <Main />
@@ -12,4 +12,4 @@ const Canvas = () => {
   );
 };
 
-export default Canvas;
+export default App;
