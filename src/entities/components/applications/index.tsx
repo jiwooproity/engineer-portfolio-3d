@@ -1,4 +1,5 @@
 import "@/shared/assets/css/screen/applications.css";
+import { useWindows } from "@/shared/hooks";
 
 import { DragEvent, MouseEvent, useEffect, useState } from "react";
 
@@ -10,6 +11,7 @@ const APP_LITS = [
 ];
 
 const Applications = () => {
+  const { WINDOWS, openApplication } = useWindows();
   const [selected, setSelected] = useState("");
 
   const onDragStart = (e: DragEvent) => {
@@ -23,7 +25,6 @@ const Applications = () => {
     const top = e.clientY > 60 ? e.clientY - 40 : 30;
     target.style.setProperty("top", `${top}px`);
     target.style.setProperty("left", `${e.clientX - 40}px`);
-    target.style.setProperty("z-index", "9999");
   };
 
   const onDoubleClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -45,6 +46,12 @@ const Applications = () => {
         );
         anchor.click();
         break;
+      case "app-memo":
+        openApplication(WINDOWS.MEMO);
+        break;
+      case "app-terminal":
+        openApplication(WINDOWS.TERMINAL);
+        break;
       default:
         break;
     }
@@ -52,7 +59,12 @@ const Applications = () => {
     setSelected(value);
   };
 
-  const initSelected = () => setSelected("");
+  const initSelected = (e: globalThis.MouseEvent) => {
+    const target = e.target;
+    const current = e.currentTarget;
+    if (target === current) setSelected("");
+  };
+
   const focusSelected = (icon: string) => setSelected(icon);
 
   useEffect(() => {
