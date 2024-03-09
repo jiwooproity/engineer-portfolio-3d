@@ -1,11 +1,12 @@
 import "@/shared/assets/css/screen.css";
 
-import { LockScreen, Navigation } from "@/entities/components";
+import { Applications, LockScreen, Navigation } from "@/entities/components";
 
 const Screen = () => {
   return (
     <div className="screen-container">
       <Navigation />
+      <Applications />
       <div className="screen-bottom-nav"></div>
       <LockScreen />
     </div>

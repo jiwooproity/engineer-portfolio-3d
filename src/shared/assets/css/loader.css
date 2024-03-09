@@ -108,7 +108,7 @@
   font-weight: 100;
 }
 
-.terminal {
+.terminal-container > .terminal {
   width: 500px;
   height: 350px;
   background-color: black;
