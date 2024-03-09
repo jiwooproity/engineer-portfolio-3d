@@ -17,14 +17,28 @@
   pointer-events: none;
 }
 
+.lock-screen-date {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  line-height: 40px;
+  font-family: "AppleSDGothicNeo";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .lock-screen-time {
   position: absolute;
   top: 150px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 80px;
-  line-height: 80px;
-  color: white;
+  font-size: 150px;
+  line-height: 150px;
+  font-family: "AppleSDGothicNeo";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .lock-screen-access-box {
@@ -40,8 +54,8 @@
 }
 
 .lock-screen-profile {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background-color: white;
 }
@@ -49,18 +63,29 @@
 .lock-screen-name {
   font-size: 25px;
   line-height: 25px;
+  font-family: "AppleSDGothicNeo";
+  font-weight: 400;
   color: white;
 }
 
 .lock-screen-access-box > button {
-  font-size: 15px;
-  line-height: 15px;
-  width: 80px;
-  padding: 5px 10px;
+  width: 100px;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
   backdrop-filter: blur(10px);
   cursor: pointer;
+}
+
+.lock-screen-access-box > button > span {
+  height: 15px;
+  font-size: 18px;
+  line-height: 18px;
+  font-family: "AppleSDGothicNeo";
+  font-weight: 400;
 }

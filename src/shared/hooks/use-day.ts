@@ -30,7 +30,8 @@ const useDay = () => {
   const day = dayjs().get("D");
   const dayIndex = dayjs().get("d");
 
-  const [time, setTime] = useState("00:00 AM");
+  const [time, setTime] = useState("00:00");
+  const [meridiem, setMeridiem] = useState("AM");
   const updateTime = useMemo(() => time, [time]);
 
   useInterval(() => {
@@ -38,7 +39,8 @@ const useDay = () => {
     const minutes = dayjs().get("minutes").toString().padStart(2, "0");
     const meridiem = dayjs().get("h") >= 12 ? "PM" : "AM";
 
-    setTime(`${hours}:${minutes} ${meridiem}`);
+    setTime(`${hours}:${minutes}`);
+    setMeridiem(meridiem);
   }, 1);
 
   return {
@@ -46,6 +48,7 @@ const useDay = () => {
     day: day,
     week: dayOfWeek[+dayIndex],
     time: updateTime,
+    meridiem: meridiem,
   };
 };
 
