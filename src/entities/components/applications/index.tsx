@@ -1,6 +1,6 @@
 import "@/shared/assets/css/applications.css";
 
-import { DragEvent, MouseEvent } from "react";
+import { DragEvent, MouseEvent, useEffect, useState } from "react";
 
 const APP_LITS = [
   { icon: "app-notion", name: "Notion" },
@@ -9,6 +9,8 @@ const APP_LITS = [
 ];
 
 const Applications = () => {
+  const [selected, setSelected] = useState("");
+
   const onDragStart = (e: DragEvent) => {
     const target = e.target as HTMLDivElement;
     target.classList.add("dragging");
@@ -25,7 +27,7 @@ const Applications = () => {
 
   const onDoubleClick = (e: MouseEvent<HTMLDivElement>) => {
     const current = e.currentTarget;
-    const value = current.dataset["value"];
+    const value = current.dataset["value"] as string;
 
     const anchor = document.createElement("a");
     anchor.setAttribute("target", "_blank");
@@ -45,23 +47,39 @@ const Applications = () => {
       default:
         break;
     }
+
+    setSelected(value);
   };
+
+  const initSelected = () => setSelected("");
+  const focusSelected = (icon: string) => setSelected(icon);
+
+  useEffect(() => {
+    const container = document.querySelector(
+      ".screen-container"
+    ) as HTMLDivElement;
+
+    container.addEventListener("click", initSelected);
+    return () => container.removeEventListener("click", initSelected);
+  }, []);
 
   return APP_LITS.map((app, i) => {
     const x = 20;
-    const y = i * 121 + 50;
+    const y = i * 141 + 60;
     const style = { top: y, left: x };
+    const select = selected === app.icon ? "selected" : "";
 
     return (
       <div
         key={app.name}
-        className="application"
+        className={`application ${select}`}
         style={style}
         draggable={true}
         data-value={app.icon}
         onDoubleClick={onDoubleClick}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
+        onClick={() => focusSelected(app.icon)}
       >
         <div className={`application-icon ${app.icon}`} />
         <span className="application-name">{app.name}</span>
