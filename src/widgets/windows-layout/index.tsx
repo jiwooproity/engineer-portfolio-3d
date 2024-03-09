@@ -19,6 +19,7 @@ const WindowLayout = (props: WindowLayoutPropsIF) => {
     const moveAt = (x: number, y: number) => {
       target.style.left = x - shiftX + "px";
       target.style.top = y - shiftY + "px";
+      target.style.transform = "none";
     };
 
     const onMouseMove = (e: globalThis.MouseEvent) => {
