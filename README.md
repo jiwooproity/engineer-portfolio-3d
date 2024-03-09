@@ -2,6 +2,18 @@
 이번 포트폴리오는 F.S.D 파일 구조 방식과 R3F ( React Three Fiber ) 의 도움을 받아 작업 중인 프로젝트입니다.  
 Three.js + React + Html Mix 와 관련된 내용을 보다가 관심을 가지게 되었습니다.  
 
+# Convention
+|태그|내용|
+|--|--|
+|Feat|새로운 기능을 추가한 경우|
+|Fix|버그를 수정한 경우|
+|Style|스타일시트 수정 및 코드 포맷을 변경한 경우|
+|Refactor|코드를 리팩토링한 경우 (정리)|
+|Chore|모듈을 추가하거나 변경한 경우 / 개발 환경을 수정한 경우|
+|Rename|파일명 변경, 디렉토리 변경|
+|Delete|파일을 삭제한 경우|
+|Docs|문서를 수정한 경우|
+
 ## Skills
 Vite -> React, Typescript  
 

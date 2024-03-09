@@ -29,15 +29,19 @@
 }
 
 .application-icon.app-github {
-  background-image: url(../images/app-github.png);
+  background-image: url(../../images/applications/app-github.png);
 }
 
 .application-icon.app-terminal {
-  background-image: url(../images/app-terminal.png);
+  background-image: url(../../images/applications/app-terminal.png);
 }
 
 .application-icon.app-notion {
-  background-image: url(../images/app-notion.png);
+  background-image: url(../../images/applications/app-notion.png);
+}
+
+.application-icon.app-memo {
+  background-image: url(../../images/applications/app-memo.png);
 }
 
 .application-name {

@@ -1,4 +1,4 @@
-import "@/shared/assets/css/realtime.css";
+import "@/shared/assets/css/screen/realtime.css";
 
 import { useCheckOS, useDay } from "@/shared/hooks";
 

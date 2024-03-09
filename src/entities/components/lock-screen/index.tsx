@@ -1,5 +1,5 @@
-import "@/shared/assets/css/lock-screen.css";
-import profile from "@/shared/assets/images/my-profile.png";
+import "@/shared/assets/css/screen/lock-screen.css";
+import profile from "@/shared/assets/images/screen/my-profile.png";
 
 import { useCheckOS, useDay } from "@/shared/hooks";
 import { useEffect, useState } from "react";
