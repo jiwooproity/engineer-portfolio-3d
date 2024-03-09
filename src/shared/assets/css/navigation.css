@@ -1,6 +1,6 @@
 .nav-container {
   width: 100%;
-  height: 30px;
+  height: 40px;
   padding: 5px 25px;
   display: flex;
   justify-content: space-between;
@@ -30,23 +30,23 @@
 }
 
 .nav-title {
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   font-weight: bold;
   color: black;
 }
 
 .nav-title.mac {
-  height: 12px;
+  height: 14px;
 }
 
 .nav-item {
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   text-decoration: none;
   color: black;
 }
 
 .nav-item.mac {
-  height: 12px;
+  height: 14px;
 }

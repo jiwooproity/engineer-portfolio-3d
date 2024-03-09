@@ -6,19 +6,19 @@
 }
 
 .realtime-box.mac > span {
-  height: 12px;
+  height: 14px;
 }
 
 .realtime-date {
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   font-weight: 400;
   color: black;
 }
 
 .realtime-time {
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   font-weight: 400;
   color: black;
 }
