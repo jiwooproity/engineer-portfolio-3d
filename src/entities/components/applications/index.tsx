@@ -1,4 +1,4 @@
-import "@/shared/assets/css/applications.css";
+import "@/shared/assets/css/screen/applications.css";
 
 import { DragEvent, MouseEvent, useEffect, useState } from "react";
 
@@ -6,6 +6,7 @@ const APP_LITS = [
   { icon: "app-notion", name: "Notion" },
   { icon: "app-github", name: "GitHub" },
   { icon: "app-terminal", name: "Terminal" },
+  { icon: "app-memo", name: "Memo" },
 ];
 
 const Applications = () => {

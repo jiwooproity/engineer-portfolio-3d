@@ -1,4 +1,4 @@
-import "@/shared/assets/css/loader.css";
+import "@/shared/assets/css/main/loader.css";
 
 import { useEffect, useState } from "react";
 import { type ReactNode, type ChangeEvent, type KeyboardEvent } from "react";

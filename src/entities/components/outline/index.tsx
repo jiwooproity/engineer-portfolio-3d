@@ -1,4 +1,4 @@
-import "@/shared/assets/css/outline.css";
+import "@/shared/assets/css/main/outline.css";
 
 const Outline = () => {
   return (

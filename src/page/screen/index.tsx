@@ -1,4 +1,4 @@
-import "@/shared/assets/css/screen.css";
+import "@/shared/assets/css/screen/screen.css";
 
 import { Applications, LockScreen, Navigation } from "@/entities/components";
 
