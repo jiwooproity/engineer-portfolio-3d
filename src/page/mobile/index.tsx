@@ -1,7 +1,7 @@
 import { MobileGuide } from "@/entities/components";
 
 const Mobile = () => {
-  return <MobileGuide></MobileGuide>;
+  return <MobileGuide />;
 };
 
 export default Mobile;

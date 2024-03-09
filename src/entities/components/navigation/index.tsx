@@ -1,4 +1,4 @@
-import "@/shared/assets/css/navigation.css";
+import "@/shared/assets/css/screen/navigation.css";
 
 import { RealTime } from "@/entities/components";
 import { useCheckOS } from "@/shared/hooks";
