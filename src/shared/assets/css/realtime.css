@@ -5,8 +5,11 @@
   gap: 5px;
 }
 
-.realtime-date {
+.realtime-box.mac > span {
   height: 12px;
+}
+
+.realtime-date {
   font-size: 18px;
   line-height: 18px;
   font-weight: 400;
@@ -14,7 +17,6 @@
 }
 
 .realtime-time {
-  height: 12px;
   font-size: 18px;
   line-height: 18px;
   font-weight: 400;
