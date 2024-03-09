@@ -24,12 +24,16 @@
   cursor: pointer;
 }
 
-.application-icon.github {
+.application-icon.app-github {
   background-image: url(../images/app-github.png);
 }
 
-.application-icon.terminal {
+.application-icon.app-terminal {
   background-image: url(../images/app-terminal.png);
+}
+
+.application-icon.app-notion {
+  background-image: url(../images/app-notion.png);
 }
 
 .application-name {

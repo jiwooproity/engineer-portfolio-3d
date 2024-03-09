@@ -3,8 +3,9 @@ import "@/shared/assets/css/applications.css";
 import { DragEvent, MouseEvent } from "react";
 
 const APP_LITS = [
-  { icon: "github", name: "GitHub" },
-  { icon: "terminal", name: "Terminal" },
+  { icon: "app-notion", name: "Notion" },
+  { icon: "app-github", name: "GitHub" },
+  { icon: "app-terminal", name: "Terminal" },
 ];
 
 const Applications = () => {
@@ -25,7 +26,25 @@ const Applications = () => {
   const onDoubleClick = (e: MouseEvent<HTMLDivElement>) => {
     const current = e.currentTarget;
     const value = current.dataset["value"];
-    alert(value);
+
+    const anchor = document.createElement("a");
+    anchor.setAttribute("target", "_blank");
+
+    switch (value) {
+      case "app-github":
+        anchor.setAttribute("href", "https://github.com/jiwooproity");
+        anchor.click();
+        break;
+      case "app-notion":
+        anchor.setAttribute(
+          "href",
+          "https://www.notion.so/Resume-1579598f11a14aa5bfc83c3606914732"
+        );
+        anchor.click();
+        break;
+      default:
+        break;
+    }
   };
 
   return APP_LITS.map((app, i) => {
