@@ -1,0 +1,39 @@
+.application {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  opacity: 1;
+  transition: opacity 0s ease;
+}
+
+.application.dragging {
+  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.application-icon {
+  width: 80px;
+  height: 80px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.application-icon.github {
+  background-image: url(../images/app-github.png);
+}
+
+.application-icon.terminal {
+  background-image: url(../images/app-terminal.png);
+}
+
+.application-name {
+  font-size: 16px;
+  line-height: 16px;
+  color: white;
+}
