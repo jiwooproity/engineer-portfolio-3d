@@ -1,16 +1,19 @@
 import "@/shared/assets/css/navigation.css";
 
 import { RealTime } from "@/entities/components";
+import { useCheckOS } from "@/shared/hooks";
 
 const Navigation = () => {
+  const OS = useCheckOS();
+
   return (
     <div className="nav-container">
       <div className="nav-left-area">
         <img className="nav-logo" src="../svgs/apple-logo.svg" />
-        <span className="nav-title">Finder</span>
+        <span className={`nav-title ${OS}`}>Finder</span>
         <a
           href="https://github.com/jiwooproity"
-          className="nav-item"
+          className={`nav-item ${OS}`}
           target="_blank"
         >
           GitHub
