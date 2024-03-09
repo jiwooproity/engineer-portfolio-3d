@@ -30,17 +30,23 @@
 }
 
 .nav-title {
-  height: 12px;
   font-size: 18px;
   line-height: 18px;
   font-weight: bold;
   color: black;
 }
 
-.nav-item {
+.nav-title.mac {
   height: 12px;
+}
+
+.nav-item {
   font-size: 18px;
   line-height: 18px;
   text-decoration: none;
   color: black;
+}
+
+.nav-item.mac {
+  height: 12px;
 }
