@@ -116,7 +116,8 @@ const TrackPad = (props: SpecificPropsTypes) => {
 };
 
 const Macbook = () => {
-  const { nodes, materials } = useGLTF("../models/glb/macbook.glb") as DreiGLTF;
+  const dir = import.meta.env.DEV ? "dev-models" : "models";
+  const { nodes, materials } = useGLTF(`../${dir}/glb/macbook.glb`) as DreiGLTF;
   const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
   return (
