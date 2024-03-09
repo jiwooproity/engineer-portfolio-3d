@@ -25,4 +25,3 @@ dist-ssr
 
 # 3d glb models
 public/dev-models/*
-public/models/*
