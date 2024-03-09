@@ -1,13 +1,23 @@
 import "./style.css";
 
-import { Main } from "@/page";
+import { Main, Mobile } from "@/page";
 import { Outline } from "@/entities/components";
 
 const App = () => {
+  const width = window.innerWidth;
+
   return (
     <div className="main-layout">
-      <Main />
-      <Outline />
+      {width > 768 ? (
+        <>
+          <Main />
+          <Outline />
+        </>
+      ) : (
+        <>
+          <Mobile />
+        </>
+      )}
     </div>
   );
 };
