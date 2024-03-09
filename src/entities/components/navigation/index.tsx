@@ -11,13 +11,7 @@ const Navigation = () => {
       <div className="nav-left-area">
         <img className="nav-logo" src="../svgs/apple-logo.svg" />
         <span className={`nav-title ${OS}`}>Finder</span>
-        <a
-          href="https://github.com/jiwooproity"
-          className={`nav-item ${OS}`}
-          target="_blank"
-        >
-          GitHub
-        </a>
+        <span className={`nav-item ${OS}`}>File</span>
       </div>
       <div className="nav-right-area">
         <RealTime />
