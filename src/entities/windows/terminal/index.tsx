@@ -75,7 +75,7 @@ const Terminal = () => {
           <div className="terminal-sub-nav-add">+</div>
         </div>
       </div>
-      <div className="terminal-content">
+      <div className="terminal-content" draggable={true}>
         {loaded ? <GitReleaseInfo data={release} /> : <GitLoader />}
       </div>
     </div>
