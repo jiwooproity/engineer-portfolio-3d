@@ -9,14 +9,32 @@
 
 .terminal-nav {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #343434;
+}
+
+.terminal-nav-left-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.terminal-nav-right-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 .terminal-nav-btns-wrapper {
-  padding: 10px 8px;
   display: flex;
   justify-items: center;
   align-items: center;
   gap: 10px;
+  padding: 10px 10px;
 }
 
 .terminal-nav-btn {
@@ -37,4 +55,46 @@
 
 .terminal-nav-btn.full {
   background-color: #26c948;
+}
+
+.terminal-sub-nav {
+  width: 550px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #464646;
+}
+
+.terminal-sub-nav-dir {
+  font-size: 15px;
+  line-height: 15px;
+  color: white;
+}
+
+.terminal-sub-nav-add {
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #656666;
+  font-weight: 100;
+}
+
+.terminal-content {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.terminal-content > p {
+  color: white;
+  font-size: 18px;
+  line-height: 22px;
 }
