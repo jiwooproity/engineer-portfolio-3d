@@ -1,20 +1,14 @@
 import { atom } from "recoil";
 
-interface AppOptionsIF {
+export interface AppOptionsIF {
+  name: string;
   width: number;
   height: number;
-  status: boolean;
 }
 
-const DEFAULT_APP = {
-  memo: {
-    width: 1500,
-    height: 800,
-    status: false,
-  },
-};
+const DEFAULT_APP: AppOptionsIF[] = [];
 
-const windowHistory = atom<{ [key: string]: AppOptionsIF }>({
+const windowHistory = atom<AppOptionsIF[]>({
   key: "window-history",
   default: DEFAULT_APP,
 });
