@@ -16,7 +16,7 @@ const WINDOW_LIST: { [key: string]: AppOptionsIF } = {
   terminal: {
     name: "terminal",
     width: 800,
-    height: 500,
+    height: 530,
   },
 };
 
