@@ -1,20 +1,36 @@
 import "@/shared/assets/css/windows/app-layout.css";
 
-import { MouseEvent, ReactNode, useEffect } from "react";
+import { CSSProperties, MouseEvent, ReactNode, useEffect } from "react";
 
 interface WindowLayoutPropsIF {
   name: string;
   width: number;
   height: number;
+  style: CSSProperties;
   children: ReactNode;
 }
 
 const WindowLayout = (props: WindowLayoutPropsIF) => {
-  const { name, width, height, children } = props;
+  const { name, width, height, style, children } = props;
 
   const getElementAttr = (className: string) => {
     const target = document.querySelector(className);
     return target as HTMLDivElement;
+  };
+
+  const getElementAttrAll = (className: string) => {
+    const targets = document.querySelectorAll(className);
+    return targets as NodeListOf<HTMLDivElement>;
+  };
+
+  const changeFocus = () => {
+    const focusing = (app: HTMLDivElement) => {
+      const isFocusApp = app.className.includes(`${name}-application`);
+      app.style.setProperty("z-index", `${isFocusApp ? "9998" : "1"}`);
+    };
+
+    const getApps = getElementAttrAll(".app-container");
+    getApps.forEach(focusing);
   };
 
   const onDragStart = (e: MouseEvent) => {
@@ -44,6 +60,8 @@ const WindowLayout = (props: WindowLayoutPropsIF) => {
     const container = getElementAttr(".screen-container");
     container.addEventListener("mousemove", onMouseMove);
     target.onmouseup = onMouseUp;
+
+    changeFocus();
   };
 
   useEffect(() => {
@@ -55,9 +73,10 @@ const WindowLayout = (props: WindowLayoutPropsIF) => {
   return (
     <div
       className={`app-container ${name}-application`}
-      style={{ width, height }}
+      style={{ ...style, width, height }}
       draggable={true}
       onDragStart={onDragStart}
+      onClick={changeFocus}
     >
       {children}
     </div>

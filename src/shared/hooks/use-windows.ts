@@ -1,27 +1,36 @@
 import { useRecoilState } from "recoil";
 import { windowHistory } from "@/shared/store/atoms";
+import { type AppOptionsIF } from "@/shared/store/atoms/window-history";
 
 const WINDOWS = {
   MEMO: "memo",
   TERMINAL: "terminal",
 };
 
-const useWindows = () => {
-  const [_, setHistory] = useRecoilState(windowHistory);
+const WINDOW_LIST: { [key: string]: AppOptionsIF } = {
+  memo: {
+    name: "memo",
+    width: 1500,
+    height: 800,
+  },
+  terminal: {
+    name: "terminal",
+    width: 800,
+    height: 500,
+  },
+};
 
-  const changeStatus = (name: string, status: boolean) => {
-    setHistory((history) => ({
-      ...history,
-      [name]: { ...history[name], status },
-    }));
-  };
+const useWindows = () => {
+  const [history, setHistory] = useRecoilState(windowHistory);
 
   const openApplication = (name: string) => {
-    changeStatus(name, true);
+    if (history.find((his) => his.name === name)) return;
+    setHistory((history) => [...history, WINDOW_LIST[name]]);
   };
 
   const closeApplication = (name: string) => {
-    changeStatus(name, false);
+    const filter = history.filter((his) => his.name !== name);
+    setHistory([...filter]);
   };
 
   return { WINDOWS, openApplication, closeApplication };
