@@ -22,7 +22,7 @@ const Applications = () => {
   const onDragEnd = (e: DragEvent) => {
     const target = e.target as HTMLDivElement;
     target.classList.remove("dragging");
-    const top = e.clientY > 60 ? e.clientY - 40 : 30;
+    const top = e.clientY > 60 ? e.clientY - 40 : 40;
     target.style.setProperty("top", `${top}px`);
     target.style.setProperty("left", `${e.clientX - 40}px`);
   };

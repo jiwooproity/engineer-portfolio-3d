@@ -19,6 +19,7 @@ const AppLayout = () => {
     applications[app].status ? (
       <WindowLayout
         key={app}
+        name={app}
         width={applications[app].width}
         height={applications[app].height}
       >
