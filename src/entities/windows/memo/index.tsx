@@ -17,7 +17,11 @@ const Memo = () => {
           </div>
         </div>
         <div className="memo-nav-right-area">
-          <input className="memo-nav-search" placeholder="Search" />
+          <input
+            className="memo-nav-search"
+            placeholder="Search"
+            draggable={true}
+          />
         </div>
       </div>
       <div className="memo-content-area" draggable={true}>

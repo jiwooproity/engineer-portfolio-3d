@@ -65,6 +65,7 @@
   background-color: transparent;
   border: 3px solid #424141;
   color: white;
+  pointer-events: all;
 }
 
 .memo-nav-search:focus {
