@@ -26,19 +26,23 @@ const Memo = () => {
           <div className="memo-comment-list">
             <div className="memo-comment-item">
               <h1 className="memo-item-title">포트폴리오</h1>
-              <span className="memo-item-content">오전 : This is ..</span>
+              <span className="memo-item-content">오전 : 이건 제 포트 ..</span>
             </div>
             <div className="memo-comment-item">
-              <h1 className="memo-item-title">포트폴리오</h1>
-              <span className="memo-item-content">오전 : This is ..</span>
-            </div>
-            <div className="memo-comment-item">
-              <h1 className="memo-item-title">포트폴리오</h1>
-              <span className="memo-item-content">오전 : This is ..</span>
+              <h1 className="memo-item-title">안녕하세요</h1>
+              <span className="memo-item-content">
+                오후 : 프론트엔드 개발 ..
+              </span>
             </div>
           </div>
         </div>
-        <div className="memo-content-right-area"></div>
+        <div className="memo-content-right-area">
+          <h1 className="memo-content-title">안녕하세요</h1>
+          <p className="memo-content-text">프론트엔드 개발자 소지우입니다.</p>
+          <p className="memo-content-text">
+            주로 Javascript, React 기술을 사용합니다.
+          </p>
+        </div>
       </div>
     </div>
   );
