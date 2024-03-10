@@ -1,6 +1,6 @@
 import "@/shared/assets/css/windows/app-terminal.css";
 
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useWindows } from "@/shared/hooks";
 
@@ -10,8 +10,32 @@ import { type GitReleaseResultsIF } from "@/shared/types/git-release-fetch";
 import dayjs from "dayjs";
 import { marked } from "marked";
 
+const GitLoader = () => {
+  return <p className="in-cursor">Loading Git Release Information .. </p>;
+};
+
+const GitReleaseInfo = ({ data }: { data: GitReleaseResultsIF }) => {
+  return (
+    <>
+      <p className="release">{data.name}</p>
+      <p>Published: {data.published_at}</p>
+      <br />
+      <div
+        className="git-markdown"
+        dangerouslySetInnerHTML={{ __html: data.body }}
+      ></div>
+      <br />
+      <p>Business: Dejay</p>
+      <p>E-mail: jiwooproity@naver.com</p>
+      <br />
+      <p className="in-cursor">[ Front-End Developer ] Created By So Jiwoo</p>
+    </>
+  );
+};
+
 const Terminal = () => {
   const { WINDOWS, closeApplication } = useWindows();
+  const [loaded, setLoaded] = useState(false);
   const [release, setRelease] = useState<GitReleaseResultsIF>({
     body: "",
     created_at: "",
@@ -27,6 +51,7 @@ const Terminal = () => {
     const date = dayjs(releaseInfo.published_at).format("YYYY-MM-DD");
     const html = await marked.parse(releaseInfo.body);
     setRelease({ ...releaseInfo, published_at: date, body: html });
+    setTimeout(() => setLoaded(true), 500);
   };
 
   useEffect(() => {
@@ -50,24 +75,9 @@ const Terminal = () => {
           <div className="terminal-sub-nav-add">+</div>
         </div>
       </div>
-      <Suspense fallback={null}>
-        <div className="terminal-content">
-          <p className="release">{release.name}</p>
-          <p>Published: {release.published_at}</p>
-          <br />
-          <div
-            className="git-markdown"
-            dangerouslySetInnerHTML={{ __html: release.body }}
-          ></div>
-          <br />
-          <p>Business: Dejay</p>
-          <p>E-mail: jiwooproity@naver.com</p>
-          <br />
-          <p className="in-cursor">
-            [ Front-End Developer ] Created By So Jiwoo
-          </p>
-        </div>
-      </Suspense>
+      <div className="terminal-content">
+        {loaded ? <GitReleaseInfo data={release} /> : <GitLoader />}
+      </div>
     </div>
   );
 };
