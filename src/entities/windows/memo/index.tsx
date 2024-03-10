@@ -20,7 +20,7 @@ const Memo = () => {
           <input className="memo-nav-search" placeholder="Search" />
         </div>
       </div>
-      <div className="memo-content-area">
+      <div className="memo-content-area" draggable={true}>
         <div className="memo-content-left-area">
           <div className="memo-comment-list">
             <div className="memo-comment-item">
