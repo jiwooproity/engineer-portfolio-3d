@@ -77,7 +77,7 @@ const Screen = (props: ScreenPropsTypes) => {
     <mesh geometry={mesh.geometry} material={material} castShadow receiveShadow>
       <Html
         pointerEvents="none"
-        rotation={[-0.331, 0, 0]}
+        rotation={[-0.33, 0, 0]}
         position={[0, 9.6, -14.168]}
         distanceFactor={6}
         transform
