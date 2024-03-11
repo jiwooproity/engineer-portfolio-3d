@@ -4,12 +4,13 @@ import { ChangeEvent } from "react";
 
 export interface MemoEditorPropsIF {
   data: MemoDataIF;
+  values: { title: string; content: string };
   toggle: boolean;
   onChange: (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
 }
 
 const MemoEditor = (props: MemoEditorPropsIF) => {
-  const { data, toggle, onChange } = props;
+  const { data, values, toggle, onChange } = props;
 
   return (
     <div className="memo-editor-container">
@@ -19,6 +20,7 @@ const MemoEditor = (props: MemoEditorPropsIF) => {
             className="memo-content-title"
             type="text"
             name="title"
+            value={values.title}
             onChange={onChange}
             maxLength={50}
             placeholder="제목"
@@ -26,6 +28,7 @@ const MemoEditor = (props: MemoEditorPropsIF) => {
           <textarea
             className="memo-content-text"
             name="content"
+            value={values.content}
             onChange={onChange}
             maxLength={200}
             placeholder="소중한 메모 부탁드립니다."
