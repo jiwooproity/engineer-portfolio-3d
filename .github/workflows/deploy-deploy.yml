@@ -30,6 +30,10 @@ jobs:
               buildenv:
                 - name: VITE_SCREEN_SRC
                   value: https://web-engineer-portfolio-dc9c2nltcr2zew.sel5.cloudtype.app/screen
+                - name: VITE_NOTION_TOKEN
+                  value: ${{ secrets.VITE_NOTION_TOKEN }}
+                - name: VITE_NOTION_DATABASE_ID
+                  value: ${{ secrets.VITE_NOTION_DATABASE_ID }}
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
