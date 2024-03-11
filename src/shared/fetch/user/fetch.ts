@@ -1,8 +1,8 @@
-import instance from "@/shared/fetch/instance";
+import { instance } from "@/shared/fetch/instance";
 
 import USER_URLS from "@/shared/fetch/user/urls";
 
-import { UserResultsIF, UserResponseIF } from "@/shared/types/user-fetch";
+import { UserResultsIF, UserResponseIF } from "@/shared/types/fetch/user-fetch";
 
 const createUID = (result: UserResultsIF) => {
   return {

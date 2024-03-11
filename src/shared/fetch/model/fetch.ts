@@ -1,9 +1,9 @@
-import instance from "@/shared/fetch/instance";
+import instance from "@/shared/fetch/instance/instance";
 
 import MODEL_URLS from "@/shared/fetch/model/urls";
 import { getAllModels } from "@/shared/fetch/user/fetch";
-import { ModelResponseIF } from "@/shared/types/model-fetch";
-import { UserResultsIF } from "@/shared/types/user-fetch";
+import { ModelResponseIF } from "@/shared/types/fetch/model-fetch";
+import { UserResultsIF } from "@/shared/types/fetch/user-fetch";
 
 const createObjectKey = async (model: UserResultsIF) => {
   return {

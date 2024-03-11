@@ -1,3 +1,3 @@
-import WindowLayout from "./windows-layout";
+import MemoEditor from "./memo-editor";
 
-export { WindowLayout };
+export { MemoEditor };
