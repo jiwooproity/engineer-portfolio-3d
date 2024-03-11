@@ -1,63 +1,75 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-@font-face {
-  font-family: "D2Coding";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff")
-    format("woff");
-}
-
-@font-face {
-  font-family: "AppleSDGothicNeo";
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
   font-weight: 100;
-  src: url(/fonts/AppleSDGothicNeoT.woff2) format("woff2");
+  font-style: normal;
 }
 
-@font-face {
-  font-family: "AppleSDGothicNeo";
-  font-weight: 200;
-  src: url(/fonts/AppleSDGothicNeoUL.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "AppleSDGothicNeo";
+.roboto-light {
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
-  src: url(/fonts/AppleSDGothicNeoL.woff2) format("woff2");
+  font-style: normal;
 }
 
-@font-face {
-  font-family: "AppleSDGothicNeo";
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
-  src: url(/fonts/AppleSDGothicNeoR.woff2) format("woff2");
+  font-style: normal;
 }
 
-@font-face {
-  font-family: "AppleSDGothicNeo";
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
-  src: url(/fonts/AppleSDGothicNeoM.woff2) format("woff2");
+  font-style: normal;
 }
 
-@font-face {
-  font-family: "AppleSDGothicNeo";
-  font-weight: 600;
-  src: url(/fonts/AppleSDGothicNeoSB.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "AppleSDGothicNeo";
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
-  src: url(/fonts/AppleSDGothicNeoB.woff2) format("woff2");
+  font-style: normal;
 }
 
-@font-face {
-  font-family: "AppleSDGothicNeo";
-  font-weight: 800;
-  src: url(/fonts/AppleSDGothicNeoEB.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "AppleSDGothicNeo";
+.roboto-black {
+  font-family: "Roboto", sans-serif;
   font-weight: 900;
-  src: url(/fonts/AppleSDGothicNeoH.woff2) format("woff2");
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 * {
