@@ -2,7 +2,7 @@ import "@/shared/assets/css/windows/app-layout.css";
 
 import { useRecoilValue } from "recoil";
 import { windowHistory } from "@/shared/store/atoms";
-import { WindowLayout } from "@/widgets";
+import { WindowLayout } from "@/shared/layout";
 
 import Memo from "./memo";
 import Terminal from "./terminal";
