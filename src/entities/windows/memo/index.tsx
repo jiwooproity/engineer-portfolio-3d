@@ -101,7 +101,12 @@ const Memo = () => {
           />
         </div>
         <div className="memo-content-right-area">
-          <MemoEditor data={showData} toggle={toggle} onChange={onInsert} />
+          <MemoEditor
+            data={showData}
+            values={text}
+            toggle={toggle}
+            onChange={onInsert}
+          />
           {renderUpdateBtn()}
         </div>
       </div>
