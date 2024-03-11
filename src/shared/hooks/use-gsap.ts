@@ -51,7 +51,7 @@ const useGsap = () => {
     gsap.timeline().to(rotation, {
       duration: 2,
       repeat: 0,
-      x: useY ? -pointer.y : 0.35,
+      x: useY ? pointer.y : 0.35,
       y: -pointer.x / 5,
       z: 0,
       ease: "power3.out",

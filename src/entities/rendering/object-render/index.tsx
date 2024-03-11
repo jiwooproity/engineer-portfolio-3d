@@ -53,7 +53,7 @@ const ObjectRender = forwardRef(
       const coffeeShop = coffeeShopGroup.current as THREE.Group;
 
       if (laptop) {
-        moveRotation(macbook.rotation, new THREE.Vector2(0, 0));
+        moveRotation(macbook.rotation, new THREE.Vector2(0, 0.335), true);
       } else {
         moveRotation(macbook.rotation, state.pointer);
 
@@ -71,7 +71,7 @@ const ObjectRender = forwardRef(
           name="macbook-group"
           ref={macbookGroup}
           {...props}
-          rotation={[0.35, 0, 0]}
+          rotation={[0.335, 0, 0]}
           position={[0, -5, 0]}
           onPointerDown={zoom}
           onPointerMissed={missed}
