@@ -13,6 +13,7 @@
   z-index: 100000000;
   opacity: 1;
   transition: opacity 0.5s ease;
+  font-family: "D2Coding";
 }
 
 .terminal-container.ready {
@@ -92,7 +93,6 @@
 .terminal-sub-tab-dir {
   font-size: 10px;
   line-height: 10px;
-  font-family: "D2Coding";
   color: white;
 }
 
@@ -132,7 +132,6 @@
   color: white;
   font-size: 11px;
   line-height: 11px;
-  font-family: "D2Coding";
   font-weight: 100;
 }
 
@@ -168,20 +167,17 @@
   right: -30px;
   transform: translateY(-50%);
   color: rgb(236, 236, 236);
-  font-family: "D2Coding";
   font-weight: 700;
 }
 
 .progress-bar-text-wrap {
   margin-top: 1px;
   color: rgb(236, 236, 236);
-  font-family: "D2Coding";
   font-weight: 400;
 }
 
 .progress-bar-text {
   color: rgb(113, 113, 113);
-  font-family: "D2Coding";
   font-weight: 400;
 }
 
