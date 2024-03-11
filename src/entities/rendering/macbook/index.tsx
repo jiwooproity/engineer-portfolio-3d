@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { Html, useGLTF } from "@react-three/drei";
 
 import { useLaptop } from "@/shared/hooks";
-import { type DreiGLTF, type MeshTypes } from "@/shared/types/gltf";
+import { type DreiGLTF, type MeshTypes } from "@/shared/types/three/gltf";
 
 type StandardPropsTypes = {
   mesh: MeshTypes[];

@@ -5,10 +5,7 @@ import { useEffect, useState } from "react";
 import { useWindows } from "@/shared/hooks";
 
 import { getGitRelease } from "@/shared/fetch/git-release/fetch";
-import { type GitReleaseResultsIF } from "@/shared/types/git-release-fetch";
-
-import dayjs from "dayjs";
-import { marked } from "marked";
+import { type GitReleaseResultsIF } from "@/shared/types/git/git-release";
 
 const GitLoader = () => {
   return <p className="in-cursor">Loading Git Release Information .. </p>;
@@ -47,10 +44,8 @@ const Terminal = () => {
   const onClose = () => closeApplication(WINDOWS.TERMINAL);
 
   const onLoad = async () => {
-    const releaseInfo = await getGitRelease();
-    const date = dayjs(releaseInfo.published_at).format("YYYY-MM-DD");
-    const html = await marked.parse(releaseInfo.body);
-    setRelease({ ...releaseInfo, published_at: date, body: html });
+    const lastRelease = await getGitRelease();
+    setRelease({ ...lastRelease });
     setTimeout(() => setLoaded(true), 500);
   };
 
