@@ -1,12 +1,6 @@
 import { useWindows } from "@/shared/hooks";
 
-interface MemoNavigationPropsType {
-  onToggle: () => void;
-}
-
-const MemoNavigation = (props: MemoNavigationPropsType) => {
-  const { onToggle } = props;
-
+const MemoNavigation = () => {
   const { WINDOWS, closeApplication } = useWindows();
   const onClose = () => closeApplication(WINDOWS.MEMO);
 
@@ -20,7 +14,6 @@ const MemoNavigation = (props: MemoNavigationPropsType) => {
         </div>
       </div>
       <div className="memo-nav-right-area">
-        <button onClick={onToggle}>작성</button>
         <input
           className="memo-nav-search"
           placeholder="Search"
