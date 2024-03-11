@@ -3,7 +3,7 @@ import "@/shared/assets/css/windows/app-memo.css";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import { MemoEditor } from "@/widgets";
-import { getNotionMemo } from "@/shared/fetch/notion-api";
+import { getNotionMemo } from "@/shared/fetch/notion-api/fetch";
 
 import MemoNavigation from "./memo-navigation";
 import MemoList from "./memo-list";
