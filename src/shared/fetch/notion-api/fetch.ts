@@ -36,7 +36,9 @@ const getPropertyText = (property: PropertyContentIF) => {
 
 export const getNotionMemo = async () => {
   const databaseId = import.meta.env.VITE_NOTION_DATABASE_ID;
-  const proxyUrl = `/notion-api/databases/${databaseId}/query`;
+  const production = `https://api.notion.com/v1/databases/${databaseId}/query`;
+  const local = `/notion-api/databases/${databaseId}/query`;
+  const requestURL = import.meta.env.DEV ? local : production;
 
   const query = {
     filter: {
@@ -48,7 +50,7 @@ export const getNotionMemo = async () => {
     sorts: [{ property: "date", direction: "descending" }],
   };
 
-  const { data } = await notionInstance.post(proxyUrl, query);
+  const { data } = await notionInstance.post(requestURL, query);
   const results = data.results as PropertyContentIF[];
   const getOnlyText = results.map(getPropertyText);
   return getOnlyText;
