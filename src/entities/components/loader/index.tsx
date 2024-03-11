@@ -138,6 +138,7 @@ const Loader = () => {
             onChange={onChange}
             onKeyDown={onKeyDown}
             disabled={message !== null}
+            autoComplete="off"
           />
         </Content>
         <Content type="loaded" loaded={message !== null}>
