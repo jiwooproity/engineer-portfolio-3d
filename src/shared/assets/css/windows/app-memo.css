@@ -126,7 +126,8 @@
 
 .memo-comment-item-add {
   width: 100%;
-  height: 93px;
+  min-height: 93px;
+  max-height: 93px;
   display: flex;
   justify-content: center;
   align-items: center;
