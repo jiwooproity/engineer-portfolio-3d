@@ -1,9 +1,12 @@
 import "@/shared/assets/css/windows/app-memo.css";
 
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { MemoEditor } from "@/widgets";
-import { getNotionMemo } from "@/shared/fetch/notion-api/fetch";
+import {
+  createNotionMemo,
+  getNotionMemo,
+} from "@/shared/fetch/notion-api/fetch";
 
 import MemoNavigation from "./memo-navigation";
 import MemoList from "./memo-list";
@@ -47,34 +50,59 @@ const memoLoader = () => {
 };
 
 const Memo = () => {
-  const { data, showData, onSelect } = memoLoader();
+  const { data, showData, onSelect, onReload } = memoLoader();
 
   const [toggle, setToggle] = useState(false);
-  const text = useRef<MemoEditorStateIF>({ title: "", content: "" });
+  const [text, setText] = useState<MemoEditorStateIF>({
+    title: "",
+    content: "",
+  });
 
-  const onToggleEditor = () => setToggle(!toggle);
+  const onToggle = (toggle: boolean) => {
+    setToggle(toggle);
+    onInit();
+  };
 
-  const onInsertComment = useCallback(
-    (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-      const { name, value } = e.target;
-      text.current = { ...text.current, [name]: value };
-    },
-    [text.current.title, text.current.content]
-  );
+  const onInsert = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setText({ ...text, [name]: value });
+  };
+
+  const onInit = () => {
+    setText({ title: "", content: "" });
+  };
+
+  const onUpdate = async () => {
+    await createNotionMemo({ ...text }).then(() => {
+      onReload();
+      onInit();
+    });
+  };
+
+  const renderUpdateBtn = () => {
+    return text.title !== "" && text.content !== "" ? (
+      <button className="insert-btn" onClick={onUpdate}>
+        전달하기
+      </button>
+    ) : null;
+  };
 
   return (
     <div className="memo-wrapper">
-      <MemoNavigation onToggle={onToggleEditor} />
+      <MemoNavigation />
       <div className="memo-content-area" draggable={true}>
         <div className="memo-content-left-area">
-          <MemoList data={data} onSelect={onSelect} />
+          <MemoList
+            data={data}
+            insert={text}
+            toggle={toggle}
+            onSelect={onSelect}
+            onToggle={onToggle}
+          />
         </div>
         <div className="memo-content-right-area">
-          <MemoEditor
-            data={showData}
-            toggle={toggle}
-            onChange={onInsertComment}
-          />
+          <MemoEditor data={showData} toggle={toggle} onChange={onInsert} />
+          {renderUpdateBtn()}
         </div>
       </div>
     </div>
