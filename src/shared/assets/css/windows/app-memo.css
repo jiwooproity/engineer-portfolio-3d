@@ -84,7 +84,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: all;
+  /* pointer-events: all; */
 }
 
 .memo-content-left-area {
@@ -98,6 +98,12 @@
   padding: 15px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  pointer-events: all;
+}
+
+.memo-comment-list::-webkit-scrollbar {
+  display: none;
 }
 
 .memo-comment-item {
