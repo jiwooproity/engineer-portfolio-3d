@@ -36,8 +36,12 @@ const getPropertyText = (property: PropertyContentIF) => {
 
 export const getNotionMemo = async () => {
   const databaseId = import.meta.env.VITE_NOTION_DATABASE_ID;
-  const production = `https://api.notion.com/v1/databases/${databaseId}/query`;
+
   const local = `/notion-api/databases/${databaseId}/query`;
+
+  const cors = "https://corsproxy.io/?";
+  const notion = `https://api.notion.com/v1/databases/${databaseId}/query`;
+  const production = cors + notion;
   const requestURL = import.meta.env.DEV ? local : production;
 
   const query = {
