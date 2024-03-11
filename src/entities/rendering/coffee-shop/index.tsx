@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 
-import { DreiGLTF } from "@/shared/types/gltf";
+import { DreiGLTF } from "@/shared/types/three/gltf";
 
 const CoffeeShop = () => {
   const dir = import.meta.env.DEV ? "dev-models" : "models";

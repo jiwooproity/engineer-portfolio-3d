@@ -15,10 +15,10 @@
 .terminal-wrapper {
   width: 100%;
   height: 100%;
-  padding: 2px;
+  padding: 1px;
   background-color: rgba(20, 20, 20, 0.8);
   backdrop-filter: blur(10px);
-  box-shadow: inset 0px 0px 3px white;
+  box-shadow: inset 0px 0px 1px white;
   font-family: "D2Coding";
 }
 
