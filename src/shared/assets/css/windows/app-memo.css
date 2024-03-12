@@ -152,6 +152,9 @@
   line-height: 24px;
   color: white;
   font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .memo-item-content {
