@@ -30,8 +30,6 @@ jobs:
               spa: true
               install: yarn install
               buildenv:
-                - name: VITE_SCREEN_SRC
-                  value: https://localhost:80/screen
                 - name: VITE_NOTION_TOKEN
                   value: ${{ secrets.VITE_NOTION_TOKEN }}
                 - name: VITE_NOTION_DATABASE_ID
