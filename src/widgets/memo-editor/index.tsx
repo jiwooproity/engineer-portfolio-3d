@@ -1,8 +1,10 @@
-import { MemoDataIF } from "@/entities/windows/memo";
-
 import { ChangeEvent } from "react";
 
+import Loading from "@/entities/windows/loading";
+import { MemoDataIF } from "@/entities/windows/memo";
+
 export interface MemoEditorPropsIF {
+  loaded: boolean;
   data: MemoDataIF;
   values: { title: string; content: string };
   toggle: boolean;
@@ -10,9 +12,9 @@ export interface MemoEditorPropsIF {
 }
 
 const MemoEditor = (props: MemoEditorPropsIF) => {
-  const { data, values, toggle, onChange } = props;
+  const { loaded, data, values, toggle, onChange } = props;
 
-  return (
+  return loaded ? (
     <div className="memo-editor-container">
       {toggle ? (
         <>
@@ -41,6 +43,8 @@ const MemoEditor = (props: MemoEditorPropsIF) => {
         </>
       )}
     </div>
+  ) : (
+    <Loading />
   );
 };
 
