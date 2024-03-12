@@ -250,3 +250,7 @@
 .memo-editor-container > textarea:focus {
   outline: none;
 }
+
+.memo-editor-container > textarea::-webkit-scrollbar {
+  display: none;
+}
