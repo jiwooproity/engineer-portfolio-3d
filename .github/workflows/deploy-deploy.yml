@@ -31,7 +31,7 @@ jobs:
               install: yarn install
               buildenv:
                 - name: VITE_SCREEN_SRC
-                  value: https://web-engineer-portfolio-dc9c2nltcr2zew.sel5.cloudtype.app/screen
+                  value: http://localhost:80/screen
                 - name: VITE_NOTION_TOKEN
                   value: ${{ secrets.VITE_NOTION_TOKEN }}
                 - name: VITE_NOTION_DATABASE_ID
