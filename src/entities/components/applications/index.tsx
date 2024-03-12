@@ -8,6 +8,7 @@ const APP_LITS = [
   { icon: "app-github", name: "GitHub" },
   { icon: "app-terminal", name: "Terminal" },
   { icon: "app-memo", name: "Memo" },
+  { icon: "app-folder", name: "Repository" },
 ];
 
 const Applications = () => {
@@ -51,6 +52,9 @@ const Applications = () => {
         break;
       case "app-terminal":
         openApplication(WINDOWS.TERMINAL);
+        break;
+      case "app-folder":
+        alert("준비중입니다.");
         break;
       default:
         break;

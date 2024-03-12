@@ -48,6 +48,10 @@
   background-image: url(../../images/applications/app-memo.png);
 }
 
+.application-icon.app-folder {
+  background-image: url(../../images/applications/app-folder.png);
+}
+
 .application-name {
   font-size: 20px;
   line-height: 20px;
