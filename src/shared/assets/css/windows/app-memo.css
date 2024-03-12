@@ -88,12 +88,13 @@
 }
 
 .memo-content-left-area {
+  min-width: 280px;
   height: 100%;
   background-color: #2e2e2e;
 }
 
 .memo-comment-list {
-  width: 280px;
+  width: 100%;
   height: 100%;
   padding: 15px;
   display: flex;
@@ -249,8 +250,4 @@
 .memo-editor-container > input:focus,
 .memo-editor-container > textarea:focus {
   outline: none;
-}
-
-.memo-editor-container > textarea::-webkit-scrollbar {
-  display: none;
 }
