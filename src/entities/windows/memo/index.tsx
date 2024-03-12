@@ -23,6 +23,7 @@ export interface MemoDataIF {
 }
 
 const memoLoader = () => {
+  const [loaded, setLoaded] = useState(false);
   const [memo, setMemo] = useState<MemoDataIF[]>([]);
   const [showMemo, setShowMemo] = useState<MemoDataIF>({
     title: "",
@@ -34,6 +35,7 @@ const memoLoader = () => {
     const getMemo = await getNotionMemo();
     setMemo(getMemo);
     !reload && setShowMemo(getMemo[0]);
+    setLoaded(true);
   };
 
   const onSelect = (index: number) => {
@@ -46,11 +48,11 @@ const memoLoader = () => {
     loader();
   }, []);
 
-  return { data: memo, showData: showMemo, onSelect, onReload };
+  return { loaded, data: memo, showData: showMemo, onSelect, onReload };
 };
 
 const Memo = () => {
-  const { data, showData, onSelect, onReload } = memoLoader();
+  const { loaded, data, showData, onSelect, onReload } = memoLoader();
 
   const [toggle, setToggle] = useState(false);
   const [text, setText] = useState<MemoEditorStateIF>({
@@ -93,6 +95,7 @@ const Memo = () => {
       <div className="memo-content-area" draggable={true}>
         <div className="memo-content-left-area">
           <MemoList
+            loaded={loaded}
             data={data}
             insert={text}
             toggle={toggle}
@@ -102,6 +105,7 @@ const Memo = () => {
         </div>
         <div className="memo-content-right-area">
           <MemoEditor
+            loaded={loaded}
             data={showData}
             values={text}
             toggle={toggle}

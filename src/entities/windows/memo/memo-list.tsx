@@ -1,7 +1,10 @@
 import { useState } from "react";
+
+import Loading from "../loading";
 import { MemoDataIF } from ".";
 
 interface MemoListPropsIF {
+  loaded: boolean;
   data: MemoDataIF[];
   toggle: boolean;
   insert: { title: string; content: string };
@@ -11,7 +14,7 @@ interface MemoListPropsIF {
 
 const MemoList = (props: MemoListPropsIF) => {
   const [selected, setSelected] = useState<number | null>(0);
-  const { data, toggle, insert, onSelect, onToggle } = props;
+  const { loaded, data, toggle, insert, onSelect, onToggle } = props;
 
   const onSelectItem = (index: number) => {
     onSelect(index);
@@ -24,7 +27,7 @@ const MemoList = (props: MemoListPropsIF) => {
     setSelected(null);
   };
 
-  return (
+  return loaded ? (
     <div className="memo-comment-list">
       {toggle ? (
         <div className="memo-comment-item selected">
@@ -48,6 +51,8 @@ const MemoList = (props: MemoListPropsIF) => {
         </div>
       ))}
     </div>
+  ) : (
+    <Loading />
   );
 };
 
