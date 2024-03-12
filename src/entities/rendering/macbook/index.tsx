@@ -95,7 +95,7 @@ const Screen = (props: ScreenPropsTypes) => {
           width={1900}
           height={1195}
           // src="https://next-portfolio-story.vercel.app/"
-          src={import.meta.env.VITE_SCREEN_SRC}
+          src={`${window.location.origin}/screen`}
         />
       </Html>
     </mesh>
