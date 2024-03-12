@@ -1,0 +1,42 @@
+name: Deploy to cloudtype
+on:
+  push:
+    branches:
+      - deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: jiwooproity/engineer-porfolio-3d
+          stage: main
+          yaml: >
+            name: engineer-portfolio
+
+            app: web
+
+            options:
+              nodeversion: "18"
+              spa: true
+              install: yarn install
+              buildenv:
+                - name: VITE_SCREEN_SRC
+                  value: https://web-engineer-portfolio-dc9c2nltcr2zew.sel5.cloudtype.app/screen
+                - name: VITE_NOTION_TOKEN
+                  value: ${{ secrets.VITE_NOTION_TOKEN }}
+                - name: VITE_NOTION_DATABASE_ID
+                  value: ${{ secrets.VITE_NOTION_DATABASE_ID }}
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
