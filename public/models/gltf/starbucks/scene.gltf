@@ -1,0 +1,562 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 3527,
+      "max": [
+        3.894402503967285,
+        5.774595737457275,
+        0.8704859018325806
+      ],
+      "min": [
+        0.23922011256217957,
+        5.021585941314697,
+        -2.784688711166382
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 42324,
+      "componentType": 5126,
+      "count": 3527,
+      "max": [
+        0.9994723200798035,
+        0.9999580383300781,
+        0.9995113015174866
+      ],
+      "min": [
+        -0.9994722008705139,
+        -0.9675092101097107,
+        -0.9995169639587402
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 3527,
+      "max": [
+        0.9993872046470642,
+        0.9994792938232422,
+        0.9666500091552734,
+        1.0
+      ],
+      "min": [
+        -0.9681657552719116,
+        -0.9994421005249023,
+        -0.999694287776947,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 3527,
+      "max": [
+        1.0978971719741821,
+        1.0833097696304321
+      ],
+      "min": [
+        0.09736888110637665,
+        -0.16131842136383057
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 19920,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 84648,
+      "componentType": 5126,
+      "count": 4171,
+      "max": [
+        3.687765121459961,
+        4.4502105712890625,
+        0.6965989470481873
+      ],
+      "min": [
+        0.44410470128059387,
+        2.209069013595581,
+        -2.580447196960449
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 134700,
+      "componentType": 5126,
+      "count": 4171,
+      "max": [
+        0.9995144605636597,
+        1.0,
+        0.9970162510871887
+      ],
+      "min": [
+        -0.9980220198631287,
+        -0.9999994039535522,
+        -0.9978469014167786
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 28216,
+      "componentType": 5126,
+      "count": 4171,
+      "max": [
+        0.9749317169189453,
+        0.9786767363548279
+      ],
+      "min": [
+        0.008660435676574707,
+        0.03438467159867287
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 79680,
+      "componentType": 5125,
+      "count": 24192,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 184752,
+      "componentType": 5126,
+      "count": 3125,
+      "max": [
+        3.8041319847106934,
+        5.282122611999512,
+        0.7996766567230225
+      ],
+      "min": [
+        0.3294408619403839,
+        2.2126525436760858e-05,
+        -2.696559190750122
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 222252,
+      "componentType": 5126,
+      "count": 3125,
+      "max": [
+        0.9999715089797974,
+        1.0,
+        0.9999715089797974
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -0.9999474287033081
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 61584,
+      "componentType": 5126,
+      "count": 3125,
+      "max": [
+        0.990687370300293,
+        0.9784027934074402
+      ],
+      "min": [
+        0.010361909866333008,
+        0.0050321221351623535
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 176448,
+      "componentType": 5125,
+      "count": 17220,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "nataliaperezm (https://sketchfab.com/nataliaperezm)",
+      "license": "SKETCHFAB Editorial (https://sketchfab.com/licenses)",
+      "source": "https://sketchfab.com/3d-models/coffee-cup-dc369f5d13d04ec8a0026ab544f849d3",
+      "title": "coffee cup"
+    },
+    "generator": "Sketchfab-12.66.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 245328,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 86584,
+      "byteOffset": 245328,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 259752,
+      "byteOffset": 331912,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 56432,
+      "byteOffset": 591664,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 648096,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/lid_mtl_normal.png"
+    },
+    {
+      "uri": "textures/sleeve_mtl_baseColor.png"
+    },
+    {
+      "uri": "textures/cup_mtl_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "lid_mtl",
+      "normalTexture": {
+        "index": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5443978659,
+          0.517399810216852,
+          0.517399810216852,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.4224466463
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "sleeve_mtl",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.520007622
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "cup_mtl",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.5809832317
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "pCube8_lid_mtl_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "pCube9_sleeve_mtl_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TEXCOORD_0": 7
+          },
+          "indices": 8,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "pCube10_cup_mtl_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 10,
+            "POSITION": 9,
+            "TEXCOORD_0": 11
+          },
+          "indices": 12,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "coffeecup.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        -0.8910065241883678,
+        1.0911682878666935e-16,
+        -0.4539904997395469,
+        0.0,
+        6.686687867980098e-17,
+        1.0,
+        1.0911682878666935e-16,
+        0.0,
+        0.4539904997395469,
+        6.686687867980098e-17,
+        -0.8910065241883678,
+        0.0,
+        -1.3127881288528442,
+        0.0,
+        -0.661247730255127,
+        1.0
+      ],
+      "name": "cup_geo_grp"
+    },
+    {
+      "children": [
+        5,
+        7,
+        9
+      ],
+      "matrix": [
+        0.8660254037844387,
+        0.4999999999999999,
+        5.551115123125784e-17,
+        0.0,
+        -0.4999999999999999,
+        0.8660254037844387,
+        -1.5407439555097887e-33,
+        0.0,
+        -4.807406715958912e-17,
+        -2.7755575615628914e-17,
+        1.0,
+        0.0,
+        -1.8160449266433716,
+        -1.033393144607544,
+        0.9570525288581848,
+        1.0
+      ],
+      "name": "coffee_grp"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        1.012062668800354,
+        1.3877788101490254e-17,
+        0.0,
+        0.0,
+        -1.3712380200665098e-17,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.012062668800354,
+        0.0,
+        -0.02493121661245823,
+        0.0,
+        0.01841128058731556,
+        1.0
+      ],
+      "name": "pCube8"
+    },
+    {
+      "mesh": 0,
+      "name": "pCube8_lid_mtl_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        1.0,
+        -1.1102230246251568e-16,
+        5.551115123125784e-17,
+        0.0,
+        1.1102230246251568e-16,
+        1.0,
+        0.0,
+        0.0,
+        -5.551115123125784e-17,
+        6.162975822039157e-33,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "pCube9"
+    },
+    {
+      "mesh": 1,
+      "name": "pCube9_sleeve_mtl_0"
+    },
+    {
+      "children": [
+        10
+      ],
+      "matrix": [
+        1.0,
+        -1.1102230246251568e-16,
+        5.551115123125784e-17,
+        0.0,
+        1.1102230246251568e-16,
+        1.0,
+        0.0,
+        0.0,
+        -5.551115123125784e-17,
+        6.162975822039157e-33,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "pCube10"
+    },
+    {
+      "mesh": 2,
+      "name": "pCube10_cup_mtl_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
