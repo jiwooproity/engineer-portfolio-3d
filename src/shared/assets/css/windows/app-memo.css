@@ -111,32 +111,53 @@
 .memo-comment-item {
   width: 100%;
   height: 93px;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 20px 25px;
-  border-bottom: 1px solid #424242;
   cursor: pointer;
   pointer-events: all;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease, border-radius 0.5s ease;
+}
+
+.memo-comment-item::before {
+  content: "";
+  width: 95%;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #424242;
 }
 
 .memo-comment-item.selected {
   background-color: #a5833b;
+  border-radius: 5px;
 }
 
 .memo-comment-item-add {
   width: 100%;
   min-height: 93px;
   max-height: 93px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px 25px;
-  border-bottom: 1px solid #424242;
   cursor: pointer;
   pointer-events: all;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease, border-radius 0.5s ease;
+}
+
+.memo-comment-item-add::before {
+  content: "";
+  width: 95%;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #424242;
 }
 
 .memo-comment-item:hover {
