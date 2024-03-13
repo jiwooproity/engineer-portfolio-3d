@@ -13,13 +13,6 @@ const MemoNavigation = () => {
           <button className="memo-nav-btn full" />
         </div>
       </div>
-      <div className="memo-nav-right-area">
-        <input
-          className="memo-nav-search"
-          placeholder="Search"
-          draggable={true}
-        />
-      </div>
     </div>
   );
 };
