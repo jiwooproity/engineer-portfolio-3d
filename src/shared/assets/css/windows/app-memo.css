@@ -141,10 +141,12 @@
 
 .memo-comment-item:hover {
   background-color: #464646;
+  border-radius: 5px;
 }
 
 .memo-comment-item-add:hover {
   background-color: #464646;
+  border-radius: 5px;
 }
 
 .memo-item-title {
