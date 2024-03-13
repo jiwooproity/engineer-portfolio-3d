@@ -160,8 +160,8 @@
 }
 
 .memo-item-content {
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 18px;
   color: rgb(203, 203, 203);
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -207,8 +207,8 @@
 }
 
 .memo-content-title {
-  font-size: 32px;
-  line-height: 32px;
+  font-size: 38px;
+  line-height: 38px;
   font-weight: 400;
   color: white;
   margin-bottom: 10px;
@@ -230,6 +230,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  gap: 8px;
 }
 
 .memo-editor-container::-webkit-scrollbar {
