@@ -53,31 +53,6 @@
   background-color: #26c940;
 }
 
-.memo-nav-right-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-.memo-nav-search {
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: 400;
-  width: 220px;
-  height: 40px;
-  padding: 0px 10px;
-  border-radius: 5px;
-  background-color: transparent;
-  border: 3px solid #424141;
-  color: white;
-  pointer-events: all;
-}
-
-.memo-nav-search:focus {
-  outline: none;
-}
-
 .memo-content-area {
   width: 100%;
   height: calc(100% - 70px);
