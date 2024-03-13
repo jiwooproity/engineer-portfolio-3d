@@ -215,8 +215,8 @@
 }
 
 .memo-content-text {
-  font-size: 20px;
-  line-height: 25px;
+  font-size: 24px;
+  line-height: 29px;
   font-weight: 400;
   color: #acabab;
   white-space: pre-wrap;
@@ -236,11 +236,21 @@
   display: none;
 }
 
-.memo-editor-container > input,
+.memo-editor-container > input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+}
+
 .memo-editor-container > textarea {
   width: 100%;
   background-color: transparent;
   border: none;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 400;
+  color: #acabab;
+  white-space: pre-wrap;
 }
 
 .memo-editor-container > textarea {
