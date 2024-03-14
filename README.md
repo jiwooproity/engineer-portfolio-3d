@@ -23,8 +23,8 @@
 |Docs|문서를 수정한 경우|
 
 ## Skills
-Vite + React
-Typescript
+Vite + React  
+Typescript  
 Three.js ( Fiber, Drei )
 
 ## Libraries
