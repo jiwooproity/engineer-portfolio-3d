@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Loading from "../loading";
 import { MemoDataIF } from ".";
+import dayjs from "dayjs";
 
 interface MemoListPropsIF {
   loaded: boolean;
@@ -47,7 +48,9 @@ const MemoList = (props: MemoListPropsIF) => {
           onClick={() => onSelectItem(i)}
         >
           <h1 className="memo-item-title">{memo.title}</h1>
-          <span className="memo-item-content">{`${memo.content}`}</span>
+          <span className="memo-item-content">
+            {`${dayjs(memo.date).format("YYYY.MM.DD")} ${memo.content}`}
+          </span>
         </div>
       ))}
     </div>
