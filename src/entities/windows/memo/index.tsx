@@ -1,6 +1,6 @@
 import "@/shared/assets/css/windows/app-memo.css";
 
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { MemoEditor } from "@/widgets";
 import {
@@ -52,8 +52,8 @@ const memoLoader = () => {
 };
 
 const Memo = () => {
-  const sending = useRef(false);
   const { loaded, data, showData, onSelect, onReload } = memoLoader();
+  const [sending, setSending] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [text, setText] = useState<MemoEditorStateIF>({
     title: "",
@@ -71,27 +71,23 @@ const Memo = () => {
   };
 
   const onInit = () => {
-    sending.current = false;
+    setSending(false);
     setText({ title: "", content: "" });
     onReload();
   };
 
   const onUpdate = () => {
-    sending.current = true;
+    setSending(true);
     createNotionMemo({ ...text }).then(onInit);
   };
 
-  const renderUpdateBtn = useCallback(() => {
+  const renderUpdateBtn = () => {
     return text.title !== "" && text.content !== "" ? (
-      <button
-        className="insert-btn"
-        onClick={onUpdate}
-        disabled={sending.current}
-      >
+      <button className="insert-btn" onClick={onUpdate} disabled={sending}>
         전달하기
       </button>
     ) : null;
-  }, [sending.current]);
+  };
 
   return (
     <div className="memo-wrapper">
