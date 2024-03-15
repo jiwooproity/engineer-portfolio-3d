@@ -1,6 +1,6 @@
 import "@/shared/assets/css/windows/app-memo.css";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 import { MemoEditor } from "@/widgets";
 import {
@@ -52,8 +52,8 @@ const memoLoader = () => {
 };
 
 const Memo = () => {
+  const sending = useRef(false);
   const { loaded, data, showData, onSelect, onReload } = memoLoader();
-
   const [toggle, setToggle] = useState(false);
   const [text, setText] = useState<MemoEditorStateIF>({
     title: "",
@@ -71,19 +71,23 @@ const Memo = () => {
   };
 
   const onInit = () => {
+    sending.current = false;
     setText({ title: "", content: "" });
+    onReload();
   };
 
-  const onUpdate = async () => {
-    await createNotionMemo({ ...text }).then(() => {
-      onReload();
-      onInit();
-    });
+  const onUpdate = () => {
+    sending.current = true;
+    createNotionMemo({ ...text }).then(onInit);
   };
 
   const renderUpdateBtn = () => {
     return text.title !== "" && text.content !== "" ? (
-      <button className="insert-btn" onClick={onUpdate}>
+      <button
+        className="insert-btn"
+        onClick={onUpdate}
+        disabled={sending.current}
+      >
         전달하기
       </button>
     ) : null;
