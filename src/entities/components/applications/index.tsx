@@ -1,7 +1,7 @@
 import "@/shared/assets/css/screen/applications.css";
-import { useWindows } from "@/shared/hooks";
 
 import { DragEvent, MouseEvent, useEffect, useState } from "react";
+import { useWindows } from "@/shared/hooks";
 
 const APP_LITS = [
   { icon: "app-notion", name: "Notion" },
@@ -9,6 +9,7 @@ const APP_LITS = [
   { icon: "app-terminal", name: "Terminal" },
   { icon: "app-memo", name: "Memo" },
   { icon: "app-folder", name: "Repository" },
+  { icon: "app-folder", name: "Profile" },
 ];
 
 const Applications = () => {
@@ -84,7 +85,7 @@ const Applications = () => {
     const x = 20;
     const y = i * 141 + 60;
     const style = { top: y, left: x };
-    const select = selected === app.icon ? "selected" : "";
+    const select = selected === app.name ? "selected" : "";
 
     return (
       <div
@@ -96,7 +97,7 @@ const Applications = () => {
         onDoubleClick={onDoubleClick}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
-        onClick={() => focusSelected(app.icon)}
+        onClick={() => focusSelected(app.name)}
       >
         <div className={`application-icon ${app.icon}`} />
         <span className="application-name">{app.name}</span>
