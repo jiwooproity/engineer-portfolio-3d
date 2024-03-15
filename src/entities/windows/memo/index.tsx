@@ -1,6 +1,6 @@
 import "@/shared/assets/css/windows/app-memo.css";
 
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import { MemoEditor } from "@/widgets";
 import {
@@ -81,7 +81,7 @@ const Memo = () => {
     createNotionMemo({ ...text }).then(onInit);
   };
 
-  const renderUpdateBtn = () => {
+  const renderUpdateBtn = useCallback(() => {
     return text.title !== "" && text.content !== "" ? (
       <button
         className="insert-btn"
@@ -91,7 +91,7 @@ const Memo = () => {
         전달하기
       </button>
     ) : null;
-  };
+  }, [sending.current]);
 
   return (
     <div className="memo-wrapper">
