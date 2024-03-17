@@ -32,6 +32,7 @@ const Applications = () => {
   const onDoubleClick = (e: MouseEvent<HTMLDivElement>) => {
     const current = e.currentTarget;
     const value = current.dataset["value"] as string;
+    const divide = current.dataset["divide"] as string;
 
     const anchor = document.createElement("a");
     anchor.setAttribute("target", "_blank");
@@ -55,7 +56,7 @@ const Applications = () => {
         openApplication(WINDOWS.TERMINAL);
         break;
       case "app-folder":
-        alert("준비중입니다.");
+        openApplication(WINDOWS.FOLDER, divide);
         break;
       default:
         break;
@@ -94,6 +95,7 @@ const Applications = () => {
         style={style}
         draggable={true}
         data-value={app.icon}
+        data-divide={app.name}
         onDoubleClick={onDoubleClick}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}

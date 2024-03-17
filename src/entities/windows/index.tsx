@@ -6,10 +6,12 @@ import { WindowLayout } from "@/shared/layout";
 
 import Memo from "./memo";
 import Terminal from "./terminal";
+import Folder from "./folder";
 
 const APPLICATION_LIST: { [key: string]: JSX.Element } = {
   memo: <Memo />,
   terminal: <Terminal />,
+  folder: <Folder />,
 };
 
 const AppLayout = () => {
@@ -22,6 +24,7 @@ const AppLayout = () => {
       style={{ zIndex: applications.length - 1 === i ? "9999" : "1" }}
       width={app.width}
       height={app.height}
+      divide={app.divide || ""}
     >
       {APPLICATION_LIST[app.name]}
     </WindowLayout>
