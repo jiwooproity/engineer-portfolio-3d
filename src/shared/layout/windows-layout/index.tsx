@@ -6,7 +6,7 @@ interface WindowLayoutPropsIF {
   name: string;
   width: number;
   height: number;
-  divide: string;
+  divide: string; // Folder와 같은 동일한 애플리케이션을 멀티 윈도우 처리를 하기 위한 구분
   style: CSSProperties;
   children: ReactNode;
 }

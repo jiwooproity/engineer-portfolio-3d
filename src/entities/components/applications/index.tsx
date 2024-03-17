@@ -3,17 +3,8 @@ import "@/shared/assets/css/screen/applications.css";
 import { DragEvent, MouseEvent, useEffect, useState } from "react";
 import { useWindows } from "@/shared/hooks";
 
-const APP_LITS = [
-  { icon: "app-notion", name: "Notion" },
-  { icon: "app-github", name: "GitHub" },
-  { icon: "app-terminal", name: "Terminal" },
-  { icon: "app-memo", name: "Memo" },
-  { icon: "app-folder", name: "Repository" },
-  { icon: "app-folder", name: "Profile" },
-];
-
 const Applications = () => {
-  const { WINDOWS, openApplication } = useWindows();
+  const { APP_LITS, WINDOWS, openApplication } = useWindows();
   const [selected, setSelected] = useState("");
 
   const onDragStart = (e: DragEvent) => {
