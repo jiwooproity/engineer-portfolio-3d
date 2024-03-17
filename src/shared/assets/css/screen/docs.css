@@ -1,0 +1,61 @@
+.screen-container:hover > .screen-docs {
+  bottom: 15px;
+}
+
+.screen-docs {
+  width: 1000px;
+  padding: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  background-color: #dfdfdf33;
+  position: absolute;
+  bottom: -130px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  box-shadow: inset 0px 0px 2px rgba(255, 255, 255, 0.5);
+  transition: bottom 0.5s ease;
+}
+
+.docs-application {
+  position: relative;
+}
+
+.docs-application > .tooltip {
+  display: none;
+}
+
+.docs-application:hover > .tooltip {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  padding: 8px 22px;
+  border: 2px solid #4f4b49;
+  border-radius: 5px;
+  background-color: #302c29;
+}
+
+.docs-application:hover > .tooltip::after {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 0;
+  height: 0;
+  border-bottom: 12px solid transparent;
+  border-top: 12px solid #302c29;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+}
+
+.docs-application > .tooltip > .tooltip-label {
+  font-size: 25px;
+  line-height: 25px;
+  color: white;
+}
