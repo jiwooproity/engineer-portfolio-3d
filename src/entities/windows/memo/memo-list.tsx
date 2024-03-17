@@ -44,6 +44,7 @@ const MemoList = (props: MemoListPropsIF) => {
       )}
       {data.map((memo, i) => (
         <div
+          key={memo.title}
           className={`memo-comment-item ${i === selected ? "selected" : ""}`}
           onClick={() => onSelectItem(i)}
         >

@@ -3,17 +3,8 @@ import "@/shared/assets/css/screen/applications.css";
 import { DragEvent, MouseEvent, useEffect, useState } from "react";
 import { useWindows } from "@/shared/hooks";
 
-const APP_LITS = [
-  { icon: "app-notion", name: "Notion" },
-  { icon: "app-github", name: "GitHub" },
-  { icon: "app-terminal", name: "Terminal" },
-  { icon: "app-memo", name: "Memo" },
-  { icon: "app-folder", name: "Repository" },
-  { icon: "app-folder", name: "Profile" },
-];
-
 const Applications = () => {
-  const { WINDOWS, openApplication } = useWindows();
+  const { APP_LITS, WINDOWS, openApplication } = useWindows();
   const [selected, setSelected] = useState("");
 
   const onDragStart = (e: DragEvent) => {
@@ -32,6 +23,7 @@ const Applications = () => {
   const onDoubleClick = (e: MouseEvent<HTMLDivElement>) => {
     const current = e.currentTarget;
     const value = current.dataset["value"] as string;
+    const divide = current.dataset["divide"] as string;
 
     const anchor = document.createElement("a");
     anchor.setAttribute("target", "_blank");
@@ -55,7 +47,7 @@ const Applications = () => {
         openApplication(WINDOWS.TERMINAL);
         break;
       case "app-folder":
-        alert("준비중입니다.");
+        openApplication(WINDOWS.FOLDER, divide);
         break;
       default:
         break;
@@ -94,6 +86,7 @@ const Applications = () => {
         style={style}
         draggable={true}
         data-value={app.icon}
+        data-divide={app.name}
         onDoubleClick={onDoubleClick}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}

@@ -2,7 +2,8 @@ import "@/shared/assets/css/screen/screen.css";
 
 import { MouseEvent, useMemo } from "react";
 
-import { Applications, LockScreen, Navigation } from "@/entities/components";
+import { Applications, LockScreen } from "@/entities/components";
+import { Navigation, Docs } from "@/entities/components";
 import { AppLayout } from "@/entities/windows";
 
 const Screen = () => {
@@ -29,7 +30,7 @@ const Screen = () => {
       <Navigation />
       <Applications />
       <AppLayout />
-      <div className="screen-bottom-nav"></div>
+      <Docs />
       <LockScreen />
     </div>
   );

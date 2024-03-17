@@ -4,6 +4,7 @@ import RealTime from "./realtime";
 import Navigation from "./navigation";
 import LockScreen from "./lock-screen";
 import Applications from "./applications";
+import Docs from "./docs";
 
 import MobileGuide from "./mobile-guide";
 
@@ -14,5 +15,6 @@ export {
   Navigation,
   LockScreen,
   Applications,
+  Docs,
   MobileGuide,
 };
