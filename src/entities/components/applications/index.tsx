@@ -1,11 +1,12 @@
 import "@/shared/assets/css/screen/applications.css";
 
-import { DragEvent, MouseEvent, useEffect, useState } from "react";
-import { useWindows } from "@/shared/hooks";
+import { DragEvent, useEffect } from "react";
+import { useApplication } from "@/shared/hooks";
 
 const Applications = () => {
-  const { APP_LITS, WINDOWS, openApplication } = useWindows();
-  const [selected, setSelected] = useState("");
+  const options = useApplication();
+  const { APP_LITS, selected } = options;
+  const { initSelected, focusSelected, showApp } = options;
 
   const onDragStart = (e: DragEvent) => {
     const target = e.target as HTMLDivElement;
@@ -19,50 +20,6 @@ const Applications = () => {
     target.style.setProperty("top", `${top}px`);
     target.style.setProperty("left", `${e.clientX - 40}px`);
   };
-
-  const onDoubleClick = (e: MouseEvent<HTMLDivElement>) => {
-    const current = e.currentTarget;
-    const value = current.dataset["value"] as string;
-    const divide = current.dataset["divide"] as string;
-
-    const anchor = document.createElement("a");
-    anchor.setAttribute("target", "_blank");
-
-    switch (value) {
-      case "app-github":
-        anchor.setAttribute("href", "https://github.com/jiwooproity");
-        anchor.click();
-        break;
-      case "app-notion":
-        anchor.setAttribute(
-          "href",
-          "https://www.notion.so/Resume-1579598f11a14aa5bfc83c3606914732"
-        );
-        anchor.click();
-        break;
-      case "app-memo":
-        openApplication(WINDOWS.MEMO);
-        break;
-      case "app-terminal":
-        openApplication(WINDOWS.TERMINAL);
-        break;
-      case "app-folder":
-        openApplication(WINDOWS.FOLDER, divide);
-        break;
-      default:
-        break;
-    }
-
-    setSelected(value);
-  };
-
-  const initSelected = (e: globalThis.MouseEvent) => {
-    const target = e.target;
-    const current = e.currentTarget;
-    if (target === current) setSelected("");
-  };
-
-  const focusSelected = (icon: string) => setSelected(icon);
 
   useEffect(() => {
     const container = document.querySelector(
@@ -87,7 +44,7 @@ const Applications = () => {
         draggable={true}
         data-value={app.icon}
         data-divide={app.name}
-        onDoubleClick={onDoubleClick}
+        onDoubleClick={showApp}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
         onClick={() => focusSelected(app.name)}
