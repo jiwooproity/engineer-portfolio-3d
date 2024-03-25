@@ -1,4 +1,4 @@
-.guide-container {
+.container {
   width: 100%;
   height: 100%;
   padding: 20px 15px;
@@ -7,53 +7,33 @@
   gap: 15px;
 }
 
-.guide-line {
-  width: 100%;
-  height: 1px;
-  margin-top: 15px;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.guide-title-box {
+.titleBox {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.guide-title {
+.title {
   font-size: 22px;
   line-height: 22px;
   font-weight: bold;
 }
 
-.guide-img-title {
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: bold;
-  margin: 15px 0px 8px 0px;
-}
-
-.guide-sub-title {
+.subTitle {
   font-size: 15px;
   line-height: 15px;
   font-weight: 400;
   color: rgba(120, 120, 120);
 }
 
-.guide-content {
+.content {
   width: 100%;
   margin-bottom: 15px;
 }
 
-.guide-content > p {
+.content > p {
   font-size: 14px;
   line-height: 20px;
   color: rgba(0, 0, 0, 0.8);
-}
-
-.guide-content > img {
-  width: 100%;
-  padding: 10px 0px;
-  object-fit: cover;
 }

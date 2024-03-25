@@ -1,9 +1,0 @@
-.screen-container {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background-image: url(../../images/screen/wallpaper.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-}

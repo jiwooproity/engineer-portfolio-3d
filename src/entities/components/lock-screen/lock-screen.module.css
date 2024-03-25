@@ -1,10 +1,10 @@
-.lock-screen-container {
+.container {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(../../images/screen/wallpaper.jpg);
+  background-image: url(/images/screen/wallpaper.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 1;
@@ -12,13 +12,13 @@
   z-index: 10000;
 }
 
-.lock-screen-container.open {
+.container.open {
   transform: scale(1.2);
   opacity: 0;
   pointer-events: none;
 }
 
-.lock-screen-date {
+.date {
   position: absolute;
   top: 100px;
   left: 50%;
@@ -30,7 +30,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-.lock-screen-time {
+.time {
   position: absolute;
   top: 150px;
   left: 50%;
@@ -42,7 +42,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-.lock-screen-access-box {
+.accessBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,14 +54,14 @@
   transform: translateX(-50%);
 }
 
-.lock-screen-profile {
+.profile {
   width: 90px;
   height: 90px;
   border-radius: 50%;
   background-color: white;
 }
 
-.lock-screen-name {
+.name {
   font-size: 25px;
   line-height: 25px;
   font-family: "Roboto", sans-serif;
@@ -69,7 +69,7 @@
   color: white;
 }
 
-.lock-screen-access-box > button {
+.accessBox > button {
   width: 100px;
   padding: 10px 10px;
   display: flex;
@@ -83,11 +83,11 @@
   cursor: pointer;
 }
 
-.lock-screen-access-box.mac > button > span {
+.accessBox.mac > button > span {
   height: 15px;
 }
 
-.lock-screen-access-box > button > span {
+.accessBox > button > span {
   font-size: 18px;
   line-height: 18px;
   font-family: "Roboto", sans-serif;

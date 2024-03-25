@@ -1,4 +1,4 @@
-.nav-container {
+.container {
   width: 100%;
   height: 40px;
   padding: 5px 25px;
@@ -10,43 +10,43 @@
   font-family: "Roboto", sans-serif;
 }
 
-.nav-left-area {
+.leftArea {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
-.nav-right-area {
+.rightArea {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
-.nav-logo {
+.logo {
   width: 25px;
   height: 25px;
 }
 
-.nav-title {
+.title {
   font-size: 20px;
   line-height: 20px;
   font-weight: bold;
   color: black;
 }
 
-.nav-title.mac {
+.title.mac {
   height: 16px;
 }
 
-.nav-item {
+.item {
   font-size: 20px;
   line-height: 20px;
   text-decoration: none;
   color: black;
 }
 
-.nav-item.mac {
+.item.mac {
   height: 16px;
 }

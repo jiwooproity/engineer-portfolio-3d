@@ -1,0 +1,49 @@
+.screen-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url(/images/screen/wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.application-icon {
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.application-icon.app-github {
+  background-image: url(/images/applications/app-github.png);
+}
+
+.application-icon.app-terminal {
+  background-image: url(/images/applications/app-terminal.png);
+}
+
+.application-icon.app-notion {
+  background-image: url(/images/applications/app-notion.png);
+}
+
+.application-icon.app-memo {
+  background-image: url(/images/applications/app-memo.png);
+}
+
+.application-icon.app-folder {
+  background-image: url(/images/applications/app-folder.png);
+}
+
+.app-close {
+  background-color: #ff5e57;
+}
+
+.app-unfold {
+  background-color: #febc2e;
+}
+
+.app-full {
+  background-color: #26c940;
+}
