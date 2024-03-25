@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { windowHistory } from "@/shared/store/atoms";
+import { windowHistory, windowKeyHistory } from "@/shared/store/atoms";
 import { type AppOptionsIF } from "@/shared/store/atoms/window-history";
 
 const APP_LITS = [
@@ -37,6 +37,7 @@ const WINDOW_LIST: { [key: string]: AppOptionsIF } = {
 
 const useWindows = () => {
   const [history, setHistory] = useRecoilState(windowHistory);
+  const [_, setKeyHistory] = useRecoilState(windowKeyHistory);
 
   const openApplication = (name: string, divide?: string) => {
     if (divide) {
@@ -45,12 +46,14 @@ const useWindows = () => {
     } else {
       if (history.find((his) => his.name === name)) return;
       setHistory((history) => [...history, WINDOW_LIST[name]]);
+      setKeyHistory((history) => ({ ...history, [name]: true }));
     }
   };
 
   const closeApplication = (name: string) => {
     const filter = history.filter((his) => his.name !== name);
     setHistory([...filter]);
+    setKeyHistory((history) => ({ ...history, [name]: false }));
   };
 
   return { APP_LITS, WINDOWS, openApplication, closeApplication };

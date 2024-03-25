@@ -10,6 +10,7 @@ import {
 
 import MemoNavigation from "./memo-navigation";
 import MemoList from "./memo-list";
+import socket from "@/shared/fetch/instance/socket";
 
 interface MemoEditorStateIF {
   title: string;
@@ -32,10 +33,15 @@ const memoLoader = () => {
   });
 
   const loader = async (reload?: boolean) => {
-    const getMemo = await getNotionMemo();
-    setMemo(getMemo);
-    !reload && setShowMemo(getMemo[0]);
-    setLoaded(true);
+    try {
+      const getMemo = await getNotionMemo();
+      setMemo(getMemo);
+      !reload && setShowMemo(getMemo[0]);
+    } catch (e) {
+      alert("메모 리스트 조회를 실패하였습니다. 잠시 후, 다시 시도해 주세요.");
+    } finally {
+      setLoaded(true);
+    }
   };
 
   const onSelect = (index: number) => {
@@ -71,14 +77,21 @@ const Memo = () => {
   };
 
   const onInit = () => {
-    setSending(false);
     setText({ title: "", content: "" });
     onReload();
   };
 
-  const onUpdate = () => {
+  const onUpdate = async () => {
     setSending(true);
-    createNotionMemo({ ...text }).then(onInit);
+    try {
+      await createNotionMemo({ ...text });
+      onInit();
+      socket.emit("insert");
+    } catch (e) {
+      alert("오류가 발생했습니다 ..");
+    } finally {
+      setSending(false);
+    }
   };
 
   const renderUpdateBtn = () => {
@@ -88,6 +101,10 @@ const Memo = () => {
       </button>
     ) : null;
   };
+
+  useEffect(() => {
+    socket.on("alert", onReload);
+  }, []);
 
   return (
     <div className="memo-wrapper">
