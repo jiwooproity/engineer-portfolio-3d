@@ -1,6 +1,6 @@
 import styles from "./dock.module.css";
 
-import { MouseEvent, useEffect, useState } from "react";
+import { MouseEvent, memo, useEffect, useState } from "react";
 
 import { useRecoilValue } from "recoil";
 import { windowKeyHistory } from "@/shared/store/atoms";
@@ -16,7 +16,7 @@ const Activation = (props: { active: boolean }) => {
 const Dock = () => {
   const history = useRecoilValue(windowKeyHistory);
   const { APP_LITS, showApp } = useApplication();
-  const [memoAlert, setMemoAlert] = useState("");
+  const [memoAlert, setMemoAlert] = useState(false);
 
   const removeAlert = (e: MouseEvent<HTMLDivElement>) => {
     const current = e.currentTarget;
@@ -24,13 +24,17 @@ const Dock = () => {
     showApp(e);
 
     if (value !== "Memo") return;
-    setMemoAlert("");
+    setMemoAlert(false);
   };
 
   useEffect(() => {
     socket.on("alert", () => {
-      setMemoAlert(history["memo"] ? "" : styles.alert);
+      setMemoAlert(!history["memo"]);
     });
+  });
+
+  useEffect(() => {
+    if (history["memo"]) setMemoAlert(false);
   }, [history["memo"]]);
 
   return (
@@ -38,8 +42,13 @@ const Dock = () => {
       <div className={styles.identy} />
       <div className={styles.container}>
         {APP_LITS.map((app, i) => {
+          // 앱 스타일 및 알림 지정
           let className = styles.application;
-          className += app.name === "Memo" ? ` ${memoAlert}` : "";
+          className += ` ${
+            app.name === "Memo" && memoAlert ? styles.alert : ""
+          }`;
+
+          // 앱 위치
           const left = i * 110 + 20;
           const remove = app.icon === "app-folder" ? "none" : "";
 
