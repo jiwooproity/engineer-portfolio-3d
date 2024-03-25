@@ -1,4 +1,4 @@
-import "@/shared/assets/css/screen/navigation.css";
+import styles from "./navigation.module.css";
 
 import { RealTime } from "@/entities/components";
 import { useCheckOS } from "@/shared/hooks";
@@ -7,13 +7,17 @@ const Navigation = () => {
   const OS = useCheckOS();
 
   return (
-    <div className="nav-container">
-      <div className="nav-left-area">
-        <img className="nav-logo" src="../svgs/apple-logo.svg" />
-        <span className={`nav-title ${OS}`}>Finder</span>
-        <span className={`nav-item ${OS}`}>File</span>
+    <div className={styles.container}>
+      <div className={styles.leftArea}>
+        <img className={styles.logo} src="../svgs/apple-logo.svg" />
+        <span className={`${styles.title} ${OS === "mac" ? styles.mac : ""}`}>
+          Finder
+        </span>
+        <span className={`${styles.item} ${OS === "mac" ? styles.mac : ""}`}>
+          File
+        </span>
       </div>
-      <div className="nav-right-area">
+      <div className={styles.rightArea}>
         <RealTime />
       </div>
     </div>

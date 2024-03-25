@@ -1,4 +1,4 @@
-.outline-container {
+.container {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-.outline-top {
+.top {
   width: 100%;
   padding: 24px 24px 0px 24px;
   position: absolute;
@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-.outline-logo {
+.logo {
   font-size: 20px;
   line-height: 20px;
   position: absolute;
@@ -28,7 +28,7 @@
   font-weight: bold;
 }
 
-.outline-bottom {
+.bottom {
   width: 100%;
   padding: 0px 24px 24px 24px;
   position: absolute;

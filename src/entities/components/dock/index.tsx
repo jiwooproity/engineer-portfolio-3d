@@ -1,26 +1,26 @@
-import "@/shared/assets/css/screen/docs.css";
+import styles from "./dock.module.css";
 
 import { useApplication } from "@/shared/hooks";
 
-const Docs = () => {
+const Dock = () => {
   const options = useApplication();
   const { APP_LITS, showApp } = options;
 
   return (
     <>
-      <div className="screen-identy" />
-      <div className="screen-docs">
+      <div className={styles.identy} />
+      <div className={styles.container}>
         {APP_LITS.map((app) => (
           <div
             key={app.name}
             style={{ display: app.icon === "app-folder" ? "none" : "" }}
-            className="docs-application"
+            className={styles.application}
             data-value={app.icon}
             data-divide={app.name}
             onDoubleClick={showApp}
           >
-            <div className="tooltip">
-              <span className="tooltip-label">{app.name}</span>
+            <div className={styles.tooltip}>
+              <span className={styles.label}>{app.name}</span>
             </div>
             <div className={`application-icon ${app.icon}`} />
           </div>
@@ -30,4 +30,4 @@ const Docs = () => {
   );
 };
 
-export default Docs;
+export default Dock;

@@ -1,4 +1,4 @@
-import "@/shared/assets/css/windows/app-terminal.css";
+import "./terminal.css";
 
 import { useEffect, useState } from "react";
 

@@ -1,5 +1,4 @@
-import "@/shared/assets/css/screen/lock-screen.css";
-import profile from "@/shared/assets/images/screen/my-profile.png";
+import styles from "./lock-screen.module.css";
 
 import { useCheckOS, useDay } from "@/shared/hooks";
 import { useEffect, useState } from "react";
@@ -19,12 +18,15 @@ const LockScreen = () => {
   }, []);
 
   return (
-    <div className={`lock-screen-container ${open ? "open" : ""}`}>
-      <span className="lock-screen-date">{`${week}, ${day} ${month}`}</span>
-      <span className="lock-screen-time">{time}</span>
-      <div className={`lock-screen-access-box ${OS}`}>
-        <img src={profile} className="lock-screen-profile" />
-        <span className="lock-screen-name">소지우</span>
+    <div className={`${styles.container} ${open ? styles.open : ""}`}>
+      <span className={styles.date}>{`${week}, ${day} ${month}`}</span>
+      <span className={styles.time}>{time}</span>
+      <div className={`${styles.accessBox} ${OS === "mac" ? styles.mac : ""}`}>
+        <img
+          src={"../images/screen/my-profile.png"}
+          className={styles.profile}
+        />
+        <span className={styles.name}>소지우</span>
         <button onClick={() => setOpen(true)}>
           <span>OPEN</span>
         </button>

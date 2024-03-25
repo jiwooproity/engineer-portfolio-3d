@@ -1,4 +1,4 @@
-.terminal-container {
+.container {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -16,12 +16,12 @@
   font-family: "D2Coding";
 }
 
-.terminal-container.ready {
+.container.ready {
   opacity: 0;
   pointer-events: none;
 }
 
-.terminal-tab {
+.tab {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -30,30 +30,18 @@
   box-shadow: inset 0px 0.2px 0px 0px white;
 }
 
-.terminal-btn-wrap {
+.btnsWrap {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
 }
 
-.terminal-btn {
+.btn {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   border: none;
-}
-
-.terminal-btn.close {
-  background-color: #ff5e57;
-}
-
-.terminal-btn.unfold {
-  background-color: #febc2e;
-}
-
-.terminal-btn.full {
-  background-color: #26c940;
 }
 
 .terminal-command-wrap {
@@ -66,7 +54,7 @@
   color: gray;
 }
 
-.terminal-left-area {
+.leftArea {
   width: 100%;
   height: 100%;
   display: flex;
@@ -75,13 +63,13 @@
   padding: 0px 20px 0px 8px;
 }
 
-.terminal-right-area {
+.rightArea {
   width: 100%;
   height: 100%;
   display: flex;
 }
 
-.terminal-sub-tab {
+.subTab {
   width: 355px;
   display: flex;
   justify-content: center;
@@ -90,13 +78,13 @@
   box-shadow: inset 0px 0.2px 0px 0px white;
 }
 
-.terminal-sub-tab-dir {
+.TabDir {
   font-size: 10px;
   line-height: 10px;
   color: white;
 }
 
-.terminal-sub-tab-add {
+.TabAddBtn {
   width: 25px;
   height: 25px;
   font-size: 20px;
@@ -108,7 +96,7 @@
   font-weight: 100;
 }
 
-.terminal-container > .terminal {
+.container > .wrapper {
   width: 500px;
   height: 350px;
   background-color: black;
@@ -118,7 +106,7 @@
   overflow: hidden;
 }
 
-.content-wrapper {
+.contentWrap {
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -156,12 +144,12 @@
   outline: none;
 }
 
-.progress-bar {
+.progressBar {
   width: 330px;
   position: relative;
 }
 
-.progress-bar-percent {
+.progressBarPercent {
   position: absolute;
   top: 50%;
   right: -30px;
@@ -170,13 +158,13 @@
   font-weight: 700;
 }
 
-.progress-bar-text-wrap {
+.progressBarTextWrap {
   margin-top: 1px;
   color: rgb(236, 236, 236);
   font-weight: 400;
 }
 
-.progress-bar-text {
+.progressBarText {
   color: rgb(113, 113, 113);
   font-weight: 400;
 }

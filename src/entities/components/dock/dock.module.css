@@ -1,4 +1,4 @@
-.screen-identy {
+.identy {
   width: 1000px;
   height: 130px;
   position: absolute;
@@ -8,11 +8,11 @@
   z-index: 9999;
 }
 
-.screen-identy:hover ~ .screen-docs {
+.identy:hover ~ .container {
   bottom: 15px;
 }
 
-.screen-docs {
+.container {
   width: 1000px;
   padding: 8px;
   display: flex;
@@ -31,19 +31,19 @@
   z-index: 9999;
 }
 
-.screen-docs:hover {
+.container:hover {
   bottom: 15px;
 }
 
-.docs-application {
+.application {
   position: relative;
 }
 
-.docs-application > .tooltip {
+.application > .tooltip {
   display: none;
 }
 
-.docs-application:hover > .tooltip {
+.application:hover > .tooltip {
   position: absolute;
   top: -80px;
   left: 50%;
@@ -55,7 +55,7 @@
   background-color: #302c29;
 }
 
-.docs-application:hover > .tooltip::after {
+.application:hover > .tooltip::after {
   position: absolute;
   bottom: -24px;
   left: 50%;
@@ -69,7 +69,7 @@
   border-right: 12px solid transparent;
 }
 
-.docs-application > .tooltip > .tooltip-label {
+.application > .tooltip > .label {
   font-size: 25px;
   line-height: 25px;
   color: white;

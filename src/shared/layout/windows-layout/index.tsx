@@ -1,4 +1,4 @@
-import "@/shared/assets/css/windows/app-layout.css";
+import "./windows-layout.css";
 
 import { CSSProperties, MouseEvent, ReactNode, useEffect } from "react";
 

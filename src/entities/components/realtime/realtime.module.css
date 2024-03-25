@@ -1,22 +1,22 @@
-.realtime-box {
+.box {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
 
-.realtime-box.mac > span {
+.box.mac > span {
   height: 16px;
 }
 
-.realtime-date {
+.date {
   font-size: 20px;
   line-height: 20px;
   font-weight: 400;
   color: black;
 }
 
-.realtime-time {
+.time {
   font-size: 20px;
   line-height: 20px;
   font-weight: 400;
