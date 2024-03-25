@@ -29,14 +29,8 @@ const Dock = () => {
 
   useEffect(() => {
     socket.on("alert", () => {
-      if (history["memo"]) return;
-      else setMemoAlert(styles.alert);
+      setMemoAlert(history["memo"] ? "" : styles.alert);
     });
-  }, []);
-
-  useEffect(() => {
-    if (!history["memo"]) return;
-    else setMemoAlert("");
   }, [history["memo"]]);
 
   return (
