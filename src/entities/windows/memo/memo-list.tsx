@@ -1,7 +1,8 @@
 import { useState } from "react";
 
+import { type MemoDataIF } from ".";
+
 import Loading from "../loading";
-import { MemoDataIF } from ".";
 import dayjs from "dayjs";
 
 interface MemoListPropsIF {
@@ -44,7 +45,7 @@ const MemoList = (props: MemoListPropsIF) => {
       )}
       {data.map((memo, i) => (
         <div
-          key={memo.title}
+          key={`${memo.date}`}
           className={`memo-comment-item ${i === selected ? "selected" : ""}`}
           onClick={() => onSelectItem(i)}
         >

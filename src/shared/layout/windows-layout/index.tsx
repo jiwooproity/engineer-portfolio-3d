@@ -13,7 +13,7 @@ interface WindowLayoutPropsIF {
 
 const WindowLayout = (props: WindowLayoutPropsIF) => {
   const { name, divide, width, height, style, children } = props;
-  const winwoTarget = `${name}${divide}`;
+  const divideTarget = `${name}${divide}`;
 
   const getElementAttr = (className: string) => {
     const target = document.querySelector(className);
@@ -27,7 +27,7 @@ const WindowLayout = (props: WindowLayoutPropsIF) => {
 
   const changeFocus = () => {
     const focusing = (app: HTMLDivElement) => {
-      const isFocusApp = app.className.includes(`${winwoTarget}-application`);
+      const isFocusApp = app.className.includes(`${divideTarget}-application`);
       app.style.setProperty("z-index", `${isFocusApp ? "9998" : "1"}`);
     };
 
@@ -68,13 +68,13 @@ const WindowLayout = (props: WindowLayoutPropsIF) => {
 
   useEffect(() => {
     // 각각 생성된 Application 동작을 위해 {name}-application 으로 구분하여 이벤트를 부여함.
-    const app = getElementAttr(`.${winwoTarget}-application`) as HTMLDivElement;
+    const app = getElementAttr(`.${divideTarget}-application`) as HTMLDivElement;
     app.ondragstart = () => false;
   }, []);
 
   return (
     <div
-      className={`app-container ${winwoTarget}-application`}
+      className={`app-container ${divideTarget}-application`}
       style={{ ...style, width, height }}
       draggable={true}
       onDragStart={onDragStart}

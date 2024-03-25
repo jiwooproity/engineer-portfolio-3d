@@ -9,9 +9,12 @@ export interface AppOptionsIF {
 
 const DEFAULT_APP: AppOptionsIF[] = [];
 
-const windowHistory = atom<AppOptionsIF[]>({
+export const windowHistory = atom<AppOptionsIF[]>({
   key: "window-history",
   default: DEFAULT_APP,
 });
 
-export default windowHistory;
+export const windowKeyHistory = atom<{ [key: string]: boolean }>({
+  key: "window-key-history",
+  default: {},
+});
