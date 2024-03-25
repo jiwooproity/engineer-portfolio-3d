@@ -1,4 +1,4 @@
-import "@/shared/assets/css/screen/applications.css";
+import styles from "./applications.module.css";
 
 import { DragEvent, useEffect } from "react";
 import { useApplication } from "@/shared/hooks";
@@ -34,12 +34,12 @@ const Applications = () => {
     const x = 20;
     const y = i * 141 + 60;
     const style = { top: y, left: x };
-    const select = selected === app.name ? "selected" : "";
+    const select = selected === app.name ? styles.selected : "";
 
     return (
       <div
         key={app.name}
-        className={`application ${select}`}
+        className={`${styles.application} ${select}`}
         style={style}
         draggable={true}
         data-value={app.icon}
@@ -50,7 +50,7 @@ const Applications = () => {
         onClick={() => focusSelected(app.name)}
       >
         <div className={`application-icon ${app.icon}`} />
-        <span className="application-name">{app.name}</span>
+        <span className={styles.name}>{app.name}</span>
       </div>
     );
   });

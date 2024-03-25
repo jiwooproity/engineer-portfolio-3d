@@ -1,4 +1,4 @@
-import "@/shared/assets/css/windows/app-memo.css";
+import "./memo.css";
 
 import { ChangeEvent, useEffect, useState } from "react";
 

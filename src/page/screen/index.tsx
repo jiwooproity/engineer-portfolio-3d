@@ -1,9 +1,9 @@
-import "@/shared/assets/css/screen/screen.css";
+import "./screen.css";
 
 import { MouseEvent, useMemo } from "react";
 
 import { Applications, LockScreen } from "@/entities/components";
-import { Navigation, Docs } from "@/entities/components";
+import { Navigation, Dock } from "@/entities/components";
 import { AppLayout } from "@/entities/windows";
 
 const Screen = () => {
@@ -16,6 +16,7 @@ const Screen = () => {
   }, []);
 
   const playEffect = (e: MouseEvent) => {
+    e.stopPropagation();
     sounds.map((sound) => (sound.currentTime = 0));
     if (e.type === "mousedown") sounds[0].play();
     else if (e.type === "mouseup") sounds[1].play();
@@ -30,7 +31,7 @@ const Screen = () => {
       <Navigation />
       <Applications />
       <AppLayout />
-      <Docs />
+      <Dock />
       <LockScreen />
     </div>
   );

@@ -1,4 +1,4 @@
-import "@/shared/assets/css/windows/app-loading.css";
+import "./loading.css";
 
 const Loading = () => {
   return (
