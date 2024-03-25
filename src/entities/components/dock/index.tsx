@@ -1,6 +1,6 @@
 import styles from "./dock.module.css";
 
-import { MouseEvent, memo, useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 import { useRecoilValue } from "recoil";
 import { windowKeyHistory } from "@/shared/store/atoms";
@@ -31,7 +31,7 @@ const Dock = () => {
     socket.on("alert", () => {
       setMemoAlert(!history["memo"]);
     });
-  });
+  }, []);
 
   useEffect(() => {
     if (history["memo"]) setMemoAlert(false);
