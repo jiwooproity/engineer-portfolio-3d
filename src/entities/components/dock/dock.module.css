@@ -1,8 +1,22 @@
+@keyframes alert-animation {
+  0% {
+    top: 50%;
+  }
+
+  50% {
+    top: 0%;
+  }
+
+  100% {
+    top: 50%;
+  }
+}
+
 .identy {
   width: 1000px;
-  height: 130px;
+  height: 145px;
   position: absolute;
-  bottom: 15px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 9999;
@@ -14,7 +28,8 @@
 
 .container {
   width: 1000px;
-  padding: 8px;
+  height: 130px;
+  padding: 8px 8px 8px 8px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -36,7 +51,9 @@
 }
 
 .application {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .application > .tooltip {
@@ -73,4 +90,19 @@
   font-size: 25px;
   line-height: 25px;
   color: white;
+}
+
+.application > .active {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background-color: #d3d2d2;
+}
+
+.alert {
+  animation: alert-animation 1s infinite;
 }
