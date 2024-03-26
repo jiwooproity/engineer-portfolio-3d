@@ -16,8 +16,9 @@ const useApplication = () => {
 
     switch (value) {
       case "app-github":
-        anchor.setAttribute("href", "https://github.com/jiwooproity");
-        anchor.click();
+        // anchor.setAttribute("href", "https://github.com/jiwooproity");
+        // anchor.click();
+        openApplication(WINDOWS.GITHUB);
         break;
       case "app-notion":
         anchor.setAttribute(

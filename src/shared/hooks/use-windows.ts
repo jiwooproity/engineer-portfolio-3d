@@ -12,12 +12,18 @@ const APP_LITS = [
 ];
 
 const WINDOWS = {
+  GITHUB: "github",
   MEMO: "memo",
   TERMINAL: "terminal",
   FOLDER: "folder",
 };
 
 const WINDOW_LIST: { [key: string]: AppOptionsIF } = {
+  github: {
+    name: "github",
+    width: 1500,
+    height: 1000,
+  },
   memo: {
     name: "memo",
     width: 1500,
