@@ -5,10 +5,8 @@ import { WindowLayout } from "@/shared/layout";
 import Memo from "./memo";
 import Terminal from "./terminal";
 import Folder from "./folder";
-import Browser from "./browser";
 
 const APPLICATION_LIST: { [key: string]: JSX.Element } = {
-  github: <Browser />,
   memo: <Memo />,
   terminal: <Terminal />,
   folder: <Folder />,
