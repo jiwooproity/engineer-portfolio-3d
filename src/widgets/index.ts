@@ -1,3 +1,1 @@
-import MemoEditor from "./memo-editor";
-
-export { MemoEditor };
+export { default as MemoEditor } from "./memo-editor";
