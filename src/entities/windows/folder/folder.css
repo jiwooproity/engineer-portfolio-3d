@@ -15,3 +15,9 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.profile-body-wrapper,
+.repository-body-wrapper {
+  width: 100%;
+  height: calc(100% - 39px);
+}
