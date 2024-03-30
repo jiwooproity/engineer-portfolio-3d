@@ -3,10 +3,7 @@ import "./memo.css";
 import { ChangeEvent, useEffect, useState } from "react";
 
 import { MemoEditor } from "@/widgets";
-import {
-  createNotionMemo,
-  getNotionMemo,
-} from "@/shared/fetch/notion-api/fetch";
+import { createNotionMemo, getNotionMemo } from "@/shared/fetch/notion-api/fetch";
 
 import MemoNavigation from "./memo-navigation";
 import MemoList from "./memo-list";
@@ -111,23 +108,10 @@ const Memo = () => {
       <MemoNavigation />
       <div className="memo-content-area" draggable={true}>
         <div className="memo-content-left-area">
-          <MemoList
-            loaded={loaded}
-            data={data}
-            insert={text}
-            toggle={toggle}
-            onSelect={onSelect}
-            onToggle={onToggle}
-          />
+          <MemoList loaded={loaded} data={data} insert={text} toggle={toggle} onSelect={onSelect} onToggle={onToggle} />
         </div>
         <div className="memo-content-right-area">
-          <MemoEditor
-            loaded={loaded}
-            data={showData}
-            values={text}
-            toggle={toggle}
-            onChange={onInsert}
-          />
+          <MemoEditor loaded={loaded} data={showData} values={text} toggle={toggle} onChange={onInsert} />
           {renderUpdateBtn()}
         </div>
       </div>

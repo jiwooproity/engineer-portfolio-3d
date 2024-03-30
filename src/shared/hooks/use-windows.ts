@@ -42,7 +42,7 @@ const useWindows = () => {
   const openApplication = (name: string, divide?: string) => {
     if (divide) {
       if (history.find((his) => his.divide === divide)) return;
-      setHistory((history) => [...history, { ...WINDOW_LIST[name], divide }]);
+      setHistory((history) => [...history, { ...WINDOW_LIST[name], name: divide }]);
     } else {
       if (history.find((his) => his.name === name)) return;
       setHistory((history) => [...history, WINDOW_LIST[name]]);

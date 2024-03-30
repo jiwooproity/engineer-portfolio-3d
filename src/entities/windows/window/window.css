@@ -1,0 +1,15 @@
+.navigation-btns {
+  padding: 0px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.navigation-btns > button {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -1,3 +1,1 @@
-import LightController from "./light-controller";
-
-export { LightController };
+export { default as LightController } from "./light-controller";

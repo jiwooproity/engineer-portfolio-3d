@@ -1,3 +1,1 @@
-import WindowLayout from "./windows-layout";
-
-export { WindowLayout };
+export { default as WindowLayout } from "./windows-layout";

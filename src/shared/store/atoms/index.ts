@@ -1,4 +1,2 @@
-import zoomToggle from "./zoom-toggle";
-import { windowHistory, windowKeyHistory } from "./window-history";
-
-export { zoomToggle, windowHistory, windowKeyHistory };
+export { default as zoomToggle } from "./zoom-toggle";
+export { windowHistory, windowKeyHistory } from "./window-history";

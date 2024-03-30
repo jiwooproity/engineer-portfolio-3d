@@ -20,10 +20,7 @@ const useApplication = () => {
         anchor.click();
         break;
       case "app-notion":
-        anchor.setAttribute(
-          "href",
-          "https://www.notion.so/Resume-1579598f11a14aa5bfc83c3606914732"
-        );
+        anchor.setAttribute("href", "https://www.notion.so/Resume-1579598f11a14aa5bfc83c3606914732");
         anchor.click();
         break;
       case "app-memo":
@@ -33,7 +30,7 @@ const useApplication = () => {
         openApplication(WINDOWS.TERMINAL);
         break;
       case "app-folder":
-        openApplication(WINDOWS.FOLDER, divide);
+        openApplication(WINDOWS.FOLDER, divide.toLowerCase());
         break;
       default:
         break;
