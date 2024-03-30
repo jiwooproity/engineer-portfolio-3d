@@ -1,0 +1,17 @@
+.profile-window-wrapper,
+.repository-window-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #1e1e1e;
+}
+
+.profile-navigation-wrapper,
+.repository-navigation-wrapper {
+  width: 100%;
+  height: 39px;
+  background-color: #383737;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

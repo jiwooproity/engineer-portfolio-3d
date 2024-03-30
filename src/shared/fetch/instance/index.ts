@@ -1,5 +1,3 @@
-import instance from "./instance";
-import gitInstance from "./gitInstance";
-import notionInstance from "./notionInstance";
-
-export { instance, gitInstance, notionInstance };
+export { default as instance } from "./instance";
+export { default as gitInstance } from "./gitInstance";
+export { default as notionInstance } from "./notionInstance";

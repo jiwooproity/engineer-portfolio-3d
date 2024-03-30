@@ -1,7 +1,4 @@
-import Macbook from "./macbook";
-import Coffee from "./coffee";
-import CoffeeShop from "./coffee-shop";
-import Annotation from "./annotation";
-import ObjectRender from "./object-render";
-
-export { Macbook, Coffee, CoffeeShop, Annotation, ObjectRender };
+export { default as Macbook } from "./macbook";
+export { default as Coffee } from "./coffee";
+export { default as CoffeeShop } from "./coffee-shop";
+export { default as ObjectRender } from "./object-render";

@@ -1,20 +1,8 @@
-import Outline from "./outline";
-import Loader from "./loader";
-import RealTime from "./realtime";
-import Navigation from "./navigation";
-import LockScreen from "./lock-screen";
-import Applications from "./applications";
-import Dock from "./dock";
-
-import MobileGuide from "./mobile-guide";
-
-export {
-  Outline,
-  Loader,
-  RealTime,
-  Navigation,
-  LockScreen,
-  Applications,
-  Dock,
-  MobileGuide,
-};
+export { default as Outline } from "./outline";
+export { default as Loader } from "./loader";
+export { default as RealTime } from "./realtime";
+export { default as Navigation } from "./navigation";
+export { default as LockScreen } from "./lock-screen";
+export { default as Applications } from "./applications";
+export { default as Dock } from "./dock";
+export { default as MobileGuide } from "./mobile-guide";
