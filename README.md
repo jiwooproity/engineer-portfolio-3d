@@ -22,6 +22,11 @@
 |Delete|파일을 삭제한 경우|
 |Docs|문서를 수정한 경우|
 
+## Front-End Architecture
+참고 링크: <a href="https://emewjin.github.io/feature-sliced-design/">Feature Sliced Design</a>  
+* 아직 완벽히 사용하지는 못하고 있다 .. 조금 더 살펴봐야겠다.
+
+
 ## Skills
 Vite + React  
 Typescript  
