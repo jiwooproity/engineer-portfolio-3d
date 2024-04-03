@@ -5,7 +5,7 @@ import MemoEditor from "./memo-editor";
 
 import { getMemoList } from "@/entities/memo";
 import { MemoAddButton } from "@/features/memo";
-import { Window, Loading } from "@/entities/components";
+import { Window, Loading } from "@/widgets/components";
 
 import useValidation from "../lib/use-validation";
 
