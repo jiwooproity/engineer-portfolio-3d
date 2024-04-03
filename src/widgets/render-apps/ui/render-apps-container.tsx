@@ -1,8 +1,8 @@
 import { useRecoilValue } from "recoil";
 import { windowHistory } from "@/shared/store/atoms";
-import { WindowLayout } from "@/shared/layout";
+import { FolderApp, MemoApp, TerminalApp } from "@/widgets";
 
-import { FolderApp, MemoApp, TerminalApp } from "..";
+import RenderAppsLayout from "./render-apps-layout";
 
 const APPLICATION_LIST: { [key: string]: ({ name }: { name: string }) => JSX.Element } = {
   memo: () => <MemoApp />,
@@ -11,14 +11,14 @@ const APPLICATION_LIST: { [key: string]: ({ name }: { name: string }) => JSX.Ele
   profile: ({ name }: { name: string }) => <FolderApp name={name} />,
 };
 
-const AppLayout = () => {
+const RenderAppsContainer = () => {
   const applications = useRecoilValue(windowHistory);
 
   return applications.map((app, i) => {
     const App = APPLICATION_LIST[app.name];
 
     return (
-      <WindowLayout
+      <RenderAppsLayout
         key={app.divide || app.name}
         name={app.name}
         style={{ zIndex: applications.length - 1 === i ? "9999" : "1" }}
@@ -27,9 +27,9 @@ const AppLayout = () => {
         divide={app.divide || ""}
       >
         <App name={app.divide || app.name} />
-      </WindowLayout>
+      </RenderAppsLayout>
     );
   });
 };
 
-export { AppLayout };
+export { RenderAppsContainer };

@@ -2,9 +2,10 @@ import "./screen.css";
 
 import { MouseEvent, useMemo } from "react";
 
-import { AppLayout } from "@/widgets/app-layout";
 import { Applications, LockScreen } from "@/entities/components";
 import { Navigation, Dock } from "@/entities/components";
+
+import RenderApps from "@/widgets/render-apps";
 
 const Screen = () => {
   const sounds = useMemo(() => {
@@ -26,7 +27,7 @@ const Screen = () => {
     <div className="screen-container" onMouseDown={playEffect} onMouseUp={playEffect}>
       <Navigation />
       <Applications />
-      <AppLayout />
+      <RenderApps />
       <Dock />
       <LockScreen />
     </div>

@@ -1,18 +1,11 @@
-import "./windows-layout.css";
+import { DragEvent, useEffect } from "react";
 
-import { CSSProperties, MouseEvent, ReactNode, useEffect } from "react";
-
-interface WindowLayoutPropsIF {
+interface UseDragHooksProps {
   name: string;
-  width: number;
-  height: number;
-  divide: string; // Folder와 같은 동일한 애플리케이션을 멀티 윈도우 처리를 하기 위한 구분
-  style: CSSProperties;
-  children: ReactNode;
+  divide: string;
 }
 
-const WindowLayout = (props: WindowLayoutPropsIF) => {
-  const { name, divide, width, height, style, children } = props;
+const useDrag = ({ name, divide }: UseDragHooksProps) => {
   const divideTarget = `${name}${divide}`;
 
   const getElementAttr = (className: string) => {
@@ -35,7 +28,7 @@ const WindowLayout = (props: WindowLayoutPropsIF) => {
     getApps.forEach(focusing);
   };
 
-  const onDragStart = (e: MouseEvent) => {
+  const onDragStart = (e: DragEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     const shiftX = e.clientX - target.getBoundingClientRect().left;
     const shiftY = e.clientY - target.getBoundingClientRect().top;
@@ -72,17 +65,7 @@ const WindowLayout = (props: WindowLayoutPropsIF) => {
     app.ondragstart = () => false;
   }, []);
 
-  return (
-    <div
-      className={`app-container ${divideTarget}-application`}
-      style={{ ...style, width, height }}
-      draggable={true}
-      onDragStart={onDragStart}
-      onClick={changeFocus}
-    >
-      {children}
-    </div>
-  );
+  return { divideTarget, onDragStart, changeFocus };
 };
 
-export default WindowLayout;
+export default useDrag;
