@@ -1,4 +1,4 @@
-import { MobileGuide } from "@/entities/components";
+import { MobileGuide } from "@/widgets/components";
 
 const Mobile = () => {
   return <MobileGuide />;

@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 
 import { ObjectRender } from "@/widgets/models";
-import { Loader } from "@/entities/components";
+import { Loader } from "@/widgets/components";
 import { LightController } from "@/shared/resources";
 
 const Main = () => {

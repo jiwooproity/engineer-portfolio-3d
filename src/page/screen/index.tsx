@@ -2,8 +2,8 @@ import "./screen.css";
 
 import { MouseEvent, useMemo } from "react";
 
-import { Applications, LockScreen } from "@/entities/components";
-import { Navigation, Dock } from "@/entities/components";
+import { Applications, LockScreen } from "@/widgets/components";
+import { Navigation, Dock } from "@/widgets/components";
 
 import RenderApps from "@/widgets/render-apps";
 

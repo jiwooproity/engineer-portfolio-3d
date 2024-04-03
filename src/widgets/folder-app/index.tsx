@@ -1,6 +1,6 @@
 import "./folder.css";
 
-import { Window } from "@/entities/components";
+import { Window } from "@/widgets/components";
 
 interface Props {
   name: string;
