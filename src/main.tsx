@@ -1,9 +1,8 @@
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-
 import { RecoilRoot } from "recoil";
 
-import router from "@/shared/router/index.tsx";
+import { RouterProvider } from "react-router-dom";
+import router from "./shared/router/router";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <RecoilRoot>

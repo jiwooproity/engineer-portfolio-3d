@@ -3,7 +3,7 @@ import { Suspense, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 
-import { ObjectRender } from "@/entities/rendering";
+import { ObjectRender } from "@/widgets/models";
 import { Loader } from "@/entities/components";
 import { LightController } from "@/shared/resources";
 
@@ -46,11 +46,7 @@ const Main = () => {
             far={35}
             color={"#a79a73"}
           />
-          <Environment
-            files="./interior/st_fagans_interior_1k.exr"
-            background
-            blur={1}
-          />
+          <Environment files="./interior/st_fagans_interior_1k.exr" background blur={1} />
         </Suspense>
       </Canvas>
       <Loader />
