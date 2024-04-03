@@ -1,0 +1,166 @@
+.memo-window-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #1e1e1e;
+}
+
+.memo-navigation-wrapper {
+  width: 100%;
+  height: 70px;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  background-color: #383737;
+}
+
+.memo-body-wrapper {
+  width: 100%;
+  height: calc(100% - 70px);
+  display: flex;
+  overflow: hidden;
+}
+
+.memo-list-wrapper {
+  max-width: 280px;
+  min-width: 280px;
+  overflow-y: scroll;
+  background-color: #2e2e2e;
+}
+
+.memo-list-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.memo-list {
+  padding: 15px;
+}
+
+.memo-item {
+  width: 250px;
+  height: 93px;
+  padding: 20px 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.memo-item.add {
+  align-items: center;
+}
+
+.memo-item > .editor-btn {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
+  color: #acabab;
+}
+
+.memo-item:hover {
+  background-color: #464646;
+}
+
+.memo-item.selected {
+  background-color: #a5833b;
+}
+
+.memo-item.selected:hover {
+  background-color: #464646;
+}
+
+.memo-item::before {
+  content: "";
+  width: 95%;
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  border-bottom: 1px solid #424242;
+}
+
+.memo-item > .memo-title {
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  color: white;
+}
+
+.memo-item > .memo-content {
+  font-size: 22px;
+  line-height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  color: #c7c7c7;
+}
+
+.memo-editor-wrapper {
+  width: 100%;
+  padding: 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.memo-editor-wrapper > input,
+.memo-editor-wrapper > textarea {
+  border: none;
+  background-color: transparent;
+}
+
+.memo-editor-wrapper > textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.memo-editor-wrapper > input:focus,
+.memo-editor-wrapper > textarea:focus {
+  outline: none;
+}
+
+.memo-editor-title {
+  width: 100%;
+  font-size: 36px;
+  line-height: 36px;
+  color: white;
+}
+
+.memo-editor-content {
+  width: 100%;
+  height: 100%;
+  font-size: 28px;
+  line-height: 35px;
+  color: #acabab;
+}
+
+.memo-add-btn {
+  position: absolute;
+  padding: 10px 12px;
+  bottom: 24px;
+  right: 24px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #fff;
+  background-color: #464646;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.memo-add-btn:hover {
+  background-color: #a5833b;
+}
