@@ -2,7 +2,6 @@
   width: 100%;
   height: 100%;
   background-color: #1e1e1e;
-  font-family: "Roboto", sans-serif;
 }
 
 .memo-navigation-wrapper {
@@ -14,6 +13,7 @@
   align-items: center;
   border-bottom: 1px solid black;
   background-color: #383737;
+  font-family: "Roboto", sans-serif;
 }
 
 .memo-body-wrapper {
@@ -137,6 +137,7 @@
   font-size: 36px;
   line-height: 36px;
   color: white;
+  font-family: "Roboto", sans-serif;
 }
 
 .memo-editor-content {
@@ -145,6 +146,7 @@
   font-size: 28px;
   line-height: 35px;
   color: #acabab;
+  font-family: "Roboto", sans-serif;
 }
 
 .memo-add-btn {
