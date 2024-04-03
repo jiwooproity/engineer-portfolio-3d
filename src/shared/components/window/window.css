@@ -13,3 +13,8 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+.horizontal {
+  width: 100%;
+  display: flex;
+}

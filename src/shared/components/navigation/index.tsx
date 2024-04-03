@@ -1,6 +1,6 @@
 import styles from "./navigation.module.css";
 
-import { RealTime } from "@/widgets/components";
+import { RealTime } from "@/shared/components";
 import { useCheckOS } from "@/shared/hooks";
 
 const Navigation = () => {
