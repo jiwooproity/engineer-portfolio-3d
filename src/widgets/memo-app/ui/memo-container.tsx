@@ -5,7 +5,7 @@ import MemoEditor from "./memo-editor";
 
 import { getMemoList } from "@/entities/memo";
 import { MemoAddButton } from "@/features/memo";
-import { Window, Loading } from "@/widgets/components";
+import { Window, Loading } from "@/shared/components";
 
 import useValidation from "../lib/use-validation";
 
@@ -56,7 +56,9 @@ const MemoContainer = () => {
 
   return (
     <Window name="memo">
-      <Window.Navigation />
+      <Window.Navigation>
+        <Window.Buttons />
+      </Window.Navigation>
       <Window.Body>
         {loaded ? (
           <>

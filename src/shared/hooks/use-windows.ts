@@ -30,8 +30,8 @@ const WINDOW_LIST: { [key: string]: AppOptionsIF } = {
   },
   folder: {
     name: "folder",
-    width: 800,
-    height: 530,
+    width: 1000,
+    height: 600,
   },
 };
 

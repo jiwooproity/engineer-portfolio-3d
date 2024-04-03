@@ -1,4 +1,4 @@
-import { MobileGuide } from "@/widgets/components";
+import { MobileGuide } from "@/shared/components";
 
 const Mobile = () => {
   return <MobileGuide />;
