@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { Main, Mobile } from "@/page";
-import { Outline } from "@/entities/components";
+import { Outline } from "@/widgets/components";
 
 const App = () => {
   const width = window.innerWidth;

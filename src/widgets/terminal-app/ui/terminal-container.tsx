@@ -1,4 +1,4 @@
-import { Window } from "@/entities/components";
+import { Window } from "@/widgets/components";
 
 import TerminalSubNavigation from "./terminal-sub-navigation";
 import TerminalReleaseInfo from "./terminal-release-info";
