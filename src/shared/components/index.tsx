@@ -1,4 +1,3 @@
-export { default as Loader } from "./loader";
 export { default as RealTime } from "./realtime";
 export { default as Navigation } from "./navigation";
 export { default as LockScreen } from "./lock-screen";

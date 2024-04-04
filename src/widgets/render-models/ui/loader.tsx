@@ -1,4 +1,4 @@
-import styles from "./loader.module.css";
+import styles from "../style/loader.module.css";
 
 import { useEffect, useState } from "react";
 import { type ReactNode, type ChangeEvent, type KeyboardEvent } from "react";

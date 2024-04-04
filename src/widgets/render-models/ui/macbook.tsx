@@ -1,8 +1,9 @@
 import * as THREE from "three";
 import { Html, useGLTF } from "@react-three/drei";
 
-import { useLaptop } from "@/shared/hooks";
 import { type DreiGLTF, type MeshTypes } from "@/shared/types/three/gltf";
+
+import useLaptop from "../lib/use-laptop";
 
 type StandardPropsTypes = {
   mesh: MeshTypes[];
@@ -105,14 +106,7 @@ const Screen = (props: ScreenPropsTypes) => {
 const TrackPad = (props: SpecificPropsTypes) => {
   const { mesh } = props;
 
-  return (
-    <mesh
-      geometry={mesh.geometry}
-      material={mesh.material}
-      castShadow
-      receiveShadow
-    />
-  );
+  return <mesh geometry={mesh.geometry} material={mesh.material} castShadow receiveShadow />;
 };
 
 const Macbook = () => {
