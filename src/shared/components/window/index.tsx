@@ -16,8 +16,8 @@ interface BodyProps {
   children: React.ReactNode;
 }
 
-interface SideMenuProps {
-  width: number | string;
+interface BlockProps {
+  className: string;
   children: React.ReactNode;
 }
 
@@ -47,12 +47,8 @@ const Buttons = () => {
   );
 };
 
-const Block = ({ width, children }: SideMenuProps) => {
-  return (
-    <div className="window-block" style={{ width }}>
-      {children}
-    </div>
-  );
+const Block = ({ className, children }: BlockProps) => {
+  return <div className={className}>{children}</div>;
 };
 
 const Navigation = ({ children }: NavigationProps) => {
