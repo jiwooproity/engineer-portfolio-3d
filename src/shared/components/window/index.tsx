@@ -1,5 +1,5 @@
 import "./window.css";
-import React, { createContext, useContext } from "react";
+import React, { MouseEvent, createContext, useContext } from "react";
 import { useWindows } from "@/shared/hooks";
 
 interface Props {
@@ -38,9 +38,14 @@ const Buttons = () => {
   const { closeApplication } = useWindows();
   const { name } = useContext(windowContext);
 
+  const stoppedBubbling = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    closeApplication(name);
+  };
+
   return (
     <div className="navigation-btns">
-      <button className="app-close" onClick={() => closeApplication(name)} />
+      <button className="app-close" onClick={stoppedBubbling} />
       <button className="app-unfold" />
       <button className="app-full" />
     </div>

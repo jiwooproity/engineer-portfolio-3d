@@ -1,4 +1,6 @@
-import { DragEvent, useEffect } from "react";
+import { windowHistory } from "@/shared/store/atoms";
+import { DragEvent, MouseEvent, useEffect } from "react";
+import { useRecoilState } from "recoil";
 
 interface UseDragHooksProps {
   name: string;
@@ -7,25 +9,18 @@ interface UseDragHooksProps {
 
 const useDrag = ({ name, divide }: UseDragHooksProps) => {
   const divideTarget = `${name}${divide}`;
+  const [history, setHistory] = useRecoilState(windowHistory);
 
   const getElementAttr = (className: string) => {
     const target = document.querySelector(className);
     return target as HTMLDivElement;
   };
 
-  const getElementAttrAll = (className: string) => {
-    const targets = document.querySelectorAll(className);
-    return targets as NodeListOf<HTMLDivElement>;
-  };
-
-  const changeFocus = () => {
-    const focusing = (app: HTMLDivElement) => {
-      const isFocusApp = app.className.includes(`${divideTarget}-application`);
-      app.style.setProperty("z-index", `${isFocusApp ? "9998" : "1"}`);
-    };
-
-    const getApps = getElementAttrAll(".app-container");
-    getApps.forEach(focusing);
+  const changeFocus = (e?: MouseEvent<HTMLDivElement>) => {
+    e?.stopPropagation();
+    const dragging = history.filter((his) => his.name === divideTarget);
+    const remain = history.filter((his) => his.name !== divideTarget);
+    setHistory([...remain, ...dragging]);
   };
 
   const onDragStart = (e: DragEvent<HTMLDivElement>) => {
