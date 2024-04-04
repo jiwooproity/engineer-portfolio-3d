@@ -1,4 +1,4 @@
-const LightController = () => {
+const LightObject = () => {
   return (
     <>
       <ambientLight intensity={0.5} />
@@ -13,4 +13,4 @@ const LightController = () => {
   );
 };
 
-export default LightController;
+export default LightObject;
