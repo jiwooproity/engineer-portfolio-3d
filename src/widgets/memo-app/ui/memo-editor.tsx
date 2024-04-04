@@ -1,23 +1,28 @@
 import { ChangeEvent, ReactNode } from "react";
 
+import { useRecoilValue } from "recoil";
+import { cacheMemos } from "@/entities/memo";
+
 import { MemoIF } from "./memo-container";
 
 interface MemoEditorProps {
-  memo: MemoIF;
+  selected: number;
   useEditor: boolean;
   editor: { title: string; content: string };
   onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   children: ReactNode;
 }
 
-const MemoEditor = ({ memo, useEditor, editor, onChange, children }: MemoEditorProps) => {
+const MemoEditor = ({ selected, useEditor, editor, onChange, children }: MemoEditorProps) => {
+  const memos: MemoIF[] = useRecoilValue(cacheMemos);
+
   return (
     <div className="memo-editor-wrapper">
       <input
         name="title"
         className="memo-editor-title"
         type="text"
-        value={useEditor ? editor.title : memo?.title}
+        value={useEditor ? editor.title : memos[selected]?.title}
         readOnly={!useEditor}
         placeholder="제목을 입력해 주세요."
         onChange={onChange}
@@ -27,7 +32,7 @@ const MemoEditor = ({ memo, useEditor, editor, onChange, children }: MemoEditorP
       <textarea
         name="content"
         className="memo-editor-content"
-        value={useEditor ? editor.content : memo?.content}
+        value={useEditor ? editor.content : memos[selected]?.content}
         readOnly={!useEditor}
         placeholder="소중한 메모 부탁드립니다."
         onChange={onChange}
