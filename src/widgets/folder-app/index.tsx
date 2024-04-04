@@ -9,12 +9,12 @@ interface Props {
 const Folder = (props: Props) => {
   return (
     <Window name={props.name} direction="horizontal">
-      <Window.Block className="folder-side-menu">
+      <Window.Block width="200px">
         <div className="side-navigation">
           <Window.Buttons />
         </div>
       </Window.Block>
-      <Window.Block className="folder-main-content">
+      <Window.Block width="100%">
         <Window.Navigation />
         <Window.Body>
           <div></div>

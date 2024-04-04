@@ -1,8 +1,9 @@
-import { ChangeEvent, Suspense, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import MemoList from "./memo-list";
 import MemoEditor from "./memo-editor";
 
+import { getMemoList } from "@/entities/memo";
 import { MemoAddButton } from "@/features/memo";
 import { Window, Loading } from "@/shared/components";
 
@@ -15,11 +16,25 @@ export interface MemoIF {
 }
 
 const MemoContainer = () => {
+  const [loaded, setLoaded] = useState(false);
+  const [memos, setMemos] = useState<MemoIF[]>([]);
+
   const [selected, setSelected] = useState(0);
   const [useEditor, setUseEditor] = useState(false);
 
   const [editor, setEditor] = useState({ title: "", content: "" });
   const [visible] = useValidation({ ...editor });
+
+  const onLoad = async () => {
+    try {
+      setMemos(await getMemoList());
+    } catch (e) {
+      window.alert("메모 리스트 조회를 실패하였습니다. 잠시 후 다시 시도해 주세요.");
+    } finally {
+      setLoaded(true);
+      onInit();
+    }
+  };
 
   const onInit = () => {
     setEditor({ title: "", content: "" });
@@ -35,18 +50,37 @@ const MemoContainer = () => {
     setEditor({ ...editor, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    onLoad();
+  }, []);
+
   return (
     <Window name="memo">
       <Window.Navigation>
         <Window.Buttons />
       </Window.Navigation>
       <Window.Body>
-        <Suspense fallback={<Loading />}>
-          <MemoList selected={selected} onSelect={onSelect} useEditor={useEditor} editor={editor} />
-          <MemoEditor selected={selected} onChange={onChange} useEditor={useEditor} editor={editor}>
-            {visible && <MemoAddButton editor={editor} init={onInit} />}
-          </MemoEditor>
-        </Suspense>
+        {loaded ? (
+          <>
+            <MemoList
+              memos={memos}
+              selected={selected}
+              onSelect={onSelect}
+              useEditor={useEditor}
+              editor={editor}
+            />
+            <MemoEditor
+              memo={memos[selected]}
+              onChange={onChange}
+              useEditor={useEditor}
+              editor={editor}
+            >
+              {visible && <MemoAddButton editor={editor} reload={onLoad} />}
+            </MemoEditor>
+          </>
+        ) : (
+          <Loading />
+        )}
       </Window.Body>
     </Window>
   );
