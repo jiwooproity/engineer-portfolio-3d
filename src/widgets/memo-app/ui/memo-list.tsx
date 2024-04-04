@@ -1,18 +1,14 @@
-import { useRecoilValue } from "recoil";
-import { cacheMemos } from "@/entities/memo";
-
 import { MemoIF } from "./memo-container";
 
 interface MemoListProps {
+  memos: MemoIF[];
   selected: number;
   onSelect: (idx: number) => void;
   useEditor: boolean;
   editor: { title: string; content: string };
 }
 
-const MemoList = ({ selected, onSelect, useEditor, editor }: MemoListProps) => {
-  const memos: MemoIF[] = useRecoilValue(cacheMemos);
-
+const MemoList = ({ memos, selected, onSelect, useEditor, editor }: MemoListProps) => {
   return (
     <div className="memo-list-wrapper">
       <ul className="memo-list">
@@ -32,7 +28,7 @@ const MemoList = ({ selected, onSelect, useEditor, editor }: MemoListProps) => {
         {memos.map((memo, idx) => (
           <li
             className={`memo-item ${selected === idx ? "selected" : ""}`}
-            key={`${memo.date}-${memo.title}`}
+            key={`${memo.date}`}
             onClick={() => onSelect(idx)}
           >
             <h1 className="memo-title">{memo.title}</h1>

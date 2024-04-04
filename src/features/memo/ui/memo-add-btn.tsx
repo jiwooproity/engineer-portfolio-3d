@@ -1,36 +1,22 @@
-import { useRecoilRefresher_UNSTABLE } from "recoil";
-import { addMemoList, cacheMemos } from "@/entities/memo";
-import { useState } from "react";
+import { addMemoList } from "@/entities/memo";
 
 interface MemoAddButtonProps {
   editor: { title: string; content: string };
-  init: () => void;
+  reload: () => void;
 }
 
-const MemoAddButton = ({ editor, init }: MemoAddButtonProps) => {
-  const refresh = useRecoilRefresher_UNSTABLE(cacheMemos);
-  const [disabled, setDisabled] = useState(false);
-
-  const toggle = () => setDisabled((prev) => !prev);
-
-  const reload = () => {
-    refresh();
-    init();
-  };
-
+const MemoAddButton = ({ editor, reload }: MemoAddButtonProps) => {
   const onAdd = async () => {
     try {
-      toggle();
-      await addMemoList(editor).then(reload);
+      await addMemoList(editor);
+      reload();
     } catch (e) {
       window.alert("메모 등록에 실패하였습니다. 잠시 후 다시 시도해 주세요.");
-    } finally {
-      toggle();
     }
   };
 
   return (
-    <button className="memo-add-btn" onClick={onAdd} disabled={disabled}>
+    <button className="memo-add-btn" onClick={onAdd}>
       메모 저장하기
     </button>
   );
