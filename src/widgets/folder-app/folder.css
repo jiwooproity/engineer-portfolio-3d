@@ -30,14 +30,9 @@
   align-items: center;
 }
 
-.folder-side-menu {
-  width: 200px;
+.window-block:nth-child(1) {
   height: 100%;
   border-right: 1px solid black;
   background-color: rgba(30, 30, 30, 0.8);
   backdrop-filter: blur(20px);
-}
-
-.folder-main-content {
-  width: 100%;
 }
