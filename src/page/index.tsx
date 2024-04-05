@@ -1,15 +1,20 @@
-import { Route, Routes } from "react-router-dom";
-
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./main";
 import Screen from "./screen";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+  },
+  {
+    path: "/screen",
+    element: <Screen />,
+  },
+]);
+
 const Routing = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/screen" element={<Screen />} />
-    </Routes>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default Routing;
