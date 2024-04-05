@@ -1,10 +1,23 @@
-import Main from "@/page/main";
 import "./style.css";
 
+import { Main, Mobile } from "@/page";
+import Outline from "./outline";
+
 const App = () => {
+  const width = window.innerWidth;
+
   return (
     <div className="main-layout">
-      <Main />
+      {width > 768 ? (
+        <>
+          <Main />
+          <Outline />
+        </>
+      ) : (
+        <>
+          <Mobile />
+        </>
+      )}
     </div>
   );
 };
