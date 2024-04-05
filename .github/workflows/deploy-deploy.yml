@@ -34,8 +34,6 @@ jobs:
                   value: ${{ secrets.VITE_NOTION_TOKEN }}
                 - name: VITE_NOTION_DATABASE_ID
                   value: ${{ secrets.VITE_NOTION_DATABASE_ID }}
-                - name: VITE_BUILD_FILE_DIR
-                  value: models
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
