@@ -46,7 +46,7 @@ const RenderModels = () => {
             far={35}
             color={"#a79a73"}
           />
-          <Environment files="./interior/st_fagans_interior_1k.exr" background blur={1} />
+          <Environment files="./interior/model-background.exr" background blur={1} />
         </Suspense>
       </Canvas>
       <Loader />
