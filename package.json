@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "^9.99.4",
+    "@react-three/drei": "^9.0.1",
     "@react-three/fiber": "^8.15.16",
     "@react-three/postprocessing": "^2.16.0",
     "@types/react-router-dom": "^5.3.3",
