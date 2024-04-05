@@ -1,4 +1,4 @@
-import styles from "./applications.module.css";
+import styles from "./style/applications.module.css";
 
 import { DragEvent, useEffect } from "react";
 import { useApplication } from "@/shared/hooks";
@@ -22,9 +22,7 @@ const Applications = () => {
   };
 
   useEffect(() => {
-    const container = document.querySelector(
-      ".screen-container"
-    ) as HTMLDivElement;
+    const container = document.querySelector(".screen-container") as HTMLDivElement;
 
     container.addEventListener("click", initSelected);
     return () => container.removeEventListener("click", initSelected);

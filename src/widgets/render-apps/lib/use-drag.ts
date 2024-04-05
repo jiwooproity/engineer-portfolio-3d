@@ -18,9 +18,11 @@ const useDrag = ({ name, divide }: UseDragHooksProps) => {
 
   const changeFocus = (e?: MouseEvent<HTMLDivElement>) => {
     e?.stopPropagation();
-    const dragging = history.filter((his) => his.name === divideTarget);
-    const remain = history.filter((his) => his.name !== divideTarget);
-    setHistory([...remain, ...dragging]);
+    let newApps = [...history];
+    const appIndex = history.findIndex((his) => his.name === divideTarget);
+    const dragging = newApps.splice(appIndex, 1)[0];
+    newApps.splice(history.length, 0, dragging);
+    setHistory([...newApps]);
   };
 
   const onDragStart = (e: DragEvent<HTMLDivElement>) => {
@@ -50,8 +52,6 @@ const useDrag = ({ name, divide }: UseDragHooksProps) => {
     const container = getElementAttr(".screen-container");
     container.addEventListener("mousemove", onMouseMove);
     target.onmouseup = onMouseUp;
-
-    changeFocus();
   };
 
   useEffect(() => {
