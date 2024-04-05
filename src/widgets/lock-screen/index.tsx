@@ -1,4 +1,4 @@
-import styles from "./lock-screen.module.css";
+import styles from "./style/lock-screen.module.css";
 
 import { useCheckOS, useDay } from "@/shared/hooks";
 import { useEffect, useState } from "react";
@@ -22,10 +22,7 @@ const LockScreen = () => {
       <span className={styles.date}>{`${week}, ${day} ${month}`}</span>
       <span className={styles.time}>{time}</span>
       <div className={`${styles.accessBox} ${OS === "mac" ? styles.mac : ""}`}>
-        <img
-          src={"../images/screen/my-profile.png"}
-          className={styles.profile}
-        />
+        <img src={"../images/screen/my-profile.png"} className={styles.profile} />
         <span className={styles.name}>소지우</span>
         <button onClick={() => setOpen(true)}>
           <span>OPEN</span>

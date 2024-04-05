@@ -1,4 +1,4 @@
-import styles from "./navigation.module.css";
+import styles from "./style/navigation.module.css";
 
 import { RealTime } from "@/shared/components";
 import { useCheckOS } from "@/shared/hooks";

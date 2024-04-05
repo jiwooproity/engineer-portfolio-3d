@@ -1,19 +1,16 @@
-import styles from "./dock.module.css";
+import styles from "./style/doc.module.css";
 
 import { MouseEvent, useEffect, useState } from "react";
 
 import { useRecoilValue } from "recoil";
 import { windowKeyHistory } from "@/shared/store/atoms";
-import { useApplication } from "@/shared/hooks";
 
+import { useApplication } from "@/shared/hooks";
 import socket from "@/shared/api/socket-io";
 
-const Activation = (props: { active: boolean }) => {
-  const { active } = props;
-  return <div className={active ? styles.active : ""} />;
-};
+import DocActivation from "./ui/doc-activation";
 
-const Dock = () => {
+const Doc = () => {
   const history = useRecoilValue(windowKeyHistory);
   const { APP_LITS, showApp } = useApplication();
   const [memoAlert, setMemoAlert] = useState(false);
@@ -63,7 +60,7 @@ const Dock = () => {
                 <span className={styles.label}>{app.name}</span>
               </div>
               <div className={`application-icon ${app.icon}`} />
-              <Activation active={history[app.name.toLowerCase()]} />
+              <DocActivation active={history[app.name.toLowerCase()]} />
             </div>
           );
         })}
@@ -72,4 +69,4 @@ const Dock = () => {
   );
 };
 
-export default Dock;
+export default Doc;

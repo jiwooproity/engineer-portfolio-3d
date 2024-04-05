@@ -1,11 +1,7 @@
 import "./screen.css";
 
 import { MouseEvent, useMemo } from "react";
-
-import { Applications, LockScreen } from "@/shared/components";
-import { Navigation, Dock } from "@/shared/components";
-
-import RenderApps from "@/widgets/render-apps";
+import { RenderApps, Doc, Navigation, LockScreen, Applications } from "@/widgets";
 
 const Screen = () => {
   const sounds = useMemo(() => {
@@ -28,7 +24,7 @@ const Screen = () => {
       <Navigation />
       <Applications />
       <RenderApps />
-      <Dock />
+      <Doc />
       <LockScreen />
     </div>
   );

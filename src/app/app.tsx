@@ -1,24 +1,14 @@
 import "./style.css";
-import Outline from "./outline";
-
-import { Main, Mobile } from "@/page";
+import Routing from "@/page";
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
-  const width = window.innerWidth;
-
   return (
-    <div className="main-layout">
-      {width > 768 ? (
-        <>
-          <Main />
-          <Outline />
-        </>
-      ) : (
-        <>
-          <Mobile />
-        </>
-      )}
-    </div>
+    <BrowserRouter>
+      <div className="main-layout">
+        <Routing />
+      </div>
+    </BrowserRouter>
   );
 };
 
