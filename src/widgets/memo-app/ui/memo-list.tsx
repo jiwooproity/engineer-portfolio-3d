@@ -1,4 +1,4 @@
-import { MemoIF } from "./memo-container";
+import { MemoIF } from "..";
 
 interface MemoListProps {
   memos: MemoIF[];
