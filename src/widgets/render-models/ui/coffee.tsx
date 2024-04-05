@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { DreiGLTF } from "@/shared/types/three/gltf";
 
 const Coffee = () => {
-  const dir = import.meta.env.DEV ? "dev-models" : "models";
+  const dir = import.meta.env.VITE_BUILD_FILE_DIR;
   const { scene } = useGLTF(`../${dir}/glb/coffee.glb`) as DreiGLTF;
 
   return (

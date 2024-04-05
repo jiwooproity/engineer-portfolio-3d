@@ -110,7 +110,7 @@ const TrackPad = (props: SpecificPropsTypes) => {
 };
 
 const Macbook = () => {
-  const dir = import.meta.env.DEV ? "dev-models" : "models";
+  const dir = import.meta.env.VITE_BUILD_FILE_DIR;
   const { nodes, materials } = useGLTF(`../${dir}/glb/macbook.glb`) as DreiGLTF;
   const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
