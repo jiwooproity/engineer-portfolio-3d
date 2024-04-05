@@ -18,7 +18,7 @@ jobs:
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: jiwooproity/engineer-porfolio-3d
+          project: jiwooproity/engineer-portfolio
           stage: main
           yaml: >
             name: engineer-portfolio
