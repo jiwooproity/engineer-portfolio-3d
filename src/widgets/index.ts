@@ -1,3 +1,8 @@
 export { default as MemoApp } from "./memo-app";
 export { default as TerminalApp } from "./terminal-app";
 export { default as FolderApp } from "./folder-app";
+export { default as Doc } from "./doc";
+export { default as RenderApps } from "./render-apps";
+export { default as Navigation } from "./navigation";
+export { default as LockScreen } from "./lock-screen";
+export { default as Applications } from "./applications";

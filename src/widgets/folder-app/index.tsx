@@ -1,4 +1,4 @@
-import "./folder.css";
+import "./style/folder.css";
 
 import { Window } from "@/shared/components";
 

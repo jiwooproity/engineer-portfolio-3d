@@ -1,11 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { RecoilRoot } from "recoil";
-
-import { RouterProvider } from "react-router-dom";
-import router from "./shared/router/router";
+import App from "./app/app";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <RecoilRoot>
-    <RouterProvider router={router} />
+    <App />
   </RecoilRoot>
 );

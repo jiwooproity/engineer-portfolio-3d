@@ -20,7 +20,7 @@ const RenderAppsLayout = (props: RenderAppsLayoutPropsIF) => {
       style={{ ...style, width, height }}
       draggable={true}
       onDragStart={onDragStart}
-      onClick={changeFocus}
+      onMouseDown={changeFocus}
     >
       {children}
     </div>
