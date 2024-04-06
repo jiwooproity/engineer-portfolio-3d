@@ -1,10 +1,10 @@
-import Main from "@/page/main";
 import "./style.css";
+import Routing from "@/page";
 
 const App = () => {
   return (
     <div className="main-layout">
-      <Main />
+      <Routing />
     </div>
   );
 };
