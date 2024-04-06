@@ -34,7 +34,7 @@ jobs:
                   value: ${{ secrets.VITE_NOTION_TOKEN }}
                 - name: VITE_NOTION_DATABASE_ID
                   value: ${{ secrets.VITE_NOTION_DATABASE_ID }}
-              build: yarn run build
+              build: yarn run esbuild
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
