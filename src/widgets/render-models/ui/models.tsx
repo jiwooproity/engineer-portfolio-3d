@@ -26,12 +26,6 @@ const ObjectRender = forwardRef((props: GroupProps, orbit: ForwardedRef<OrbitCon
 
   const control = orbit as MutableRefObject<OrbitControls>;
 
-  const connectLaptop = (e: ThreeEvent<MouseEvent>) => {
-    e.stopPropagation();
-    const iframe = document.getElementById("screen-iframe") as HTMLIFrameElement;
-    iframe.contentWindow?.postMessage({ load: true }, "*");
-  };
-
   const zoom = (e: ThreeEvent<PointerEvent>) => {
     if (e.eventObject.name !== "macbook-group") return;
 
@@ -87,7 +81,6 @@ const ObjectRender = forwardRef((props: GroupProps, orbit: ForwardedRef<OrbitCon
         onPointerMissed={missed}
         onPointerOver={pointerOver}
         onPointerOut={pointerOut}
-        onClick={connectLaptop}
       >
         <Macbook />
       </group>
