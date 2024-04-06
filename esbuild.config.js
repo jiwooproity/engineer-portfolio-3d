@@ -8,18 +8,20 @@ build({
   //   outfile: "./build/bundle.js",
   outdir: "./dist",
   platform: "browser",
+  // jsx, tsx를 js와 ts로 구별
   loader: {
     ".js": "jsx",
     ".ts": "tsx",
   },
-  minify: true,
-  metafile: true,
-  external: ["/images/*"],
+  minify: true, // 번들 파일 축소
+  metafile: true, // meta 파일 활성화
+  external: ["/images/*"], // 외부 파일로 인식 및 빌드에서 제외
   define: {
-    "import.meta.env.MODE": '"production"',
+    "import.meta.env.MODE": '"production"', // import.meta 개발 환경 분기 적용
   },
   plugins: [
     copy({
+      // 번들 파일에 필요한 리소스 빌드 파일로 복사
       assets: [
         {
           from: ["./public/models/**/*"],
@@ -51,6 +53,7 @@ build({
         },
       ],
     }),
+    // react root index.html 템플릿과 번들 js, css 연결
     htmlPlugin({
       files: [
         {
