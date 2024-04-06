@@ -23,17 +23,18 @@ jobs:
           yaml: >
             name: engineer-portfolio
 
-            app: web
+            app: react
 
             options:
               nodeversion: "18"
               spa: true
-              install: yarn install
+              install: yarn install --frozen-lockfile
               buildenv:
                 - name: VITE_NOTION_TOKEN
                   value: ${{ secrets.VITE_NOTION_TOKEN }}
                 - name: VITE_NOTION_DATABASE_ID
                   value: ${{ secrets.VITE_NOTION_DATABASE_ID }}
+              build: yarn run build
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
