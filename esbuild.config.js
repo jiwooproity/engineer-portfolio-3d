@@ -1,5 +1,6 @@
 import { build } from "esbuild";
 import { htmlPlugin } from "@craftamap/esbuild-plugin-html";
+import { copy } from "esbuild-plugin-copy";
 
 build({
   entryPoints: ["./src/main.tsx"],
@@ -15,9 +16,41 @@ build({
   metafile: true,
   external: ["/images/*"],
   define: {
-    "import.meta.env.DEV": JSON.stringify({}),
+    "import.meta.env.MODE": '"production"',
   },
   plugins: [
+    copy({
+      assets: [
+        {
+          from: ["./public/models/**/*"],
+          to: ["./models"],
+        },
+        {
+          from: ["./public/fonts/*"],
+          to: ["./fonts"],
+        },
+        {
+          from: ["./public/images/**/*"],
+          to: ["./images"],
+        },
+        {
+          from: ["./public/interior/*"],
+          to: ["./interior"],
+        },
+        {
+          from: ["./public/logo/*"],
+          to: ["./logo"],
+        },
+        {
+          from: ["./public/sound/*"],
+          to: ["./sound"],
+        },
+        {
+          from: ["./public/svgs/*"],
+          to: ["./svgs"],
+        },
+      ],
+    }),
     htmlPlugin({
       files: [
         {
