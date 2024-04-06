@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { DreiGLTF } from "@/shared/types/three/gltf";
 
 const StarBucksCoffee = () => {
-  const dir = import.meta.env.DEV ? "dev-models" : "models";
+  const dir = import.meta.env.MODE === "development" ? "dev-models" : "models";
   const { scene } = useGLTF(`../${dir}/gltf/starbucks/scene.gltf`) as DreiGLTF;
 
   return (
