@@ -15,7 +15,7 @@ build({
   metafile: true,
   external: ["/images/*"],
   define: {
-    "import.meta.env.DEV": "true",
+    "import.meta.env.DEV": "",
   },
   plugins: [
     htmlPlugin({
