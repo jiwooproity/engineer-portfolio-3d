@@ -13,11 +13,6 @@ const LockScreen = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("message", (e) => {
-      console.log(e.data);
-      console.log(e.origin);
-    });
-
     document.addEventListener("keydown", openKeydown);
     return () => document.removeEventListener("keydown", openKeydown);
   }, []);
