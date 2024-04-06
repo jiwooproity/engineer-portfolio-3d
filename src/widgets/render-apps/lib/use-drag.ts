@@ -1,5 +1,5 @@
 import { windowHistory } from "@/shared/store/atoms";
-import { DragEvent, MouseEvent, useEffect } from "react";
+import { DragEvent, useEffect } from "react";
 import { useRecoilState } from "recoil";
 
 interface UseDragHooksProps {
@@ -16,8 +16,7 @@ const useDrag = ({ name, divide }: UseDragHooksProps) => {
     return target as HTMLDivElement;
   };
 
-  const changeFocus = (e?: MouseEvent<HTMLDivElement>) => {
-    e?.stopPropagation();
+  const changeFocus = () => {
     let newApps = [...history];
     const appIndex = history.findIndex((his) => his.name === divideTarget);
     const dragging = newApps.splice(appIndex, 1)[0];
