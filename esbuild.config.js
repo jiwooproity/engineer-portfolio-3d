@@ -5,7 +5,7 @@ build({
   entryPoints: ["./src/main.tsx"],
   bundle: true,
   //   outfile: "./build/bundle.js",
-  outdir: "./build",
+  outdir: "./dist",
   platform: "browser",
   loader: {
     ".js": "jsx",
@@ -15,7 +15,7 @@ build({
   metafile: true,
   external: ["/images/*"],
   define: {
-    "import.meta.env.DEV": true,
+    "import.meta.env.DEV": "production",
   },
   plugins: [
     htmlPlugin({
