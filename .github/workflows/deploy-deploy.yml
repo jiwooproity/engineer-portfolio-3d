@@ -23,7 +23,7 @@ jobs:
           yaml: >
             name: engineer-portfolio
 
-            app: react
+            app: web
 
             options:
               nodeversion: "18"
