@@ -36,7 +36,6 @@ const RenderModels = () => {
             minAzimuthAngle={-Math.PI / 2}
             maxAzimuthAngle={Math.PI / 2}
           />
-          <Environment files="./interior/st_fagans_interior_1k.exr" background blur={1} />
           <LightObject />
           <ObjectRender ref={orbit} />
           <ContactShadows
@@ -47,6 +46,7 @@ const RenderModels = () => {
             far={35}
             color={"#a79a73"}
           />
+          <Environment files="./interior/st_fagans_interior_1k.exr" ground background blur={1} />
         </Suspense>
       </Canvas>
       <Loader />
