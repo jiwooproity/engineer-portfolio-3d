@@ -16,21 +16,19 @@
 |Feat|새로운 기능을 추가한 경우|
 |Fix|버그를 수정한 경우|
 |Style|스타일시트 수정 및 코드 포맷을 변경한 경우|
-|Refactor|코드를 리팩토링한 경우 (정리)|
+|Refactor|코드를 리팩토링한 경우|
 |Chore|모듈을 추가하거나 변경한 경우 / 개발 환경을 수정한 경우|
 |Rename|파일명 변경, 디렉토리 변경|
 |Delete|파일을 삭제한 경우|
 |Docs|문서를 수정한 경우|
 
-## Front-End Architecture
-참고 링크: <a href="https://emewjin.github.io/feature-sliced-design/">Feature Sliced Design</a>  
-* 아직 완벽히 사용하지는 못하고 있다 .. 조금 더 살펴봐야겠다.
+## Architecture
+<a href="https://emewjin.github.io/feature-sliced-design/">Feature-Sliced Design</a>
 
 
 ## Skills
 Vite + React  
 Typescript  
-Three.js ( Fiber, Drei )
 
 ## Libraries
 Three.js ( Fiber, Drei ), Day.js  
