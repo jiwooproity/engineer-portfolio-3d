@@ -16,27 +16,29 @@
 |Feat|새로운 기능을 추가한 경우|
 |Fix|버그를 수정한 경우|
 |Style|스타일시트 수정 및 코드 포맷을 변경한 경우|
-|Refactor|코드를 리팩토링한 경우 (정리)|
+|Refactor|코드를 리팩토링한 경우|
 |Chore|모듈을 추가하거나 변경한 경우 / 개발 환경을 수정한 경우|
 |Rename|파일명 변경, 디렉토리 변경|
 |Delete|파일을 삭제한 경우|
 |Docs|문서를 수정한 경우|
 
-## Front-End Architecture
-참고 링크: <a href="https://emewjin.github.io/feature-sliced-design/">Feature Sliced Design</a>  
-* 아직 완벽히 사용하지는 못하고 있다 .. 조금 더 살펴봐야겠다.
+## Architecture
+<a href="https://emewjin.github.io/feature-sliced-design/">Feature-Sliced Design</a>
 
 
 ## Skills
-Vite + React  
-Typescript  
-Three.js ( Fiber, Drei )
+|스킬|내용|
+|---|---|
+|React|Three의 React 제공으로 뛰어난 호환성 및 SEO의 활용이 필요치 않을 것으로 판단, 훅과 컴포넌트를 활용한 독립적 UI 관리|
+|Typescript|런타임 환경에서의 에러를 방지하고 데이터를 활용하는 경우, 더 빠른 데이터 인터페이스 파악|
 
 ## Libraries
-Three.js ( Fiber, Drei ), Day.js  
-3D animation help : gsap, maath  
-Data Fetch : axios  
-Hooks : usehooks-ts  
+|라이브러리|내용|
+|-------|---|
+|three.js|React와의 뛰어난 호환성을 가지고, React 컴포넌트 형태로 직관적인 3D 객체 렌더링 관리 및 구현이 편리, 활용성이 높은 기능을 제공함|
+|gsap|3D 객체 Vector3 ( x, y, z ) 컨트롤 시 유용하게 활용 가능, 간단한 옵셔 설정으로 카메라 이동 및 애니메이션 구현 가능|
+|use-hooks|직관적인 훅 네이밍으로 제공 기능에 대한 파악이 쉽고, 기본적이지만 구현이 필요한 동작을 훅으로 지원하여 개발 비용 절감 및 친절한 공식 문서 제공|
+|dayJS|현재는 레거시 라이브러리된 moment.js와 사용 방법이 비슷하여 러닝 커브가 적고, 굉장히 작은 용량을 가짐, immutable함으로서 상태 관리에 용이함|
 
 ## Model GLB, GLTF
 포트폴리오에 쓰인 모델은 모두 구매 품목이며, SketchFab에서 다운로드 받으실 수 있습니다.  
