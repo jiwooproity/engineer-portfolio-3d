@@ -16,8 +16,6 @@ const MemoAddButton = ({ editor, reload }: MemoAddButtonProps) => {
       reload();
     } catch (e) {
       window.alert("메모 등록에 실패하였습니다. 잠시 후 다시 시도해 주세요.");
-    } finally {
-      setDisabled(false);
     }
   };
 
