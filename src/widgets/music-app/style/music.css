@@ -31,6 +31,10 @@
   overflow-y: scroll;
 }
 
+.music-list-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .music-list {
   width: 100%;
   display: flex;
