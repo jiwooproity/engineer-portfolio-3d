@@ -18,16 +18,19 @@ const TerminalReleaseInfo = () => {
     tag_name: "",
   });
 
+  const [loaded, setLoaded] = useState(false);
+
   const onLoad = async () => {
     const lastRelease = await getGitRelease();
     setRelease({ ...lastRelease });
+    setLoaded(true);
   };
 
   useEffect(() => {
     onLoad();
   }, []);
 
-  return (
+  return loaded ? (
     <>
       <p className="release">{release.name}</p>
       <p>Published: {release.published_at}</p>
@@ -39,6 +42,8 @@ const TerminalReleaseInfo = () => {
       <br />
       <p className="in-cursor">[ Front-End Developer ] Created By So Jiwoo</p>
     </>
+  ) : (
+    <p>Loading ..</p>
   );
 };
 
