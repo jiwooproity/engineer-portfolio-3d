@@ -36,6 +36,10 @@
   background-image: url(/images/applications/app-folder.png);
 }
 
+.application-icon.app-music {
+  background-image: url(/images/applications/app-music.png);
+}
+
 .app-close {
   background-color: #ff5e57;
 }

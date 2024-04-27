@@ -26,7 +26,7 @@ const Applications = () => {
 
     container.addEventListener("click", initSelected);
     return () => container.removeEventListener("click", initSelected);
-  }, []);
+  }, [initSelected]);
 
   return APP_LITS.map((app, i) => {
     const x = 20;
