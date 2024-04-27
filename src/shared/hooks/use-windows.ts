@@ -6,6 +6,7 @@ const APP_LITS = [
   { icon: "app-notion", name: "Notion" },
   { icon: "app-github", name: "GitHub" },
   { icon: "app-terminal", name: "Terminal" },
+  { icon: "app-music", name: "Music" },
   { icon: "app-memo", name: "Memo" },
   { icon: "app-folder", name: "Repository" },
   { icon: "app-folder", name: "Profile" },
@@ -15,6 +16,7 @@ const WINDOWS = {
   MEMO: "memo",
   TERMINAL: "terminal",
   FOLDER: "folder",
+  MUSIC: "music",
 };
 
 const WINDOW_LIST: { [key: string]: AppOptionsIF } = {
@@ -33,11 +35,16 @@ const WINDOW_LIST: { [key: string]: AppOptionsIF } = {
     width: 1000,
     height: 600,
   },
+  music: {
+    name: "music",
+    width: 1400,
+    height: 700,
+  },
 };
 
 const useWindows = () => {
   const [history, setHistory] = useRecoilState(windowHistory);
-  const [_, setKeyHistory] = useRecoilState(windowKeyHistory);
+  const [, setKeyHistory] = useRecoilState(windowKeyHistory);
 
   const openApplication = (name: string, divide?: string) => {
     if (divide) {

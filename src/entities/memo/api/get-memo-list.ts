@@ -1,7 +1,7 @@
-import { notionInstance } from "@/shared/api";
+import { defaultInstance } from "@/shared/api";
 
 const getMemoList = async () => {
-  const { data } = await notionInstance.get("/memo");
+  const { data } = await defaultInstance.get("/memo");
   return data;
 };
 
