@@ -28,29 +28,27 @@ const Doc = () => {
     socket.on("alert", () => {
       setMemoAlert(!history["memo"]);
     });
-  }, []);
 
-  useEffect(() => {
     if (history["memo"]) setMemoAlert(false);
-  }, [history["memo"]]);
+  }, [history]);
 
   return (
     <>
       <div className={styles.identy} />
       <div className={styles.container}>
-        {APP_LITS.map((app, i) => {
+        {APP_LITS.filter((app) => app.icon !== "app-folder").map((app, i) => {
           // 앱 스타일 및 알림 지정
           let className = styles.application;
           className += ` ${app.name === "Memo" && memoAlert ? styles.alert : ""}`;
 
           // 앱 위치
           const left = i * 110 + 20;
-          const remove = app.icon === "app-folder" ? "none" : "";
+          // const remove = app.icon === "app-folder" ? "none" : "";
 
           return (
             <div
               key={app.name}
-              style={{ display: remove, left: left }}
+              style={{ left }}
               className={className}
               data-value={app.icon}
               data-divide={app.name}

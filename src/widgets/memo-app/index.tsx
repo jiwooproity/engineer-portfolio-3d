@@ -1,6 +1,6 @@
 import "./style/memo.css";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 import { getMemoList } from "@/entities/memo";
 import { MemoAddButton } from "@/features/memo";
@@ -26,7 +26,7 @@ const MemoApp = () => {
   const [editor, setEditor] = useState({ title: "", content: "" });
   const [visible] = useValidation({ ...editor });
 
-  const onLoad = async () => {
+  const onLoad = useCallback(async () => {
     try {
       setMemos(await getMemoList());
     } catch (e) {
@@ -35,7 +35,7 @@ const MemoApp = () => {
       setLoaded(true);
       onInit();
     }
-  };
+  }, []);
 
   const onInit = () => {
     setEditor({ title: "", content: "" });
@@ -53,7 +53,7 @@ const MemoApp = () => {
 
   useEffect(() => {
     onLoad();
-  }, []);
+  }, [onLoad]);
 
   return (
     <Window name="memo">
