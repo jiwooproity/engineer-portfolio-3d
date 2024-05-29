@@ -22,9 +22,10 @@ const useDay = () => {
   useInterval(() => {
     const hours = dayjs(new Date()).format("h");
     const minutes = dayjs().get("minutes").toString().padStart(2, "0");
-    const meridiem = dayjs().get("h") >= 12 ? "PM" : "AM";
+    const newMeridiem = dayjs().get("h") >= 12 ? "PM" : "AM";
+
     if (`${hours}:${minutes}` !== time) setTime(`${hours}:${minutes}`);
-    if (meridiem !== meridiem) setMeridiem(meridiem);
+    if (meridiem !== newMeridiem) setMeridiem(newMeridiem);
   }, 1);
 
   return {
