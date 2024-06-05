@@ -37,10 +37,6 @@ const getGeometryMesh = (nodes: Record<string, THREE.Mesh>) => {
     return MODEL_KEYS.filter(getFilterModel);
   };
 
-  const getStandard = (key: string) => {
-    return { geometry: nodes[key].geometry, material: nodes[key].material };
-  };
-
   const getModelAsKey = (key: string) => {
     return { geometry: nodes[key].geometry, material: nodes[key].material };
   };
@@ -49,7 +45,7 @@ const getGeometryMesh = (nodes: Record<string, THREE.Mesh>) => {
   const standardKeys = removeKeys();
 
   // 1. 메인 메쉬, 2. 스크린, 3. 트랙패드
-  const standard = standardKeys.map(getStandard);
+  const standard = standardKeys.map(getModelAsKey);
   const screen = getModelAsKey(SCREEN_KEY);
   const trackpad = getModelAsKey(TRACKPAD_KEY);
 
