@@ -44,4 +44,4 @@
 포트폴리오에 쓰인 모델은 모두 구매 품목이며, SketchFab에서 다운로드 받으실 수 있습니다.  
 
 ## Demo
-<a href="www.jiwoo.so">Jiwoo's Macbook</a>
+<a href="https://www.jiwoo.so/" target="_blank">Jiwoo's Macbook</a>
