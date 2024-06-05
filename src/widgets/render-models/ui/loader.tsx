@@ -48,8 +48,11 @@ const Content = ({
       node = <div className={styles.content}>{children}</div>;
       break;
     case "loaded":
-      const loadStyle = loaded ? styles.loaded : styles.hidden;
-      node = <div className={`${styles.content} ${loadStyle}`}>{children}</div>;
+      node = (
+        <div className={`${styles.content} ${loaded ? styles.loaded : styles.hidden}`}>
+          {children}
+        </div>
+      );
       break;
     default:
       break;
