@@ -20,9 +20,9 @@ const ObjectRender = forwardRef((props: GroupProps, orbit: ForwardedRef<OrbitCon
   const coffeeShopGroup = useRef<THREE.Group>(null);
 
   const { camera } = useThree();
+  const { laptop, active } = useLaptop();
   const { pointerOver, pointerOut } = useCursor();
   const { moveLookAt, moveRotation } = useGsap();
-  const { laptop, active } = useLaptop();
 
   const control = orbit as MutableRefObject<OrbitControls>;
 

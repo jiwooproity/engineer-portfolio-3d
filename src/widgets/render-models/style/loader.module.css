@@ -10,7 +10,7 @@
   align-items: center;
   gap: 8px;
   background-color: rgb(47, 47, 47);
-  z-index: 100000000;
+  z-index: 100000001;
   opacity: 1;
   transition: opacity 0.5s ease;
   font-family: "D2Coding";
