@@ -1,6 +1,8 @@
 #tooltip {
   padding: 1px 7px;
   position: absolute;
+  top: 0px;
+  left: 0px;
   pointer-events: none;
   background-color: rgba(242, 222, 222, 0.8);
   border-radius: 0px 5px 5px 5px;
@@ -25,7 +27,7 @@
 #tooltip > .text {
   font-family: "Roboto", sans-serif;
   font-size: 12px;
-  line-height: 12px;
+  line-height: 23px;
   text-wrap: nowrap;
   color: white;
   transition: color 0.5s ease;
