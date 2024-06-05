@@ -1,0 +1,32 @@
+#tooltip {
+  padding: 1px 7px;
+  position: absolute;
+  pointer-events: none;
+  background-color: rgba(242, 222, 222, 0.8);
+  border-radius: 0px 5px 5px 5px;
+  transition: background-color 0.5s ease;
+  z-index: 100000000;
+}
+
+#tooltip > .balloon {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0px;
+  left: -10px;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid rgba(0, 0, 0, 0.8);
+  border-left: 5px solid transparent;
+  border-right: 5px solid rgba(0, 0, 0, 0.8);
+  transition: border-top 0.5s ease, border-right 0.5s ease;
+}
+
+#tooltip > .text {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+  text-wrap: nowrap;
+  color: white;
+  transition: color 0.5s ease;
+}
