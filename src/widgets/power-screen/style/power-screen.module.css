@@ -22,6 +22,7 @@
   z-index: 10000;
   transform: translate(-50%, -50%);
   transition: opacity 0.5s ease;
+  filter: drop-shadow(0 0 5px white);
 }
 
 .progressBarWrapper {
@@ -33,7 +34,6 @@
   transform: translateX(-50%);
   background-color: #262626;
   border-radius: 5px;
-  overflow: hidden;
   transition: opacity 0.5s ease;
 }
 
@@ -43,4 +43,5 @@
   background-color: #d3d3d3;
   border-radius: 5px;
   transition: width 3s ease;
+  filter: drop-shadow(0 0 5px white);
 }
