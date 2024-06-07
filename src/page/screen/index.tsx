@@ -1,7 +1,7 @@
 import "./screen.css";
 
 import { MouseEvent, useMemo } from "react";
-import { RenderApps, Doc, Navigation, LockScreen, Applications } from "@/widgets";
+import { RenderApps, Doc, Navigation, LockScreen, Applications, PowerScreen } from "@/widgets";
 
 const Screen = () => {
   const sounds = useMemo(() => {
@@ -26,6 +26,7 @@ const Screen = () => {
       <RenderApps />
       <Doc />
       <LockScreen />
+      <PowerScreen />
     </div>
   );
 };

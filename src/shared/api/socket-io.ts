@@ -1,9 +1,9 @@
 import { io } from "socket.io-client";
+import { getRuntimeMode } from "../utils";
 
-const local = "http://localhost:8080";
-const prod = "https://api.jiwoo.so";
+const ioURL = getRuntimeMode("http://localhost:8080", "https://api.jiwoo.so");
 
-const socket = io(import.meta.env.MODE === "development" ? local : prod, {
+const socket = io(ioURL, {
   forceNew: false,
 });
 
