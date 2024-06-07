@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { Html, useGLTF } from "@react-three/drei";
 
 import { type DreiGLTF, type MeshTypes } from "@/shared/types/three/gltf";
+import { getRuntimeMode } from "@/shared/utils";
 
 import useLaptop from "../lib/use-laptop";
 
@@ -81,6 +82,7 @@ const Screen = (props: ScreenPropsTypes) => {
         occlude
       >
         <iframe
+          id="iframe"
           style={{
             border: "none",
             pointerEvents: laptop ? "auto" : "none",
@@ -106,7 +108,7 @@ const TrackPad = (props: SpecificPropsTypes) => {
 };
 
 const Macbook = () => {
-  const dir = import.meta.env.MODE === "development" ? "dev-models" : "models";
+  const dir = getRuntimeMode("dev-models", "models");
   const { nodes, materials } = useGLTF(`../${dir}/glb/macbook.glb`) as DreiGLTF;
   const { standard, screen, trackpad } = getGeometryMesh(nodes);
 
