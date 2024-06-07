@@ -13,7 +13,7 @@ const PowerScreen = () => {
       className={style.wrapper}
       style={{ pointerEvents: `${close ? "none" : "all"}`, opacity: `${close ? "0" : "1"}` }}
     >
-      <Logo booting={booting} />
+      <Logo />
       <ProgressBar booting={booting} />
     </div>
   );
