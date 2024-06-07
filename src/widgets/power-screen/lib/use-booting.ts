@@ -32,11 +32,11 @@ const useBooting: BootingHooksType = () => {
     async (e: MessageEvent) => {
       const { origin, data } = e as MessageResponseType;
 
-      if (origin !== url || !data.booting) return;
+      if (origin !== url || !data.booting || booting) return;
       await timerEvents(() => bootingEvent(), 1); // booting 이벤트를 기다렸다가 부팅 사운드 실행
       playSound();
     },
-    [url]
+    [url, booting]
   );
 
   useEffect(() => {
