@@ -8,8 +8,14 @@ const useLaptop = () => {
     setLaptop(!laptop);
   };
 
+  const sendToIframe = () => {
+    const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+    iframe.contentWindow?.postMessage({ booting: true }, "*");
+  };
+
   const active = (on: boolean) => {
     setLaptop(on);
+    sendToIframe();
   };
 
   return { laptop, toggle, active };

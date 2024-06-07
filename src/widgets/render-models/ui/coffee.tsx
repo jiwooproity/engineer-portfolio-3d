@@ -1,9 +1,10 @@
 import { useGLTF } from "@react-three/drei";
 
 import { DreiGLTF } from "@/shared/types/three/gltf";
+import { getRuntimeMode } from "@/shared/utils";
 
 const Coffee = () => {
-  const dir = import.meta.env.MODE === "development" ? "dev-models" : "models";
+  const dir = getRuntimeMode("dev-models", "models");
   const { scene } = useGLTF(`../${dir}/glb/coffee.glb`) as DreiGLTF;
 
   return (

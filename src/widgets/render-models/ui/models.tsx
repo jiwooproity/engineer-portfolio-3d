@@ -27,6 +27,8 @@ const ObjectRender = forwardRef((props: GroupProps, orbit: ForwardedRef<OrbitCon
   const control = orbit as MutableRefObject<OrbitControls>;
 
   const zoom = (e: ThreeEvent<PointerEvent>) => {
+    e.stopPropagation();
+
     if (e.eventObject.name !== "macbook-group") return;
 
     if (!laptop) {
