@@ -7,3 +7,4 @@ export { default as RenderApps } from "./render-apps";
 export { default as Navigation } from "./navigation";
 export { default as LockScreen } from "./lock-screen";
 export { default as Applications } from "./applications";
+export { default as PowerScreen } from "./power-screen";
