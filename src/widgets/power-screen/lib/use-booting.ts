@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getRuntimeMode } from "@/shared/utils";
+import { getRuntimeMode, timerEvents } from "@/shared/utils";
 
 interface MessageDataType {
   booting: boolean;
@@ -20,16 +20,21 @@ const useBooting: BootingHooksType = () => {
 
   const bootingEvent = () => {
     setBooting(true);
-    setTimeout(() => setClose(true), 3000);
+    timerEvents(() => setClose(true), 3);
+  };
+
+  const playSound = () => {
+    const audio = new Audio("../sound/mac-startup.mp3");
+    audio.play();
   };
 
   const receiveMessage = useCallback(
-    (e: MessageEvent) => {
+    async (e: MessageEvent) => {
       const { origin, data } = e as MessageResponseType;
 
-      if (origin === url && data.booting) {
-        bootingEvent();
-      }
+      if (origin !== url || !data.booting) return;
+      await timerEvents(() => bootingEvent(), 1); // booting 이벤트를 기다렸다가 부팅 사운드 실행
+      playSound();
     },
     [url]
   );
