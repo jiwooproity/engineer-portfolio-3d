@@ -85,6 +85,10 @@
   user-select: none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .main-layout {
   width: 100%;
   height: 100vh;
