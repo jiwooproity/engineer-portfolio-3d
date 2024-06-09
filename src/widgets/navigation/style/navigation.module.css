@@ -15,6 +15,29 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  list-style: none;
+}
+
+.leftArea > li {
+  position: relative;
+  cursor: pointer;
+}
+
+.leftArea > li::before {
+  content: "";
+  width: 100%;
+  padding: 0px 15px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.leftArea > li:hover::before {
+  background-color: rgb(171, 171, 171, 0.5);
 }
 
 .rightArea {
