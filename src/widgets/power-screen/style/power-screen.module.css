@@ -26,14 +26,15 @@
 }
 
 .progressBarWrapper {
-  width: 500px;
-  height: 8px;
+  width: 400px;
+  height: 10px;
   position: absolute;
   bottom: 150px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #262626;
   border-radius: 5px;
+  border: 1px solid #3d3d3d;
   transition: opacity 0.5s ease;
 }
 
