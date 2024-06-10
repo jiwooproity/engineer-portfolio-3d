@@ -106,6 +106,16 @@
   color: #c7c7c7;
 }
 
+.memo-item > .memo-reaction-status {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgb(149, 215, 149);
+  border-radius: 50%;
+}
+
 .memo-editor-wrapper {
   width: 100%;
   padding: 25px;
@@ -118,17 +128,17 @@
 }
 
 .memo-editor-wrapper > input,
-.memo-editor-wrapper > textarea {
+.memo-editor-wrapper > .memo-editor-content-wrap > textarea {
   border: none;
   background-color: transparent;
 }
 
-.memo-editor-wrapper > textarea::-webkit-scrollbar {
+.memo-editor-wrapper > .memo-editor-content-wrap > textarea::-webkit-scrollbar {
   display: none;
 }
 
 .memo-editor-wrapper > input:focus,
-.memo-editor-wrapper > textarea:focus {
+.memo-editor-wrapper > .memo-editor-content-wrap > textarea:focus {
   outline: none;
 }
 
@@ -140,6 +150,12 @@
   font-family: "Roboto", sans-serif;
 }
 
+.memo-editor-content-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .memo-editor-content {
   width: 100%;
   height: 100%;
@@ -148,6 +164,27 @@
   color: #acabab;
   font-family: "Roboto", sans-serif;
   resize: none;
+}
+
+.shadow {
+  height: 100px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  content: "";
+  background: linear-gradient(rgba(30, 30, 30, 0), rgb(30, 30, 30));
+  pointer-events: none;
+  z-index: 3;
+}
+
+.memo-editor-reaction {
+  font-size: 25px;
+  line-height: 25px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: white;
+  background-color: #464646;
 }
 
 .memo-add-btn {
