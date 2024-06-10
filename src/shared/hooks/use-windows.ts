@@ -8,8 +8,7 @@ const APP_LITS = [
   { icon: "app-terminal", name: "Terminal" },
   { icon: "app-music", name: "Music" },
   { icon: "app-memo", name: "Memo" },
-  { icon: "app-folder", name: "Repository" },
-  { icon: "app-folder", name: "Profile" },
+  { icon: "app-folder", name: "Portfolio" },
 ];
 
 const WINDOWS = {
