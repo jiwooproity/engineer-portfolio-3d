@@ -15,7 +15,7 @@ build({
   },
   minify: true, // 번들 파일 축소
   metafile: true, // meta 파일 활성화
-  external: ["/images/*"], // 외부 파일로 인식 및 빌드에서 제외
+  external: ["/images/*", "/svgs/*"], // 외부 파일로 인식 및 빌드에서 제외
   define: {
     "import.meta.env.MODE": '"production"', // import.meta 개발 환경 분기 적용
   },
