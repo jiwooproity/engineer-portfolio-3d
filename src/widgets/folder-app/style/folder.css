@@ -1,11 +1,9 @@
-.profile-window-wrapper,
-.repository-window-wrapper {
+.portfolio-window-wrapper {
   width: 100%;
   height: 100%;
 }
 
-.profile-navigation-wrapper,
-.repository-navigation-wrapper {
+.portfolio-navigation-wrapper {
   width: 100%;
   height: 50px;
   display: flex;
@@ -15,8 +13,7 @@
   background-color: #1e1e1e;
 }
 
-.profile-body-wrapper,
-.repository-body-wrapper {
+.portfolio-body-wrapper {
   width: 100%;
   height: calc(100% - 50px);
   background-color: #1e1e1e;
@@ -35,4 +32,31 @@
   border-right: 1px solid black;
   background-color: rgba(30, 30, 30, 0.8);
   backdrop-filter: blur(20px);
+}
+
+/* 임시 스타일 */
+.file-list-wrapper {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+.file-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.file-list-item > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.file-list-item > span {
+  color: white;
 }
