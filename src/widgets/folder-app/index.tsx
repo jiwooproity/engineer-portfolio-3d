@@ -1,6 +1,6 @@
 import "./style/folder.css";
-
 import { Window } from "@/shared/components";
+import FileList from "./ui/file-list";
 
 interface Props {
   name: string;
@@ -17,7 +17,7 @@ const Folder = ({ name }: Props) => {
       <Window.Block width="100%">
         <Window.Navigation />
         <Window.Body>
-          <div></div>
+          <FileList />
         </Window.Body>
       </Window.Block>
     </Window>
