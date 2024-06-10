@@ -6,9 +6,9 @@ interface Props {
   name: string;
 }
 
-const Folder = (props: Props) => {
+const Folder = ({ name }: Props) => {
   return (
-    <Window name={props.name} direction="horizontal">
+    <Window name={name} direction="horizontal">
       <Window.Block width="200px">
         <div className="side-navigation">
           <Window.Buttons />

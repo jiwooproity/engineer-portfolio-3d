@@ -41,7 +41,21 @@
 }
 
 .app-close {
+  position: relative;
   background-color: #ff5e57;
+}
+
+.app-close:hover::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(/svgs/app-close.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .app-unfold {
@@ -50,4 +64,11 @@
 
 .app-full {
   background-color: #26c940;
+}
+
+.app-close.disabled,
+.app-unfold.disabled,
+.app-full.disabled {
+  background-color: #3f3f3f;
+  cursor: default;
 }
