@@ -147,6 +147,7 @@
   line-height: 35px;
   color: #acabab;
   font-family: "Roboto", sans-serif;
+  resize: none;
 }
 
 .memo-add-btn {
