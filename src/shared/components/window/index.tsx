@@ -46,8 +46,8 @@ const Buttons = () => {
   return (
     <div className="navigation-btns">
       <button className="app-close" onClick={stoppedBubbling} />
-      <button className="app-unfold" />
-      <button className="app-full" />
+      <button className="app-unfold disabled" />
+      <button className="app-full disabled" />
     </div>
   );
 };
