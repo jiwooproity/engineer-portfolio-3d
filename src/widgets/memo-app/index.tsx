@@ -14,6 +14,7 @@ export interface MemoIF {
   title: string;
   content: string;
   date: string;
+  reaction: string;
 }
 
 const MemoApp = () => {
