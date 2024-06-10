@@ -33,6 +33,7 @@ const MemoList = ({ memos, selected, onSelect, useEditor, editor }: MemoListProp
           >
             <h1 className="memo-title">{memo.title}</h1>
             <span className="memo-content">{memo.content}</span>
+            {memo.reaction && <div className="memo-reaction-status" title="답변완료"></div>}
           </li>
         ))}
       </ul>

@@ -24,16 +24,20 @@ const MemoEditor = ({ memo, useEditor, editor, onChange, children }: MemoEditorP
         spellCheck={false}
         maxLength={50}
       />
-      <textarea
-        name="content"
-        className="memo-editor-content"
-        value={useEditor ? editor.content : memo?.content}
-        readOnly={!useEditor}
-        placeholder="소중한 메모 부탁드립니다."
-        onChange={onChange}
-        spellCheck={false}
-        maxLength={500}
-      />
+      <div className="memo-editor-content-wrap">
+        <textarea
+          name="content"
+          className="memo-editor-content"
+          value={useEditor ? editor.content : memo?.content}
+          readOnly={!useEditor}
+          placeholder="소중한 메모 부탁드립니다."
+          onChange={onChange}
+          spellCheck={false}
+          maxLength={500}
+        />
+        <div className="shadow"></div>
+      </div>
+      {!useEditor && memo.reaction && <span className="memo-editor-reaction">{memo.reaction}</span>}
       {children}
     </div>
   );
