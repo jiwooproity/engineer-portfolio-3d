@@ -15,6 +15,10 @@ const useApplication = () => {
     anchor.setAttribute("target", "_blank");
 
     switch (value) {
+      case "app-coffee":
+        anchor.setAttribute("href", "https://www.buymeacoffee.com/jiwooproity");
+        anchor.click();
+        break;
       case "app-github":
         anchor.setAttribute("href", "https://github.com/jiwooproity");
         anchor.click();
