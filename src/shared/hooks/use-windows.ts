@@ -9,6 +9,7 @@ const APP_LITS = [
   { icon: "app-music", name: "Music" },
   { icon: "app-memo", name: "Memo" },
   { icon: "app-folder", name: "Portfolio" },
+  { icon: "app-coffee", name: "Buy Me A Coffee" },
 ];
 
 const WINDOWS = {
