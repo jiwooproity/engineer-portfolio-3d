@@ -40,6 +40,10 @@
   background-image: url(/images/applications/app-music.png);
 }
 
+.application-icon.app-coffee {
+  background-image: url(/images/applications/app-coffee.png);
+}
+
 .app-close {
   position: relative;
   background-color: #ff5e57;

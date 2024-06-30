@@ -7,7 +7,6 @@ import { GroupProps, ThreeEvent, useFrame, useThree } from "@react-three/fiber";
 import Macbook from "./macbook";
 import Coffee from "./coffee";
 import StarBucksCoffee from "./starbucks-coffee";
-import BuyMeACoffee from "./buy-me-a-coffee";
 
 import useCursor from "../lib/use-cursor";
 import useGsap from "../lib/use-gsap";
@@ -92,7 +91,6 @@ const ObjectRender = forwardRef((props: GroupProps, orbit: ForwardedRef<OrbitCon
       </group>
       <group ref={coffeeShopGroup} position={[45, 5, -1]}>
         <StarBucksCoffee />
-        <BuyMeACoffee />
       </group>
     </group>
   );
