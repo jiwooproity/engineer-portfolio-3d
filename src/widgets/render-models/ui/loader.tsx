@@ -123,7 +123,7 @@ const Loader = () => {
         <Content type="children">
           <div className={styles.progressBar}>
             <span className={styles.progressBarPercent}>{`${percent} %`}</span>
-            <span className={styles.progressBarTextWrap}>{`models: [`}</span>
+            <span className={styles.progressBarTextWrap}>{`Models: [`}</span>
             <Progress percent={percent} />
             <span className={styles.progressBarTextWrap}>{`]`}</span>
           </div>
