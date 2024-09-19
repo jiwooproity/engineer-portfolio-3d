@@ -88,7 +88,7 @@ const Loader = () => {
   const [pressKey, setPressKey] = useState("");
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
+    const value = e.target.value.toLowerCase();
     const accessKey = ["y", "n", ""];
     setPressKey(accessKey.includes(value) ? value : pressKey);
   };
@@ -129,7 +129,7 @@ const Loader = () => {
           </div>
         </Content>
         <Content type="loaded" loaded={loaded && !active}>
-          if you want to start, press the key (y/n)
+          If you want to start, press the key (y/n)
           <input
             id="start-cmd"
             type="text"
