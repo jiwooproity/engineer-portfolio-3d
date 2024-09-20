@@ -68,7 +68,7 @@ build({
             <meta http-equiv="title" name="title" content="Jiwoo's Portfolio." />
             <meta property="og:title" content="Jiwoo's Portfolio" />
             <meta http-equiv="description" name="description" content="I'm front-end developer." />
-            <meta property="og:description" content="This is a description." />
+            <meta property="og:description" content="I'm front-end developer." />
             <meta http-equiv="url" name="url" content="https://www.jiwoo.so/" />
             <meta property="og:url" content="https://www.jiwoo.so/" />
             <meta http-equiv="image" name="image" content="/images/seo/thumbnail.png" />
