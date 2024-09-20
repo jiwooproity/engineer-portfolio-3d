@@ -62,10 +62,18 @@ build({
           htmlTemplate: `<!DOCTYPE html>
           <html lang="en">
           <head>
-          <meta charset="UTF-8" />
-          <link rel="icon" type="image/svg+xml" href="/logo/logo.png" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta name="description" content="프론트엔드 개발자 소지우입니다." />
+            <meta charset="UTF-8" />
+            <link rel="icon" type="image/svg+xml" href="/logo/logo.png" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta http-equiv="title" name="title" content="Jiwoo's Portfolio." />
+            <meta property="og:title" content="Jiwoo's Portfolio" />
+            <meta http-equiv="description" name="description" content="I'm front-end developer." />
+            <meta property="og:description" content="This is a description." />
+            <meta http-equiv="url" name="url" content="https://www.jiwoo.so/" />
+            <meta property="og:url" content="https://www.jiwoo.so/" />
+            <meta http-equiv="image" name="image" content="/images/seo/thumbnail.png" />
+            <meta property="og:image" content="/images/seo/thumbnail.png" />
+            <title>FE Developer | Jiwoo.So</title>
           <script type="module" defer src="./main.js"></script>
           <link rel="stylesheet" type="text/css" href="./main.css" />
           <title>FE Developer | Jiwoo.So</title>
