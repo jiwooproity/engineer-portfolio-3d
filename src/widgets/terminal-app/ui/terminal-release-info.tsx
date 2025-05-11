@@ -37,7 +37,6 @@ const TerminalReleaseInfo = () => {
       <br />
       <div className="git-markdown" dangerouslySetInnerHTML={{ __html: release.body }}></div>
       <br />
-      <p>Business: Dejay</p>
       <p>E-mail: jiwooproity@naver.com</p>
       <br />
       <p className="in-cursor">[ Front-End Developer ] Created By So Jiwoo</p>
