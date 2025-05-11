@@ -1,0 +1,41 @@
+name: Deploy to cloudtype
+on:
+  push:
+    branches:
+      - deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: jiwooproity/engineer-portfolio
+          stage: main
+          yaml: >
+            name: engineer-portfolio
+
+            app: web
+
+            options:
+              nodeversion: "18"
+              spa: true
+              install: yarn install --frozen-lockfile
+              buildenv:
+                - name: VITE_NOTION_TOKEN
+                  value: ${{ secrets.VITE_NOTION_TOKEN }}
+                - name: VITE_NOTION_DATABASE_ID
+                  value: ${{ secrets.VITE_NOTION_DATABASE_ID }}
+              build: yarn run esbuild
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
